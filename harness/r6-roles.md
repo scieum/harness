@@ -10,7 +10,7 @@
 | planner | S2 | runs/{id}/spec/ | Read, Write |
 | designer | S3, S4 | runs/{id}/design/ | Read, Write, Figma MCP (유일한 Figma 쓰기 권한) |
 | judge ★읽기전용 | G-S1·S2·S3·S5 | runs/{id}/judge/ (스크립트만 씀) | Read, Bash(judge.py만) |
-| 오케스트레이터 (메인 세션) | 순서·재시도·승인 | runs/{id}/ 루트 파일 3개 | 전체, 단 단계 산출물은 직접 쓰지 않음 |
+| 오케스트레이터 (메인 세션) | 순서·재시도·승인 | runs/{id}/ 루트 파일 4개 (input·state·approval + neis.json은 neis.py가 씀) | 전체, 단 단계 산출물은 직접 쓰지 않음 |
 
 - 모든 에이전트: docs/, harness/ 는 읽기 전용
 - 다른 에이전트 폴더 쓰기 = 0
@@ -22,6 +22,12 @@
 - 호출: `python harness/scripts/judge.py --gate {S1|S2|S3|S5} --run runs/{id}`
 - 출력: judge/gate-{X}.json = `{gate, pass, violations:[{rule, node, actual, allowed}]}`
 - 종료 코드: 0 통과 / 1 실패 / 2 판정 불가(파일 없음·이름 규칙 위반)
+
+## 2-1. NEIS 데이터
+
+- `python harness/scripts/neis.py --run runs/{id}` → runs/{id}/neis.json (화면 1 시안의 시/도·지역·학교 목록)
+- 인증키: 환경변수 NEIS_API_KEY 또는 루트 .env (git 제외). 문서·시안·결과 파일에 쓰지 않는다 (N2-c)
+- 종료 코드: 0 성공 / 2 실패 → 멈추고 사람에게 넘김
 - judge 에이전트는 수정하지 않는다. 결과 파일만 오케스트레이터에게 보고
 
 ## 3. 자연어 트리거

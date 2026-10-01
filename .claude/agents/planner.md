@@ -42,7 +42,7 @@ docs/, harness/, 다른 runs/{id}/ 하위 폴더는 절대 쓰지 않는다.
 - 역할별 노출 표의 숫자는 그 역할 화면 전체에서의 개수다. rules.json `roles` R1~R4를 지킨다.
 - PRD·story-service에 없는 기능을 추가하지 않는다.
 - `never.N2.banned_terms` 단어(API 키 등)를 문서에 쓰지 않는다. 키·모델 설정 UI를 설계하지 않는다.
-- 학교 선택(school-select)은 화면 1에만 둔다. 화면 2~6에는 현재 학교명 표시를 둔다.
+- 학교 선택은 화면 1에만 둔다. 화면 1 구성 요소에 `school-select-sido` → `school-select-region` → `school-select-school` 를 이 순서로 적는다 (NEIS 시/도 → 지역(시/군/구) → 학교, N1-d). 화면 2~6에는 현재 학교명 표시를 둔다.
 
 ## 보고
 끝나면 파일 경로와 화면별 구성 요소 개수만 보고한다.

@@ -26,7 +26,7 @@
 
 | 사용자 말 | 할 일 |
 |---|---|
-| "시안 돌려줘 [화면 번호]" | runs/{YYYYMMDD-HHMM}/ 생성 → input.json 작성(번호 생략 = 전체, school_name 기본값) → `python harness/scripts/judge.py --hash` 결과를 state.json baseline_hash에 기록 → S1부터 |
+| "시안 돌려줘 [화면 번호]" | runs/{YYYYMMDD-HHMM}/ 생성 → input.json 작성(번호 생략 = 전체, school_name 기본값) → 화면 1이 대상이면 `python harness/scripts/neis.py --run runs/{id}` (exit 2 = 멈춤) → `python harness/scripts/judge.py --hash` 결과를 state.json baseline_hash에 기록 → S1부터 |
 | "이어서 해줘" | 가장 최근 runs/ 의 state.json 단계부터 |
 | "승인했어" / "반려했어 [사유]" | approval.md의 result·reason·date 기록 → G-승인 처리 |
 | "검수만 해줘" | 가장 최근 run에 judge --gate S5 |
@@ -70,6 +70,7 @@ G 승인:
 4. docs/ 와 harness/ 를 실행 중에 고치지 않는다.
 5. 재시도 한도를 넘기면 다시 시도하지 않는다.
 6. story-service.md의 N1(학교별 분리)·N2(키는 서버에서만)를 어기는 화면을 통과시키지 않는다 — G-S2·S3·S5의 N 규칙이 막는다.
+7. NEIS 인증키(.env)를 runs/·docs/·harness/·Figma·에이전트 프롬프트에 쓰지 않는다. neis.py만 읽는다.
 
 ## 보고 (5줄 이내)
 

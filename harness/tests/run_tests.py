@@ -3,7 +3,7 @@
 사용: python harness/tests/run_tests.py
 - fixtures/pass  → 모든 게이트 exit 0, 위반 0
 - fixtures/fail  → 게이트별 규칙 ID·건수 = fixtures/fail-expected.json
-- N1·N2 규칙 5개가 fail에서 모두 잡혀야 함 (★)
+- N1·N2 규칙 7개가 fail에서 모두 잡혀야 함 (★)
 - 빈 실행 폴더 → exit 2
 샘플은 임시 폴더로 복사해서 돌린다 (fixtures 원본은 바뀌지 않음).
 """
@@ -18,7 +18,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 JUDGE = HERE.parent / "scripts" / "judge.py"
 GATES = ["S1", "S2", "S3", "S5"]
-N_RULES = {"N1-a", "N1-b", "N1-c", "N2-a", "N2-b"}
+N_RULES = {"N1-a", "N1-b", "N1-c", "N1-d", "N2-a", "N2-b", "N2-c"}
 failures = []
 
 
@@ -72,7 +72,7 @@ def main():
                 print("         실제:", got)
         all_rules = {r for g in expected.values() for r in g}
         check(caught == all_rules, f"전체 규칙 {len(caught)}/{len(all_rules)}종 검출")
-        check(N_RULES <= caught, f"★ N1·N2 규칙 {len(N_RULES & caught)}/5 검출")
+        check(N_RULES <= caught, f"★ N1·N2 규칙 {len(N_RULES & caught)}/{len(N_RULES)} 검출")
 
         print("[empty]")
         empty = Path(tmp) / "empty"

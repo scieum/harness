@@ -19,10 +19,10 @@ ROOT = Path(__file__).resolve().parents[2]
 RULES_PATH = ROOT / "harness" / "rules.json"
 
 D_RULES = ["D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8"]
-N_RULES = ["N1-a", "N1-b", "N1-c", "N2-a", "N2-b"]
+N_RULES = ["N1-a", "N1-b", "N1-c", "N1-d", "N2-a", "N2-b", "N2-c"]
 GATES = {
     "S1": ["S1-a", "S1-b", "F1", "F2"],
-    "S2": ["R1", "R2", "R3", "R4", "N2-a", "F1", "F2"],
+    "S2": ["R1", "R2", "R3", "R4", "N1-d", "N2-a", "N2-c", "F1", "F2"],
     "S3": D_RULES + N_RULES + ["F1", "F2"],
     "S5": D_RULES + ["D9"] + N_RULES + ["F1", "F2"],
 }
@@ -332,10 +332,12 @@ def check_N1a(d, r, run):
 
 
 def check_N1b(d, r, run):
-    pat = re.compile(r["never"]["N1"]["school_name_pattern"])
-    names = sorted({m.group(0) for _, _, t in texts(d["frames"]) for m in pat.finditer(t)})
-    limit = r["never"]["N1"]["distinct_school_names"]
-    return [] if len(names) <= limit else [v("N1-b", "전체 프레임", names, f"{limit}종")]
+    n1 = r["never"]["N1"]
+    pat = re.compile(n1["school_name_pattern"])
+    scope = [f for f in d["frames"] if frame_screen(f.get("name", ""), r) in n1["school_name_scope_screens"]]
+    names = sorted({m.group(0) for _, _, t in texts(scope) for m in pat.finditer(t)})
+    limit = n1["distinct_school_names"]
+    return [] if len(names) <= limit else [v("N1-b", f"화면 {n1['school_name_scope_screens']}", names, f"{limit}종")]
 
 
 def check_N1c(d, r, run):
@@ -343,6 +345,29 @@ def check_N1c(d, r, run):
     return [v("N1-c", where(f, n), "school-select", f"화면 {only}에만")
             for f, n in iter_nodes(d["frames"])
             if n.get("name", "").startswith("school-select") and frame_screen(f.get("name", ""), r) not in only]
+
+
+def check_N1d(d, r, run):
+    """학교 선택 3단계(시/도 → 지역 → 학교): S2는 설계서 화면 1, S3·S5는 화면 1 프레임."""
+    levels = r["never"]["N1"]["school_select_levels"]
+    out = []
+    if "frames" not in d:
+        if 1 not in d["input"]["screens"]:
+            return []
+        m = re.search(r"^## 화면\s*1\s*$(.*?)(?=^## |\Z)", d["spec"], re.M | re.S)
+        body = m.group(1) if m else ""
+        names = re.findall(r"^-\s*([\w-]+)\s*:", body, re.M)
+        found = [n for n in names if n in levels]
+        if found != levels:
+            out.append(v("N1-d", "spec/s2-spec.md 화면 1", found, levels))
+        return out
+    for f in d["frames"]:
+        if frame_screen(f.get("name", ""), r) != 1:
+            continue
+        found = [n["name"] for n in f.get("nodes", []) if n.get("name") in levels]
+        if found != levels:
+            out.append(v("N1-d", f["name"], found, levels))
+    return out
 
 
 def has_banned(text, terms):
@@ -374,6 +399,18 @@ def check_N2b(d, r, run):
             hit = has_banned(t, terms)
             if hit:
                 out.append(v("N2-b", where(f, n), t, f"라벨에 {terms} 금지"))
+    return out
+
+
+def check_N2c(d, r, run):
+    pat = re.compile(r["never"]["N2"]["key_value_pattern"])
+    out = []
+    for i, line in enumerate(d["spec"].splitlines(), 1):
+        if pat.search(line):
+            out.append(v("N2-c", f"spec/s2-spec.md:{i}", "키 형식 문자열", "0"))
+    for f, n, t in texts(d.get("frames", [])):
+        if pat.search(t):
+            out.append(v("N2-c", where(f, n), "키 형식 문자열", "0"))
     return out
 
 
@@ -415,7 +452,8 @@ CHECKS = {
     "R1": check_roles("R1"), "R2": check_roles("R2"), "R3": check_roles("R3"), "R4": check_roles("R4"),
     "D1": check_D1, "D2": check_D2, "D3": check_D3, "D4": check_D4, "D5": check_D5,
     "D6": check_D6, "D7": check_D7, "D8": check_D8, "D9": check_D9,
-    "N1-a": check_N1a, "N1-b": check_N1b, "N1-c": check_N1c, "N2-a": check_N2a, "N2-b": check_N2b,
+    "N1-a": check_N1a, "N1-b": check_N1b, "N1-c": check_N1c, "N1-d": check_N1d,
+    "N2-a": check_N2a, "N2-b": check_N2b, "N2-c": check_N2c,
     "F1": check_F1, "F2": check_F2,
 }
 

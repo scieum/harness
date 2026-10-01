@@ -1,1 +1,3 @@
 F1: 허용 목록 밖 파일
+N1-d: 화면 1이 school-select 1개뿐 (3단계 없음)
+N2-c: 5-mobile/leak 노드에 32자리 16진수

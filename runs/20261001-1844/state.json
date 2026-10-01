@@ -1,6 +1,12 @@
 {
-  "stage": "S2",
-  "retries": { "S1": 1, "S2": 0, "S3": 0, "S5": 0 },
+  "stage": "aborted",
+  "retries": {
+    "S1": 1,
+    "S2": 0,
+    "S3": 0,
+    "S5": 0
+  },
   "approval": "none",
-  "baseline_hash": "5a17a0d2e6ee764179c575e3c42b9892e29e70e34afee433b637f2187b13dd7d"
+  "baseline_hash": "5a17a0d2e6ee764179c575e3c42b9892e29e70e34afee433b637f2187b13dd7d",
+  "note": "2026-10-01 사용자 결정: NEIS 학교 선택 반영을 위해 G 대기 중 중단 (approval 미기록)"
 }
