@@ -1,0 +1,397 @@
+{
+  "gate": "S3",
+  "pass": false,
+  "exit": 1,
+  "violations": [
+    {
+      "rule": "D4",
+      "node": "2-mobile/nav-pill/logo",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/nav-pill/school-name",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/screen-title",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/segmented-control/segmented-control-active/label",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/segmented-control/segmented-control-option/label",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/text-input/placeholder",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/reagent-list/reagent-row/title-line/reagent-name",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/reagent-list/reagent-row/quantity",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/reagent-list/reagent-row/intake-date",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/reagent-list/reagent-row/title-line/reagent-name",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/reagent-list/reagent-row/title-line/badge-low-stock/label",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/reagent-list/reagent-row/quantity",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/reagent-list/reagent-row/intake-date",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/reagent-list/reagent-row/title-line/reagent-name",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/reagent-list/reagent-row/title-line/badge-low-stock/label",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/reagent-list/reagent-row/quantity",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/reagent-list/reagent-row/intake-date",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/reagent-list/reagent-row/title-line/reagent-name",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/reagent-list/reagent-row/quantity",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/reagent-list/reagent-row/intake-date",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/reagent-list/reagent-row/title-line/reagent-name",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/reagent-list/reagent-row/quantity",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "2-mobile/content/reagent-list/reagent-row/intake-date",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/nav-pill/nav-left/nav-back/icon",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/nav-pill/nav-left/title",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/nav-pill/school-name",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/reagent-detail-card/title-line/reagent-name",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/reagent-detail-card/title-line/badge-low-stock/label",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/reagent-detail-card/stock/stock-quantity",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/reagent-detail-card/stock/unit",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/reagent-detail-card/required",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/reagent-detail-card/intake-date",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/records/segmented-control/segmented-control-active/label",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/records/segmented-control/segmented-control-option/label",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/records/ex-data-table-cell/table-header/cell",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/records/ex-data-table-cell/table-header/cell",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/records/ex-data-table-cell/table-header/cell",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/records/ex-data-table-cell/table-row/cell",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/records/ex-data-table-cell/table-row/cell",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/records/ex-data-table-cell/table-row/cell",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/records/ex-data-table-cell/table-row/cell",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/records/ex-data-table-cell/table-row/cell",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/records/ex-data-table-cell/table-row/cell",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/msds-entry/msds-caption",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/content/msds-entry/button-pill-soft/label",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/bottom-actions/button-primary/label",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "3-mobile/bottom-actions/button-outline/label",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/nav-pill/title",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/nav-pill/school-name",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/content/criteria-note",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/content/reorder-alert-card/title-line/badge-low-stock/label",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/content/reorder-alert-card/title-line/reagent-name",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/content/reorder-alert-card/amount",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/content/reorder-alert-card/vendor-row/label",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/content/reorder-alert-card/vendor-row/value",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/content/reorder-alert-card/alert-date",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/content/reorder-alert-card/vendor-link/button-primary/label",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/content/reorder-alert-card/title-line/badge-low-stock/label",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/content/reorder-alert-card/title-line/reagent-name",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/content/reorder-alert-card/amount",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/content/reorder-alert-card/vendor-row/label",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/content/reorder-alert-card/vendor-row/value",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/content/reorder-alert-card/alert-date",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/content/reorder-alert-card/vendor-link/button-primary/label",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    },
+    {
+      "rule": "D4",
+      "node": "6-mobile/content/vendor-register/button-outline/label",
+      "actual": "IBM Plex Sans KR",
+      "allowed": "Pretendard"
+    }
+  ]
+}

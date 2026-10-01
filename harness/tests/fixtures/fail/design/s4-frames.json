@@ -1,0 +1,1669 @@
+{
+  "figma_file": "https://www.figma.com/design/FIXTURE",
+  "frames": [
+    {
+      "name": "1-mobile",
+      "width": 390,
+      "height": 844,
+      "nodes": [
+        {
+          "id": "1:67",
+          "name": "title",
+          "type": "TEXT",
+          "path": [
+            "1-mobile",
+            "title"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "Lab_Stock",
+            "fontFamily": "Pretendard",
+            "fontWeight": 700,
+            "fontSize": 28,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:65",
+          "name": "ex-auth-form-card",
+          "type": "FRAME",
+          "path": [
+            "1-mobile",
+            "ex-auth-form-card"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [
+            "#f0f0f0"
+          ],
+          "cornerRadius": 24,
+          "width": 100,
+          "height": 100,
+          "padding": [
+            24,
+            24,
+            24,
+            24
+          ],
+          "gap": 16,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:66",
+          "name": "school-select",
+          "type": "FRAME",
+          "path": [
+            "1-mobile",
+            "ex-auth-form-card",
+            "school-select"
+          ],
+          "fills": [
+            "#f0f0f0"
+          ],
+          "strokes": [],
+          "cornerRadius": 16,
+          "width": 100,
+          "height": 48,
+          "padding": [
+            12,
+            16,
+            12,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:68",
+          "name": "value",
+          "type": "TEXT",
+          "path": [
+            "1-mobile",
+            "ex-auth-form-card",
+            "school-select",
+            "value"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "샘플고등학교",
+            "fontFamily": "Pretendard",
+            "fontWeight": 400,
+            "fontSize": 15,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:69",
+          "name": "button-primary",
+          "type": "FRAME",
+          "path": [
+            "1-mobile",
+            "ex-auth-form-card",
+            "button-primary"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": 9999,
+          "width": 100,
+          "height": 48,
+          "padding": [
+            0,
+            16,
+            0,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:70",
+          "name": "label",
+          "type": "TEXT",
+          "path": [
+            "1-mobile",
+            "ex-auth-form-card",
+            "button-primary",
+            "label"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "로그인",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 15,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:122",
+          "name": "button-outline",
+          "type": "FRAME",
+          "path": [
+            "1-mobile",
+            "button-outline"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [
+            "#e0e0e0"
+          ],
+          "cornerRadius": 9999,
+          "width": 100,
+          "height": 40,
+          "padding": [
+            0,
+            16,
+            0,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:123",
+          "name": "label",
+          "type": "TEXT",
+          "path": [
+            "1-mobile",
+            "button-outline",
+            "label"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "취소",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 15,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        }
+      ]
+    },
+    {
+      "name": "1-desktop",
+      "width": 1440,
+      "height": 900,
+      "nodes": [
+        {
+          "id": "1:73",
+          "name": "title",
+          "type": "TEXT",
+          "path": [
+            "1-desktop",
+            "title"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "Lab_Stock",
+            "fontFamily": "Pretendard",
+            "fontWeight": 700,
+            "fontSize": 28,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:71",
+          "name": "ex-auth-form-card",
+          "type": "FRAME",
+          "path": [
+            "1-desktop",
+            "ex-auth-form-card"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [
+            "#f0f0f0"
+          ],
+          "cornerRadius": 24,
+          "width": 100,
+          "height": 100,
+          "padding": [
+            24,
+            24,
+            24,
+            24
+          ],
+          "gap": 16,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:72",
+          "name": "school-select",
+          "type": "FRAME",
+          "path": [
+            "1-desktop",
+            "ex-auth-form-card",
+            "school-select"
+          ],
+          "fills": [
+            "#f0f0f0"
+          ],
+          "strokes": [],
+          "cornerRadius": 16,
+          "width": 100,
+          "height": 48,
+          "padding": [
+            12,
+            16,
+            12,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:74",
+          "name": "value",
+          "type": "TEXT",
+          "path": [
+            "1-desktop",
+            "ex-auth-form-card",
+            "school-select",
+            "value"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "샘플고등학교",
+            "fontFamily": "Pretendard",
+            "fontWeight": 400,
+            "fontSize": 15,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:75",
+          "name": "button-primary",
+          "type": "FRAME",
+          "path": [
+            "1-desktop",
+            "ex-auth-form-card",
+            "button-primary"
+          ],
+          "fills": [
+            "#d6246a"
+          ],
+          "strokes": [],
+          "cornerRadius": 9999,
+          "width": 100,
+          "height": 48,
+          "padding": [
+            0,
+            16,
+            0,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:76",
+          "name": "label",
+          "type": "TEXT",
+          "path": [
+            "1-desktop",
+            "ex-auth-form-card",
+            "button-primary",
+            "label"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "로그인",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 15,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2-mobile",
+      "width": 390,
+      "height": 844,
+      "nodes": [
+        {
+          "id": "1:77",
+          "name": "nav-pill",
+          "type": "FRAME",
+          "path": [
+            "2-mobile",
+            "nav-pill"
+          ],
+          "fills": [
+            "#f3f3f3"
+          ],
+          "strokes": [],
+          "cornerRadius": 9999,
+          "width": 100,
+          "height": 56,
+          "padding": [
+            8,
+            16,
+            8,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:80",
+          "name": "button-primary",
+          "type": "FRAME",
+          "path": [
+            "2-mobile",
+            "nav-pill",
+            "button-primary"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": 9999,
+          "width": 100,
+          "height": 48,
+          "padding": [
+            0,
+            16,
+            0,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:81",
+          "name": "label",
+          "type": "TEXT",
+          "path": [
+            "2-mobile",
+            "nav-pill",
+            "button-primary",
+            "label"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "입고",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 15,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:82",
+          "name": "school-name",
+          "type": "TEXT",
+          "path": [
+            "2-mobile",
+            "school-name"
+          ],
+          "fills": [
+            "#707070"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "샘플고등학교",
+            "fontFamily": "Pretendard",
+            "fontWeight": 400,
+            "fontSize": 12,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:83",
+          "name": "title",
+          "type": "TEXT",
+          "path": [
+            "2-mobile",
+            "title"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "시약 목록",
+            "fontFamily": "Pretendard",
+            "fontWeight": 700,
+            "fontSize": 28,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:78",
+          "name": "reagent-row",
+          "type": "FRAME",
+          "path": [
+            "2-mobile",
+            "reagent-row"
+          ],
+          "fills": [
+            "#f3f3f3"
+          ],
+          "strokes": [],
+          "cornerRadius": 12,
+          "width": 100,
+          "height": 100,
+          "padding": [
+            16,
+            16,
+            16,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:84",
+          "name": "name",
+          "type": "TEXT",
+          "path": [
+            "2-mobile",
+            "reagent-row",
+            "name"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "염산",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 17,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:85",
+          "name": "qty",
+          "type": "TEXT",
+          "path": [
+            "2-mobile",
+            "reagent-row",
+            "qty"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "500 mL",
+            "fontFamily": "Pretendard",
+            "fontWeight": 400,
+            "fontSize": 14,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:79",
+          "name": "badge-low-stock",
+          "type": "FRAME",
+          "path": [
+            "2-mobile",
+            "reagent-row",
+            "badge-low-stock"
+          ],
+          "fills": [
+            "#d6246a"
+          ],
+          "strokes": [],
+          "cornerRadius": 9999,
+          "width": 100,
+          "height": 24,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "gap": 0,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:86",
+          "name": "label",
+          "type": "TEXT",
+          "path": [
+            "2-mobile",
+            "reagent-row",
+            "badge-low-stock",
+            "label"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "재고 부족",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 12,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2-desktop",
+      "width": 1440,
+      "height": 900,
+      "nodes": [
+        {
+          "id": "1:87",
+          "name": "nav-pill",
+          "type": "FRAME",
+          "path": [
+            "2-desktop",
+            "nav-pill"
+          ],
+          "fills": [
+            "#f3f3f3"
+          ],
+          "strokes": [],
+          "cornerRadius": 9999,
+          "width": 100,
+          "height": 56,
+          "padding": [
+            8,
+            16,
+            8,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:90",
+          "name": "button-primary",
+          "type": "FRAME",
+          "path": [
+            "2-desktop",
+            "nav-pill",
+            "button-primary"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": 9999,
+          "width": 100,
+          "height": 48,
+          "padding": [
+            0,
+            16,
+            0,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:91",
+          "name": "label",
+          "type": "TEXT",
+          "path": [
+            "2-desktop",
+            "nav-pill",
+            "button-primary",
+            "label"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "입고",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 15,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:92",
+          "name": "school-name",
+          "type": "TEXT",
+          "path": [
+            "2-desktop",
+            "school-name"
+          ],
+          "fills": [
+            "#707070"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "샘플고등학교",
+            "fontFamily": "Pretendard",
+            "fontWeight": 400,
+            "fontSize": 12,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:93",
+          "name": "title",
+          "type": "TEXT",
+          "path": [
+            "2-desktop",
+            "title"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "시약 목록",
+            "fontFamily": "Pretendard",
+            "fontWeight": 700,
+            "fontSize": 28,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:88",
+          "name": "reagent-row",
+          "type": "FRAME",
+          "path": [
+            "2-desktop",
+            "reagent-row"
+          ],
+          "fills": [
+            "#f3f3f3"
+          ],
+          "strokes": [],
+          "cornerRadius": 16,
+          "width": 100,
+          "height": 100,
+          "padding": [
+            16,
+            16,
+            16,
+            16
+          ],
+          "gap": 10,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:94",
+          "name": "name",
+          "type": "TEXT",
+          "path": [
+            "2-desktop",
+            "reagent-row",
+            "name"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "염산",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 17,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:95",
+          "name": "qty",
+          "type": "TEXT",
+          "path": [
+            "2-desktop",
+            "reagent-row",
+            "qty"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "500 mL",
+            "fontFamily": "Pretendard",
+            "fontWeight": 400,
+            "fontSize": 15,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:89",
+          "name": "badge-low-stock",
+          "type": "FRAME",
+          "path": [
+            "2-desktop",
+            "reagent-row",
+            "badge-low-stock"
+          ],
+          "fills": [
+            "#d6246a"
+          ],
+          "strokes": [],
+          "cornerRadius": 9999,
+          "width": 100,
+          "height": 24,
+          "padding": [
+            4,
+            8,
+            4,
+            8
+          ],
+          "gap": 0,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:96",
+          "name": "label",
+          "type": "TEXT",
+          "path": [
+            "2-desktop",
+            "reagent-row",
+            "badge-low-stock",
+            "label"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "재고 부족",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 12,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:121",
+          "name": "divider",
+          "type": "RECTANGLE",
+          "path": [
+            "2-desktop",
+            "divider"
+          ],
+          "fills": [
+            "#123456"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 100,
+          "height": 100,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:124",
+          "name": "notice",
+          "type": "TEXT",
+          "path": [
+            "2-desktop",
+            "notice"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "한빛고등학교 공지",
+            "fontFamily": "Pretendard",
+            "fontWeight": 400,
+            "fontSize": 15,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        }
+      ]
+    },
+    {
+      "name": "3-mobile",
+      "width": 390,
+      "height": 844,
+      "nodes": [
+        {
+          "id": "1:100",
+          "name": "school-name",
+          "type": "TEXT",
+          "path": [
+            "3-mobile",
+            "school-name"
+          ],
+          "fills": [
+            "#707070"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "샘플고등학교",
+            "fontFamily": "Pretendard",
+            "fontWeight": 400,
+            "fontSize": 12,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:101",
+          "name": "title",
+          "type": "TEXT",
+          "path": [
+            "3-mobile",
+            "title"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "시약 상세",
+            "fontFamily": "Pretendard",
+            "fontWeight": 700,
+            "fontSize": 28,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:97",
+          "name": "reagent-detail-card",
+          "type": "FRAME",
+          "path": [
+            "3-mobile",
+            "reagent-detail-card"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [
+            "#f0f0f0"
+          ],
+          "cornerRadius": 24,
+          "width": 100,
+          "height": 100,
+          "padding": [
+            24,
+            24,
+            24,
+            24
+          ],
+          "gap": 16,
+          "effects": [
+            {
+              "type": "DROP_SHADOW"
+            }
+          ],
+          "text": null
+        },
+        {
+          "id": "1:102",
+          "name": "stock",
+          "type": "TEXT",
+          "path": [
+            "3-mobile",
+            "reagent-detail-card",
+            "stock"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "500",
+            "fontFamily": "Pretendard",
+            "fontWeight": 700,
+            "fontSize": 32,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:98",
+          "name": "msds-qr-tile",
+          "type": "FRAME",
+          "path": [
+            "3-mobile",
+            "reagent-detail-card",
+            "msds-qr-tile"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [
+            "#f0f0f0"
+          ],
+          "cornerRadius": 24,
+          "width": 100,
+          "height": 100,
+          "padding": [
+            24,
+            24,
+            24,
+            24
+          ],
+          "gap": 16,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:99",
+          "name": "msds-entry",
+          "type": "FRAME",
+          "path": [
+            "3-mobile",
+            "reagent-detail-card",
+            "msds-qr-tile",
+            "msds-entry"
+          ],
+          "fills": [],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 100,
+          "height": 100,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:103",
+          "name": "button-pill-soft",
+          "type": "FRAME",
+          "path": [
+            "3-mobile",
+            "reagent-detail-card",
+            "msds-qr-tile",
+            "msds-entry",
+            "button-pill-soft"
+          ],
+          "fills": [
+            "#f3f3f3"
+          ],
+          "strokes": [],
+          "cornerRadius": 9999,
+          "width": 100,
+          "height": 44,
+          "padding": [
+            0,
+            16,
+            0,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:104",
+          "name": "label",
+          "type": "TEXT",
+          "path": [
+            "3-mobile",
+            "reagent-detail-card",
+            "msds-qr-tile",
+            "msds-entry",
+            "button-pill-soft",
+            "label"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "MSDS 보기",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 15,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:125",
+          "name": "school-select",
+          "type": "FRAME",
+          "path": [
+            "3-mobile",
+            "school-select"
+          ],
+          "fills": [
+            "#f0f0f0"
+          ],
+          "strokes": [],
+          "cornerRadius": 16,
+          "width": 100,
+          "height": 48,
+          "padding": [
+            12,
+            16,
+            12,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        }
+      ]
+    },
+    {
+      "name": "3-desktop",
+      "width": 1440,
+      "height": 900,
+      "nodes": [
+        {
+          "id": "1:109",
+          "name": "title",
+          "type": "TEXT",
+          "path": [
+            "3-desktop",
+            "title"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "시약 상세",
+            "fontFamily": "Pretendard",
+            "fontWeight": 700,
+            "fontSize": 28,
+            "letterSpacing": 0.5,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:105",
+          "name": "reagent-detail-card",
+          "type": "FRAME",
+          "path": [
+            "3-desktop",
+            "reagent-detail-card"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [
+            "#f0f0f0"
+          ],
+          "cornerRadius": 24,
+          "width": 100,
+          "height": 100,
+          "padding": [
+            24,
+            24,
+            24,
+            24
+          ],
+          "gap": 16,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:110",
+          "name": "stock",
+          "type": "TEXT",
+          "path": [
+            "3-desktop",
+            "reagent-detail-card",
+            "stock"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "500",
+            "fontFamily": "Pretendard",
+            "fontWeight": 700,
+            "fontSize": 32,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:106",
+          "name": "msds-qr-tile",
+          "type": "FRAME",
+          "path": [
+            "3-desktop",
+            "reagent-detail-card",
+            "msds-qr-tile"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [
+            "#f0f0f0"
+          ],
+          "cornerRadius": 24,
+          "width": 100,
+          "height": 100,
+          "padding": [
+            24,
+            24,
+            24,
+            24
+          ],
+          "gap": 16,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:107",
+          "name": "msds-entry",
+          "type": "FRAME",
+          "path": [
+            "3-desktop",
+            "reagent-detail-card",
+            "msds-qr-tile",
+            "msds-entry"
+          ],
+          "fills": [],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 100,
+          "height": 100,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:111",
+          "name": "button-pill-soft",
+          "type": "FRAME",
+          "path": [
+            "3-desktop",
+            "reagent-detail-card",
+            "msds-qr-tile",
+            "msds-entry",
+            "button-pill-soft"
+          ],
+          "fills": [
+            "#f3f3f3"
+          ],
+          "strokes": [],
+          "cornerRadius": 9999,
+          "width": 100,
+          "height": 44,
+          "padding": [
+            0,
+            16,
+            0,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:112",
+          "name": "label",
+          "type": "TEXT",
+          "path": [
+            "3-desktop",
+            "reagent-detail-card",
+            "msds-qr-tile",
+            "msds-entry",
+            "button-pill-soft",
+            "label"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "MSDS 보기",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 15,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        }
+      ]
+    },
+    {
+      "name": "5-mobile",
+      "width": 390,
+      "height": 844,
+      "nodes": [
+        {
+          "id": "1:115",
+          "name": "school-name",
+          "type": "TEXT",
+          "path": [
+            "5-mobile",
+            "school-name"
+          ],
+          "fills": [
+            "#707070"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "샘플고등학교",
+            "fontFamily": "Pretendard",
+            "fontWeight": 400,
+            "fontSize": 12,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:116",
+          "name": "title",
+          "type": "TEXT",
+          "path": [
+            "5-mobile",
+            "title"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "실험 매뉴얼 업로드",
+            "fontFamily": "Pretendard",
+            "fontWeight": 700,
+            "fontSize": 28,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:113",
+          "name": "text-input",
+          "type": "FRAME",
+          "path": [
+            "5-mobile",
+            "text-input"
+          ],
+          "fills": [
+            "#f0f0f0"
+          ],
+          "strokes": [],
+          "cornerRadius": 16,
+          "width": 100,
+          "height": 48,
+          "padding": [
+            12,
+            16,
+            12,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:117",
+          "name": "label",
+          "type": "TEXT",
+          "path": [
+            "5-mobile",
+            "text-input",
+            "label"
+          ],
+          "fills": [
+            "#adadad"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "모델 선택",
+            "fontFamily": "Pretendard",
+            "fontWeight": 400,
+            "fontSize": 15,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:114",
+          "name": "extraction-table",
+          "type": "FRAME",
+          "path": [
+            "5-mobile",
+            "extraction-table"
+          ],
+          "fills": [],
+          "strokes": [],
+          "cornerRadius": 16,
+          "width": 100,
+          "height": 100,
+          "padding": [
+            16,
+            16,
+            16,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:118",
+          "name": "cell",
+          "type": "TEXT",
+          "path": [
+            "5-mobile",
+            "extraction-table",
+            "cell"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "염산 20 mL",
+            "fontFamily": "Pretendard",
+            "fontWeight": 400,
+            "fontSize": 13,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:119",
+          "name": "button-primary",
+          "type": "FRAME",
+          "path": [
+            "5-mobile",
+            "button-primary"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": 9999,
+          "width": 100,
+          "height": 48,
+          "padding": [
+            0,
+            16,
+            0,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:120",
+          "name": "label",
+          "type": "TEXT",
+          "path": [
+            "5-mobile",
+            "button-primary",
+            "label"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "확인 후 저장",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 15,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        }
+      ]
+    }
+  ]
+}

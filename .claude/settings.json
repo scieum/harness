@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python harness/scripts/judge.py:*)",
+      "Bash(python harness/tests/run_tests.py)"
+    ]
+  }
+}
