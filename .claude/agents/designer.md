@@ -8,7 +8,7 @@ tools: Read, Write, Glob, Skill, ReadMcpResourceTool, mcp__claude_ai_Figma__use_
 
 ## 읽기
 - runs/{id}/input.json — 대상 화면, school_name
-- runs/{id}/neis.json — 화면 1 학교 선택에 넣을 실제 시/도·지역·학교 목록 (NEIS)
+- runs/{id}/neis.json — 화면 14(회원가입) 학교 선택에 넣을 실제 시/도·지역·학교 목록 (NEIS)
 - runs/{id}/spec/s2-spec.md — 화면 설계서
 - docs/design.md — 컴포넌트 정의
 - harness/rules.json — 허용 값 전부 (SSOT)
@@ -31,8 +31,9 @@ docs/, harness/, 다른 runs/{id}/ 하위 폴더는 절대 쓰지 않는다.
 - 색·radius·폰트·크기·간격은 rules.json 허용 집합 안의 값만 쓴다. 근사값 금지.
 - 하늘색(rules.json `colors.highlight`)은 선택·현재 위치·링크·진행·아이콘 강조에 쓴다. 재고 부족 신호와 button-primary 채움, 글자색에는 쓰지 않는다 (D10).
 - 화면 2~13 텍스트의 학교명은 input.json `school_name` 하나만 쓴다. 더미 데이터에 다른 학교명 금지.
-- 화면 1 학교 선택 = 3단계 노드 `school-select-sido` → `school-select-region` → `school-select-school` (노드 순서 그대로, N1-d). 선택값·목록 항목은 neis.json의 sido·region·school_list에서만 가져온다. 최종 선택 학교 = school_name.
-- 모바일 하단 탭바(C2): 화면 2~13 mobile 프레임마다 `tab-bar` 1개, 그 안에 `tab-item` 4개(홈·시약·QR 스캔·기록, 역할 무관 동일). 화면 1과 desktop에는 넣지 않는다. 모양은 docs/design.md `tab-bar` — 하단에 붙은 전폭 사각형(radius 0), pill 아님.
+- 화면 14(회원가입) 학교 선택 = 3단계 노드 `school-select-sido` → `school-select-region` → `school-select-school` (노드 순서 그대로, N1-d). 선택값·목록 항목은 neis.json의 sido·region·school_list에서만 가져온다. 최종 선택 학교 = school_name.
+- 모바일 하단 탭바(C2): 화면 2~13 mobile 프레임마다 `tab-bar` 1개, 그 안에 `tab-item` 4개(홈·시약·QR 스캔·기록, 역할 무관 동일). 화면 1(로그인)·14(회원가입)와 desktop에는 넣지 않는다.
+- 화면 1(로그인)은 개인 이메일·비밀번호만 — school-select* 금지(N1-c), 학교명 표시 없음, "회원가입" 링크로 화면 14. 모양은 docs/design.md `tab-bar` — 하단에 붙은 전폭 사각형(radius 0), pill 아님.
 - 키·인증키 입력 칸이나 키 값처럼 보이는 문자열을 그리지 않는다 (N2-a·N2-c).
 - 재시도 시: judge 결과에 나온 노드만 고친다. 다른 노드는 건드리지 않는다.
 

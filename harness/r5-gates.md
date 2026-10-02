@@ -47,7 +47,7 @@
 | ID | 조건 |
 |---|---|
 | C1 | rules.json `screens_required`의 화면(11 시약장 설정, 12 QR 스캔, 13 홈): S2는 설계서 해당 화면 구성 요소에, S3·S5는 해당 화면 프레임 노드 이름에 필수 컴포넌트가 모두 있음 |
-| C2 | 하단 탭바: 화면 2~13 mobile 프레임마다 tab-bar 1개(radius 0 사각형) + 그 안 tab-item 4개, 화면 1·desktop 프레임에는 tab-bar 0 (2026-10-02) |
+| C2 | 하단 탭바: 화면 2~13 mobile 프레임마다 tab-bar 1개(radius 0 사각형) + 그 안 tab-item 4개, 화면 1·14·desktop 프레임에는 tab-bar 0 (2026-10-02) |
 
 ### D — 디자인 가이드 (story-work 멈칫 7)
 
@@ -69,9 +69,9 @@
 | ID | 근거 | 조건 |
 |---|---|---|
 | N1-a | 학교별 분리 | 화면 2~13 프레임마다 input.json의 school_name 텍스트 노드 ≥ 1 |
-| N1-b | 학교별 분리 | 화면 2~13 텍스트에서 학교명 패턴 매칭 종류 = 1 (화면 1 학교 목록은 제외) |
-| N1-c | 학교별 분리 | school-select* 노드는 화면 1에만 → 화면 2~13에서 0 |
-| N1-d | 학교 선택 (NEIS) | 화면 1: school-select-sido → school-select-region → school-select-school 각 1개, 이 순서 (S2는 설계서 화면 1 구성 요소, S3·S5는 화면 1 프레임 노드 순서) |
+| N1-b | 학교별 분리 | 화면 2~13 텍스트에서 학교명 패턴 매칭 종류 = 1 (화면 1·14 제외 — 14 회원가입 학교 목록은 여러 학교명이 정상) |
+| N1-c | 학교별 분리 | school-select* 노드는 화면 14(회원가입)에만 → 다른 화면(로그인 1 포함)에서 0 |
+| N1-d | 학교 선택 (NEIS) | 화면 14(rules.json never.N1.school_select_screen): school-select-sido → school-select-region → school-select-school 각 1개, 이 순서 (S2는 설계서 화면 14 구성 요소, S3·S5는 화면 14 프레임 노드 순서) |
 | N2-a | 키 서버 전용 | 금지어 포함 텍스트 = 0 (프레임 + s2-spec.md) |
 | N2-b | 키 서버 전용 | 화면 5의 text-input 중 라벨에 키·모델·model 포함 = 0 |
 | N2-c | 키 서버 전용 | 키 형식 문자열(32자리 16진수) = 0 (프레임 + s2-spec.md). 실제 키 값은 .env에만 |

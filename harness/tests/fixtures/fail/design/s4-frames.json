@@ -2,7 +2,7 @@
   "figma_file": "https://www.figma.com/design/FIXTURE",
   "frames": [
     {
-      "name": "1-mobile",
+      "name": "14-mobile",
       "width": 390,
       "height": 844,
       "nodes": [
@@ -11,7 +11,7 @@
           "name": "title",
           "type": "TEXT",
           "path": [
-            "1-mobile",
+            "14-mobile",
             "title"
           ],
           "fills": [
@@ -38,7 +38,7 @@
           "name": "ex-auth-form-card",
           "type": "FRAME",
           "path": [
-            "1-mobile",
+            "14-mobile",
             "ex-auth-form-card"
           ],
           "fills": [
@@ -65,7 +65,7 @@
           "name": "school-select",
           "type": "FRAME",
           "path": [
-            "1-mobile",
+            "14-mobile",
             "ex-auth-form-card",
             "school-select"
           ],
@@ -91,7 +91,7 @@
           "name": "value",
           "type": "TEXT",
           "path": [
-            "1-mobile",
+            "14-mobile",
             "ex-auth-form-card",
             "school-select",
             "value"
@@ -120,7 +120,7 @@
           "name": "button-primary",
           "type": "FRAME",
           "path": [
-            "1-mobile",
+            "14-mobile",
             "ex-auth-form-card",
             "button-primary"
           ],
@@ -146,7 +146,7 @@
           "name": "label",
           "type": "TEXT",
           "path": [
-            "1-mobile",
+            "14-mobile",
             "ex-auth-form-card",
             "button-primary",
             "label"
@@ -175,7 +175,7 @@
           "name": "button-outline",
           "type": "FRAME",
           "path": [
-            "1-mobile",
+            "14-mobile",
             "button-outline"
           ],
           "fills": [
@@ -202,7 +202,7 @@
           "name": "label",
           "type": "TEXT",
           "path": [
-            "1-mobile",
+            "14-mobile",
             "button-outline",
             "label"
           ],
@@ -228,7 +228,7 @@
       ]
     },
     {
-      "name": "1-desktop",
+      "name": "14-desktop",
       "width": 1440,
       "height": 900,
       "nodes": [
@@ -237,7 +237,7 @@
           "name": "title",
           "type": "TEXT",
           "path": [
-            "1-desktop",
+            "14-desktop",
             "title"
           ],
           "fills": [
@@ -264,7 +264,7 @@
           "name": "ex-auth-form-card",
           "type": "FRAME",
           "path": [
-            "1-desktop",
+            "14-desktop",
             "ex-auth-form-card"
           ],
           "fills": [
@@ -291,7 +291,7 @@
           "name": "school-select",
           "type": "FRAME",
           "path": [
-            "1-desktop",
+            "14-desktop",
             "ex-auth-form-card",
             "school-select"
           ],
@@ -317,7 +317,7 @@
           "name": "value",
           "type": "TEXT",
           "path": [
-            "1-desktop",
+            "14-desktop",
             "ex-auth-form-card",
             "school-select",
             "value"
@@ -346,7 +346,7 @@
           "name": "button-primary",
           "type": "FRAME",
           "path": [
-            "1-desktop",
+            "14-desktop",
             "ex-auth-form-card",
             "button-primary"
           ],
@@ -372,7 +372,7 @@
           "name": "label",
           "type": "TEXT",
           "path": [
-            "1-desktop",
+            "14-desktop",
             "ex-auth-form-card",
             "button-primary",
             "label"

@@ -1,6 +1,6 @@
 # 화면 설계서
 
-## 화면 1
+## 화면 14
 ### 구성 요소
 - school-select-sido: 시/도 선택
 - school-select-region: 지역(시/군/구) 선택

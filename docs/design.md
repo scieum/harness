@@ -19,7 +19,7 @@ A second, calmer hue marks where the user is (added 2026-10-02): sky blue (`{col
 
 ## Colors
 
-Source screens (PRD §7): login (school select), reagent list, reagent detail (MSDS QR), usage record, manual upload → extraction review, reorder alert → vendor link.
+Source screens (PRD §7): login (personal email + password), sign-up (NEIS school select), reagent list, reagent detail (MSDS QR), usage record, manual upload → extraction review, reorder alert → vendor link.
 
 ### Brand & Accent
 

@@ -389,21 +389,22 @@ def check_N1c(d, r, run):
 
 
 def check_N1d(d, r, run):
-    """학교 선택 3단계(시/도 → 지역 → 학교): S2는 설계서 화면 1, S3·S5는 화면 1 프레임."""
+    """학교 선택 3단계(시/도 → 지역 → 학교): S2는 설계서 해당 화면, S3·S5는 해당 화면 프레임."""
     levels = r["never"]["N1"]["school_select_levels"]
+    sel = r["never"]["N1"].get("school_select_screen", 1)
     out = []
     if "frames" not in d:
-        if 1 not in d["input"]["screens"]:
+        if sel not in d["input"]["screens"]:
             return []
-        m = re.search(r"^## 화면\s*1\s*$(.*?)(?=^## |\Z)", d["spec"], re.M | re.S)
+        m = re.search(rf"^## 화면\s*{sel}\s*$(.*?)(?=^## |\Z)", d["spec"], re.M | re.S)
         body = m.group(1) if m else ""
         names = re.findall(r"^-\s*([\w-]+)\s*:", body, re.M)
         found = [n for n in names if n in levels]
         if found != levels:
-            out.append(v("N1-d", "spec/s2-spec.md 화면 1", found, levels))
+            out.append(v("N1-d", f"spec/s2-spec.md 화면 {sel}", found, levels))
         return out
     for f in d["frames"]:
-        if frame_screen(f.get("name", ""), r) != 1:
+        if frame_screen(f.get("name", ""), r) != sel:
             continue
         found = [n["name"] for n in f.get("nodes", []) if n.get("name") in levels]
         if found != levels:
@@ -484,7 +485,7 @@ def check_C2(d, r, run):
         need = name.endswith("-mobile") and s in tb["mobile_screens"]
         if not need:
             if bars:
-                out.append(v("C2", name, f"{tb['component']} {len(bars)}개", "0 (화면 1·desktop)"))
+                out.append(v("C2", name, f"{tb['component']} {len(bars)}개", "0 (로그인·회원가입·desktop)"))
             continue
         if len(bars) != 1:
             out.append(v("C2", name, f"{tb['component']} {len(bars)}개", 1))

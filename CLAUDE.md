@@ -26,7 +26,7 @@
 
 | 사용자 말 | 할 일 |
 |---|---|
-| "시안 돌려줘 [화면 번호]" | runs/{YYYYMMDD-HHMM}/ 생성 → input.json 작성(번호 생략 = 전체, school_name 기본값) → 화면 1이 대상이면 `python harness/scripts/neis.py --run runs/{id}` (exit 2 = 멈춤) → `python harness/scripts/judge.py --hash` 결과를 state.json baseline_hash에 기록 → S1부터 |
+| "시안 돌려줘 [화면 번호]" | runs/{YYYYMMDD-HHMM}/ 생성 → input.json 작성(번호 생략 = 전체, school_name 기본값) → 화면 14(회원가입)가 대상이면 `python harness/scripts/neis.py --run runs/{id}` (exit 2 = 멈춤) → `python harness/scripts/judge.py --hash` 결과를 state.json baseline_hash에 기록 → S1부터 |
 | "이어서 해줘" | 가장 최근 runs/ 의 state.json 단계부터 |
 | "승인했어" / "반려했어 [사유]" | approval.md의 result·reason·date 기록 → G-승인 처리 |
 | "검수만 해줘" | 가장 최근 run에 judge --gate S5 |
