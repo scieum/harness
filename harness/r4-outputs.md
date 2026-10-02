@@ -8,7 +8,7 @@
 
 | 파일 | 만드는 단계 | 내용 | 셀 수 있는 조건 |
 |---|---|---|---|
-| input.json | 실행 시작 | 대상 화면 ID 목록, school_name (기본 "샘플고등학교", R5 추가), school_sido·school_region (선택, 기본 = rules.json neis) | ID ⊂ {1..14}, 개수 1~14, school_name 1개 |
+| input.json | 실행 시작 | 대상 화면 ID 목록, school_name (기본 "샘플고등학교", R5 추가), school_sido·school_region (선택, 기본 = rules.json neis) | ID ⊂ {1..15}, 개수 1~15, school_name 1개 |
 | neis.json | 실행 시작 (화면 14 회원가입이 대상일 때) | `harness/scripts/neis.py`가 NEIS에서 받은 시/도 목록·지역 목록·학교 목록 (키 없음) | sido_list ≥ 1, region_list ≥ 1, school_list ≥ 1 |
 | research/s1-references.md | S1 | 레퍼런스 모음 | 화면당 ui_url 3~5개 |
 | research/s1-adopt.md | S1 | 반영 항목 표 | 레퍼런스마다 "가져올 것" 1줄 |
@@ -24,7 +24,7 @@
 - Figma 파일 1개, 페이지 2개: `S3-keyscreens`, `S4-screens`
 - 프레임 이름 = `{화면ID}-{mobile|desktop}` (예: `2-mobile`, `6-desktop`)
 - 프레임 크기: mobile 390×844, desktop 1440×900
-- 스크립트는 정규식 `^([1-9]|1[0-4])-(mobile|desktop)$` 로 프레임 수를 센다 (rules.json frames.name_pattern)
+- 스크립트는 정규식 `^([1-9]|1[0-5])-(mobile|desktop)$` 로 프레임 수를 센다 (rules.json frames.name_pattern)
 
 ## 3. 규칙 SSOT
 

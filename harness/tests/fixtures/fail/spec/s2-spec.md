@@ -31,6 +31,12 @@
 ### 반영한 레퍼런스
 - https://uibowl.io/screen/1101
 
+## 화면 15
+### 구성 요소
+- landing-hero: 소개
+### 반영한 레퍼런스
+- https://uibowl.io/screen/1501
+
 ## 역할별 노출
 | 컴포넌트 | 학생 | 교사 | admin |
 |---|---|---|---|

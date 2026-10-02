@@ -233,6 +233,12 @@ Composed only from the primitives and tokens above; no new literal values.
 
 ### Signature Components
 
+**Landing (screen 15, added 2026-10-03)** — the pre-login first screen
+
+- **`landing-hero`** — "Lab_Stock" wordmark, a one-line description in `{typography.heading-1}`, a `{typography.body-lg}` light subtitle. Monochrome; no school name (nothing is selected before sign-up)
+- **`feature-card`** — 3–4 cards (학교별 분리 · NEIS 학교 선택 · QR 스캔 · 재고 부족 알림): `{colors.canvas-soft}` fill, `{rounded.md}`, icon in `{colors.highlight}` + title + one line of body. The 재고 부족 알림 card may show a small `badge-low-stock` as an example (pink stays inside the badge)
+- **`landing-cta`** — bottom action area: `button-primary` "회원가입" (→ 14) and `button-outline` "로그인" (→ 1). No tab bar on this screen
+
 **`badge-overlay`** — translucent gray pill (rgba(115, 115, 115, 0.56)) with `{colors.on-primary}` `{typography.label}` text, laid over image content (manual preview tags)
 
 **`segmented-control`** + **`segmented-control-active`** — two-option toggle: a `{colors.canvas-soft}` stadium track holding two pill options; the active option is a `{colors.canvas}` white pill, the inactive label sits in `{colors.text-muted}`

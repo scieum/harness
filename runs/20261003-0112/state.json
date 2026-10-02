@@ -1,0 +1,12 @@
+{
+  "stage": "done",
+  "retries": {
+    "S1": 0,
+    "S2": 0,
+    "S3": 0,
+    "S5": 0
+  },
+  "approval": "approved",
+  "baseline_hash": "1f5cfd8431a46d7c295f87fbbf0230fffecc31b2ae5db8c2f7987a3769d4625e",
+  "note": "화면 15 랜딩(로그인 전 첫 화면) 신규"
+}
