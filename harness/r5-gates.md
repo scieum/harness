@@ -16,9 +16,9 @@
 |---|---|---|---|---|
 | G-S1 | S1 끝 | research/s1-references.md, research/s1-adopt.md | S1-a, S1-b | 위반 0 |
 | G-S2 | S2 끝 | spec/s2-spec.md | R1~R4, N1-d, N2-a, N2-c | 위반 0 |
-| G-S3 | S3 끝, 승인 요청 전 | design/s3-keyscreens.json | D1~D8, N1-a~d, N2-a~c | 위반 0일 때만 승인 요청 생성 |
+| G-S3 | S3 끝, 승인 요청 전 | design/s3-keyscreens.json | D1~D8, D10, N1-a~d, N2-a~c | 위반 0일 때만 승인 요청 생성 |
 | G-승인 ★사람 | S3→S4 | approval.md | result 줄 | result = approved |
-| G-S5 | S5 | design/s4-frames.json | D1~D9, N1-a~d, N2-a~c | 위반 0 = 완료 |
+| G-S5 | S5 | design/s4-frames.json | D1~D10, N1-a~d, N2-a~c | 위반 0 = 완료 |
 
 ## 2. 규칙
 
@@ -51,6 +51,7 @@
 | D7 | auto-layout padding·gap ∈ spacing.allowed |
 | D8 | button-* 노드: cornerRadius = 9999, height ≥ 44 |
 | D9 | 프레임 수 = 화면 수 × 2, 크기 ∈ {390×844, 1440×900} (S5만) |
+| D10 | 하늘색(#2b9fe0·#e6f4fc): badge-low-stock·reorder-alert-card·button-primary 안에서 0, 텍스트 노드 글자색으로 0 (2026-10-02) |
 
 ### N — 어기면 안 되는 것 ★ (story-service N1·N2)
 

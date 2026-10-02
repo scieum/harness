@@ -18,7 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 RULES_PATH = ROOT / "harness" / "rules.json"
 
-D_RULES = ["D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8"]
+D_RULES = ["D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D10"]
 N_RULES = ["N1-a", "N1-b", "N1-c", "N1-d", "N2-a", "N2-b", "N2-c"]
 GATES = {
     "S1": ["S1-a", "S1-b", "F1", "F2"],
@@ -215,6 +215,24 @@ def check_D2(d, r, run):
         colors = [norm_color(c) for c in n.get("fills", []) + n.get("strokes", [])]
         if acc in colors and not any(p in ok for p in (n.get("path") or [])):
             out.append(v("D2", where(f, n), acc, f"{ok} 안에서만"))
+    return out
+
+
+def check_D10(d, r, run):
+    hl = r["colors"]["highlight"]
+    vals = {norm_color(c) for c in hl["values"]}
+    no_text = {norm_color(c) for c in hl["no_text"]}
+    out = []
+    for f, n in iter_nodes(d["frames"]):
+        colors = {norm_color(c) for c in n.get("fills", []) + n.get("strokes", [])}
+        used = sorted(colors & vals)
+        if not used:
+            continue
+        inside = [p for p in (n.get("path") or []) if p in hl["forbidden_within"]]
+        if inside:
+            out.append(v("D10", where(f, n), used, f"{hl['forbidden_within']} 밖에서만"))
+        if n.get("text") and colors & no_text:
+            out.append(v("D10", where(f, n), sorted(colors & no_text), "하늘색 글자 금지 (#141414)"))
     return out
 
 
@@ -451,7 +469,7 @@ CHECKS = {
     "S1-a": check_S1a, "S1-b": check_S1b,
     "R1": check_roles("R1"), "R2": check_roles("R2"), "R3": check_roles("R3"), "R4": check_roles("R4"),
     "D1": check_D1, "D2": check_D2, "D3": check_D3, "D4": check_D4, "D5": check_D5,
-    "D6": check_D6, "D7": check_D7, "D8": check_D8, "D9": check_D9,
+    "D6": check_D6, "D7": check_D7, "D8": check_D8, "D9": check_D9, "D10": check_D10,
     "N1-a": check_N1a, "N1-b": check_N1b, "N1-c": check_N1c, "N1-d": check_N1d,
     "N2-a": check_N2a, "N2-b": check_N2b, "N2-c": check_N2c,
     "F1": check_F1, "F2": check_F2,

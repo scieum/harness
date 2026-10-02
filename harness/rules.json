@@ -1,12 +1,13 @@
 {
-  "version": "1.1",
+  "version": "1.2",
   "sources": [
     "docs/design.md",
     "docs/story-service.md",
     "harness/r4-outputs.md",
     "harness/r5-gates.md",
     "harness/r8 (R8 결정)",
-    "2026-10-01 NEIS 학교 선택 결정"
+    "2026-10-01 NEIS 학교 선택 결정",
+    "2026-10-02 하늘색 강조색 결정"
   ],
   "colors": {
     "allowed": [
@@ -18,7 +19,9 @@
       "#f0f0f0",
       "#f3f3f3",
       "#ffffff",
-      "#d6246a"
+      "#d6246a",
+      "#2b9fe0",
+      "#e6f4fc"
     ],
     "allowed_rgba": [
       {
@@ -36,6 +39,22 @@
     "on_primary": {
       "value": "#ffffff",
       "source": "R4 결정"
+    },
+    "highlight": {
+      "values": [
+        "#2b9fe0",
+        "#e6f4fc"
+      ],
+      "forbidden_within": [
+        "badge-low-stock",
+        "reorder-alert-card",
+        "button-primary"
+      ],
+      "no_text": [
+        "#2b9fe0",
+        "#e6f4fc"
+      ],
+      "source": "2026-10-02 사용자 결정: 하늘색 = 재고 부족 외 강조. 흰 배경 대비 2.94:1이라 글자색 금지"
     }
   },
   "radius": {

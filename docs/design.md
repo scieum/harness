@@ -6,13 +6,15 @@ The geometry does the brand work that color refuses to do. Every interactive ele
 
 One color is allowed to interrupt: a deep pink accent (`{colors.accent}` — #d6246a), used exclusively for the stock-shortage signal — the low-stock badge on reagent rows and the reorder alert that leads to a vendor. Its scarcity is the point; when pink appears, it is asking for a decision.
 
+A second, calmer hue marks where the user is (added 2026-10-02): sky blue (`{colors.highlight}` — #2b9fe0) with its pale tint (`{colors.highlight-soft}` — #e6f4fc) highlights selection and focus — the chosen school, the active tab or segment, links, progress, and icons. It never appears in the stock-shortage signal and never fills a primary CTA.
+
 **Key Characteristics:**
 
-- Gallery-white monochrome palette — `{colors.ink}` on `{colors.canvas}`, zero brand chroma outside the single `{colors.accent}` pink
+- Gallery-white monochrome palette — `{colors.ink}` on `{colors.canvas}`, brand chroma limited to the `{colors.accent}` pink (stock shortage) and the `{colors.highlight}` sky blue (selection and emphasis)
 - Stadium-pill interaction language: nav bar, buttons, toggles, and badges all at `{rounded.full}`
 - Shadow-free elevation — hierarchy built from a neutral tint ladder (`{colors.canvas-soft}`, `{colors.field}`, `{colors.hairline}`) and 1px hairlines
 - Pretendard with weight contrast: 700 headings at 1.3–1.35 line-height, 400 body at 1.5, 300 light subtitles
-- Pink means "stock is short" and nothing else
+- Pink means "stock is short" and nothing else; sky blue means "selected / here" and is never used for stock shortage
 - Content supplies the information: reagent data, MSDS QR codes, and uploaded experiment manuals carry the screen
 
 ## Colors
@@ -22,7 +24,9 @@ Source screens (PRD §7): login (school select), reagent list, reagent detail (M
 ### Brand & Accent
 
 - **Ink Black** (`{colors.primary}` — #141414): The brand color. Fills every primary CTA pill and all display typography. Lab_Stock's identity is this near-black, softened just off pure black.
-- **Deep Pink** (`{colors.accent}` — #d6246a): The only chromatic accent in the system. Reserved for the stock-shortage signal — the low-stock badge and the reorder alert. Never used decoratively, never used for CTAs.
+- **Deep Pink** (`{colors.accent}` — #d6246a): The stock-shortage accent. Reserved for the stock-shortage signal — the low-stock badge and the reorder alert. Never used decoratively, never used for CTAs.
+- **Sky Blue** (`{colors.highlight}` — #2b9fe0): Emphasis accent for everything except stock shortage — selected-state borders and indicators, active tab/segment markers, links underline, progress bars, and icons. Contrast on white is 2.94:1, so it is never a text color; text placed on it is `{colors.ink}` (6.26:1). Never inside `badge-low-stock`, `reorder-alert-card`, or as the fill of `button-primary`.
+- **Sky Tint** (`{colors.highlight-soft}` — #e6f4fc): Pale background for selected rows, chosen options, and informational surfaces; text on it is `{colors.ink}` (16.41:1). Same exclusions as Sky Blue.
 
 ### Surface
 
@@ -41,7 +45,7 @@ Source screens (PRD §7): login (school select), reagent list, reagent detail (M
 
 ### Semantic
 
-- The system ships no dedicated success/warning/error palette; state communication stays within the monochrome ladder, with `{colors.accent}` as the sole signal, reserved for stock shortage.
+- The system ships no dedicated success/warning/error palette; state communication stays within the monochrome ladder, with `{colors.accent}` reserved for stock shortage and `{colors.highlight}` / `{colors.highlight-soft}` for selection and emphasis.
 
 ## Typography
 
@@ -258,6 +262,7 @@ Composed only from the primitives and tokens above; no new literal values.
 - Use `{rounded.full}` for every interactive element — a rectangular button does not exist in this system.
 - Build emphasis with the tint ladder: `{colors.canvas-soft}` fill for rows and alerts, `{colors.hairline-soft}` outlines for resting cards.
 - Reserve `{colors.accent}` for the stock-shortage signal only (`badge-low-stock`, `reorder-alert-card`).
+- Use `{colors.highlight}` / `{colors.highlight-soft}` for selection and emphasis everywhere else; keep text on them in `{colors.ink}`.
 - Set every heading in Pretendard Bold 700 with line-height 1.3–1.35.
 - Pair Bold 700 headings with 300-weight `{typography.body-lg}` subtitles for hierarchy without color.
 - Keep MSDS QR codes at 1:1, uncropped.
@@ -266,7 +271,8 @@ Composed only from the primitives and tokens above; no new literal values.
 
 - Don't add drop shadows — elevation is fills and hairlines only.
 - Don't use `{colors.accent}` for CTAs; primary actions are always `{colors.primary}` ink pills.
-- Don't introduce additional accent hues, gradients on UI chrome, or colored section bands.
+- Don't introduce accent hues beyond pink and sky blue, gradients on UI chrome, or colored section bands.
+- Don't use sky blue as a text color, inside the stock-shortage signal, or as the `button-primary` fill.
 - Don't apply letter-spacing or all-caps styling; the type system runs at natural tracking in sentence case.
 - Don't put borders on form fields at rest — inputs are `{colors.field}` tint fills; the border appears only as the 2px ink focus ring.
 - Don't square off pill geometry at small sizes — badges, chips, and toggles stay stadium-shaped.

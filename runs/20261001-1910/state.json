@@ -1,0 +1,12 @@
+{
+  "stage": "done",
+  "retries": {
+    "S1": 0,
+    "S2": 0,
+    "S3": 0,
+    "S5": 0
+  },
+  "approval": "approved",
+  "baseline_hash": "62e9dc0b3c3b1be18bb55143dccec0878962473139b94ca032623340954a346b",
+  "continues": "runs/20261001-1844 (화면 2·3·6)"
+}

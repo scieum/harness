@@ -1,0 +1,12 @@
+{
+  "stage": "done",
+  "retries": {
+    "S1": 0,
+    "S2": 0,
+    "S3": 0,
+    "S5": 0
+  },
+  "approval": "approved",
+  "baseline_hash": "f049d5285d0a19d9d5c0e9e469f3d3e3baac28286234692091fccc9beaba73af",
+  "continues": "runs/20261001-1910 (화면 1·4·5 완료)"
+}

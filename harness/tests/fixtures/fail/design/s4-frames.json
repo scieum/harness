@@ -672,6 +672,56 @@
             "letterSpacing": 0,
             "textCase": "ORIGINAL"
           }
+        },
+        {
+          "id": "1:86-sky",
+          "name": "sky-dot",
+          "type": "TEXT",
+          "path": [
+            "2-mobile",
+            "reagent-row",
+            "badge-low-stock",
+            "sky-dot"
+          ],
+          "fills": [
+            "#2b9fe0"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:84-sky",
+          "name": "sky-text",
+          "type": "TEXT",
+          "path": [
+            "2-mobile",
+            "reagent-row",
+            "sky-text"
+          ],
+          "fills": [
+            "#2b9fe0"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "선택됨",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 17,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
         }
       ]
     },
