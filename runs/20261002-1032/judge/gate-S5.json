@@ -1,0 +1,7 @@
+{
+  "gate": "S5",
+  "pass": false,
+  "exit": 2,
+  "reason": "파일 없음: s4-frames.json",
+  "violations": []
+}

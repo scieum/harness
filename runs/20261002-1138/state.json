@@ -1,0 +1,12 @@
+{
+  "stage": "done",
+  "retries": {
+    "S1": 0,
+    "S2": 0,
+    "S3": 0,
+    "S5": 0
+  },
+  "approval": "approved",
+  "baseline_hash": "c70baba92c191de064eb4838c4d14b8d5e15412e9b93200d546e849956143552",
+  "note": "runs/20261002-1032 재실행 (프레임별 JSON 하네스). 산출물은 1032와 Figma S3-keyscreens-v3·S4-screens-v2 재사용"
+}

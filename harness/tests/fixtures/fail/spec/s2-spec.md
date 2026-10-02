@@ -25,6 +25,12 @@
 ### 반영한 레퍼런스
 - https://uibowl.io/screen/501
 
+## 화면 11
+### 구성 요소
+- cabinet-slot: 칸
+### 반영한 레퍼런스
+- https://uibowl.io/screen/1101
+
 ## 역할별 노출
 | 컴포넌트 | 학생 | 교사 | admin |
 |---|---|---|---|
@@ -33,3 +39,6 @@
 | vendor-link | 0 | 1 | 1 |
 | vendor-register | 0 | 1 | 1 |
 | msds-entry | 0 | 1 | 1 |
+| stock-intake | 1 | 1 | 1 |
+| user-manage | 0 | 1 | 1 |
+| cabinet-edit | 1 | 1 | 1 |

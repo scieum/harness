@@ -1,0 +1,12 @@
+{
+  "stage": "done",
+  "retries": {
+    "S1": 0,
+    "S2": 0,
+    "S3": 0,
+    "S5": 0
+  },
+  "approval": "approved",
+  "baseline_hash": "5eeb88da656fa84cb99f93e2a0a33eafe800a1ad26705c4efda7327872ddb0ea",
+  "note": "runs/20261002-1359 재실행 — 탭바 사각형(radius 0, 하단 고정 전폭). S1 재사용, S2 탭바 설명만 변경, S3는 S3-keyscreens-v6 13-mobile 탭바만 수정"
+}

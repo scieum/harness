@@ -18,6 +18,7 @@ tools: Read, Write, Glob, Skill, ReadMcpResourceTool, mcp__claude_ai_Figma__use_
 ## 쓰기 (이 폴더만)
 - runs/{id}/design/s3-keyscreens.json (S3)
 - runs/{id}/design/s4-frames.json (S4)
+- 노드가 많아 한 번에 쓰기 어려우면(대략 프레임 4개 이상) 단일 파일 대신 프레임별 파일로 쓴다: runs/{id}/design/s4-frames/{프레임이름}.json (S3는 design/s3-keyscreens/{프레임이름}.json). 각 파일 형식은 아래 JSON과 같고 frames에 프레임 1개만. 단일 파일과 폴더를 동시에 두지 않는다.
 - Figma: 페이지 `S3-keyscreens`, `S4-screens`
 
 docs/, harness/, 다른 runs/{id}/ 하위 폴더는 절대 쓰지 않는다.
@@ -29,8 +30,9 @@ docs/, harness/, 다른 runs/{id}/ 하위 폴더는 절대 쓰지 않는다.
 - 컴포넌트 노드 이름 = s2-spec.md 컴포넌트명 (예: button-primary, badge-low-stock, msds-entry).
 - 색·radius·폰트·크기·간격은 rules.json 허용 집합 안의 값만 쓴다. 근사값 금지.
 - 하늘색(rules.json `colors.highlight`)은 선택·현재 위치·링크·진행·아이콘 강조에 쓴다. 재고 부족 신호와 button-primary 채움, 글자색에는 쓰지 않는다 (D10).
-- 화면 2~6 텍스트의 학교명은 input.json `school_name` 하나만 쓴다. 더미 데이터에 다른 학교명 금지.
+- 화면 2~13 텍스트의 학교명은 input.json `school_name` 하나만 쓴다. 더미 데이터에 다른 학교명 금지.
 - 화면 1 학교 선택 = 3단계 노드 `school-select-sido` → `school-select-region` → `school-select-school` (노드 순서 그대로, N1-d). 선택값·목록 항목은 neis.json의 sido·region·school_list에서만 가져온다. 최종 선택 학교 = school_name.
+- 모바일 하단 탭바(C2): 화면 2~13 mobile 프레임마다 `tab-bar` 1개, 그 안에 `tab-item` 4개(홈·시약·QR 스캔·기록, 역할 무관 동일). 화면 1과 desktop에는 넣지 않는다. 모양은 docs/design.md `tab-bar` — 하단에 붙은 전폭 사각형(radius 0), pill 아님.
 - 키·인증키 입력 칸이나 키 값처럼 보이는 문자열을 그리지 않는다 (N2-a·N2-c).
 - 재시도 시: judge 결과에 나온 노드만 고친다. 다른 노드는 건드리지 않는다.
 

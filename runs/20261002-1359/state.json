@@ -1,0 +1,12 @@
+{
+  "stage": "aborted",
+  "retries": {
+    "S1": 0,
+    "S2": 0,
+    "S3": 0,
+    "S5": 0
+  },
+  "approval": "rejected",
+  "baseline_hash": "3f685ce7d088db69c53982660a1e7d72cc62f48a44f11335c0265d70b516c3b6",
+  "note": "화면 13 홈 — 하단 탭바 버전 (runs/20261002-1335 설계 반려 후 재실행) / 반려: 탭바 사각형 → design.md tab-bar 정의 변경 위해 중단"
+}

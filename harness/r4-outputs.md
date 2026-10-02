@@ -8,14 +8,14 @@
 
 | 파일 | 만드는 단계 | 내용 | 셀 수 있는 조건 |
 |---|---|---|---|
-| input.json | 실행 시작 | 대상 화면 ID 목록, school_name (기본 "샘플고등학교", R5 추가), school_sido·school_region (선택, 기본 = rules.json neis) | ID ⊂ {1..6}, 개수 1~6, school_name 1개 |
+| input.json | 실행 시작 | 대상 화면 ID 목록, school_name (기본 "샘플고등학교", R5 추가), school_sido·school_region (선택, 기본 = rules.json neis) | ID ⊂ {1..13}, 개수 1~13, school_name 1개 |
 | neis.json | 실행 시작 (화면 1이 대상일 때) | `harness/scripts/neis.py`가 NEIS에서 받은 시/도 목록·지역 목록·학교 목록 (키 없음) | sido_list ≥ 1, region_list ≥ 1, school_list ≥ 1 |
 | research/s1-references.md | S1 | 레퍼런스 모음 | 화면당 ui_url 3~5개 |
 | research/s1-adopt.md | S1 | 반영 항목 표 | 레퍼런스마다 "가져올 것" 1줄 |
 | spec/s2-spec.md | S2 | 화면 설계서 | 대상 화면마다 구성 요소 ≥ 1, 역할별 노출 표 1개 |
-| design/s3-keyscreens.json | S3 | 키스크린 노드 JSON | 프레임 2~3개, 390×844 |
+| design/s3-keyscreens.json 또는 design/s3-keyscreens/{프레임}.json | S3 | 키스크린 노드 JSON (둘 중 하나만) | 프레임 2~3개, 390×844 |
 | approval.md | G-승인 | 승인/거절, 사유, 날짜, 승인자 | 파일 1개, 결과 ∈ {approved, rejected} |
-| design/s4-frames.json | S4 | 전체 프레임 노드 JSON | 프레임 수 = 화면 수 × 2 |
+| design/s4-frames.json 또는 design/s4-frames/{프레임}.json | S4 | 전체 프레임 노드 JSON (둘 중 하나만. 크면 프레임별 파일, 2026-10-02) | 프레임 수 = 화면 수 × 2 |
 | judge/gate-{S1,S2,S3,S5}.json | 각 게이트 | 판정 결과 (S5 위반 목록 포함, R6 변경) | violations 배열, 완료 시 gate-S5 길이 0 |
 | state.json | 모든 단계 | 진행 상태 | §4 형식 |
 
@@ -24,7 +24,7 @@
 - Figma 파일 1개, 페이지 2개: `S3-keyscreens`, `S4-screens`
 - 프레임 이름 = `{화면ID}-{mobile|desktop}` (예: `2-mobile`, `6-desktop`)
 - 프레임 크기: mobile 390×844, desktop 1440×900
-- 스크립트는 정규식 `^[1-6]-(mobile|desktop)$` 로 프레임 수를 센다
+- 스크립트는 정규식 `^([1-9]|1[0-3])-(mobile|desktop)$` 로 프레임 수를 센다 (rules.json frames.name_pattern)
 
 ## 3. 규칙 SSOT
 

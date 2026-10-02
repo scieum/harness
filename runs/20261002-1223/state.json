@@ -1,0 +1,12 @@
+{
+  "stage": "aborted",
+  "retries": {
+    "S1": 0,
+    "S2": 0,
+    "S3": 0,
+    "S5": 0
+  },
+  "approval": "none",
+  "baseline_hash": "101c93e37670d2229b4bae7a9b1753050394137ef39212b04e0eff4e012a3710",
+  "note": "화면 11 시약장 설정·12 QR 스캔 신규 + 7·8 조사(refs/uibowl-research-20261002.md) 반영 버전 / G-S3 통과 후 사용자 결정: mix-warning을 핑크로 → 규칙 변경 위해 중단"
+}

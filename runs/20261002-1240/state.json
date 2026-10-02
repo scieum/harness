@@ -1,0 +1,12 @@
+{
+  "stage": "aborted",
+  "retries": {
+    "S1": 0,
+    "S2": 0,
+    "S3": 0,
+    "S5": 0
+  },
+  "approval": "rejected",
+  "baseline_hash": "e1ad25cd20253d62acc829be7c77e5efaabfadb84ea2af2fa624a72f209f76f0",
+  "note": "runs/20261002-1223 재실행 — mix-warning 핑크 규칙(rules 1.6). S1 재사용, S2 경고색만 변경, S3는 Figma S3-keyscreens-v4(71:2)의 11-mobile 경고만 수정 / 2차 반려(핑크 너무 쨍함) → 연핑크 틴트 #fbe9f0 규칙 추가 위해 중단"
+}

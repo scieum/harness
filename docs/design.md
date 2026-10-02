@@ -4,9 +4,9 @@ Lab_Stock is a SaaS for high-school science labs — it tracks each reagent's ty
 
 The geometry does the brand work that color refuses to do. Every interactive element is a stadium pill (`{rounded.full}`): the floating navigation bar, every button, the segmented toggle, the status badges. Containers sit at a calm `{rounded.md}` (24px) and rows, inputs, and media tiles at `{rounded.sm}` (16px). Type is set in Pretendard with strong weight contrast — Bold 700 for every heading, Regular 400 for text, Light 300 for lead subtitles — which gives the monochrome pages a strong typographic voice without a single decorative flourish.
 
-One color is allowed to interrupt: a deep pink accent (`{colors.accent}` — #d6246a), used exclusively for the stock-shortage signal — the low-stock badge on reagent rows and the reorder alert that leads to a vendor. Its scarcity is the point; when pink appears, it is asking for a decision.
+One color is allowed to interrupt: a deep pink accent (`{colors.accent}` — #d6246a), used for decision signals — the low-stock badge on reagent rows, the reorder alert that leads to a vendor, and the cabinet mix warning. Its scarcity is the point; when pink appears, it is asking for a decision. (The mix warning — an unsafe storage combination in a reagent cabinet, `mix-warning` — was added 2026-10-02.)
 
-A second, calmer hue marks where the user is (added 2026-10-02): sky blue (`{colors.highlight}` — #2b9fe0) with its pale tint (`{colors.highlight-soft}` — #e6f4fc) highlights selection and focus — the chosen school, the active tab or segment, links, progress, and icons. It never appears in the stock-shortage signal and never fills a primary CTA.
+A second, calmer hue marks where the user is (added 2026-10-02): sky blue (`{colors.highlight}` — #2b9fe0) with its pale tint (`{colors.highlight-soft}` — #e6f4fc) highlights selection and focus — the chosen school, the active tab or segment, links, progress, and icons. It never appears in a pink decision signal and never fills a primary CTA.
 
 **Key Characteristics:**
 
@@ -14,7 +14,7 @@ A second, calmer hue marks where the user is (added 2026-10-02): sky blue (`{col
 - Stadium-pill interaction language: nav bar, buttons, toggles, and badges all at `{rounded.full}`
 - Shadow-free elevation — hierarchy built from a neutral tint ladder (`{colors.canvas-soft}`, `{colors.field}`, `{colors.hairline}`) and 1px hairlines
 - Pretendard with weight contrast: 700 headings at 1.3–1.35 line-height, 400 body at 1.5, 300 light subtitles
-- Pink means "stock is short" and nothing else; sky blue means "selected / here" and is never used for stock shortage
+- Pink means "a decision is needed" — stock is short, or a cabinet slot mixes unsafe classes — and nothing else; sky blue means "selected / here" and is never used for stock shortage
 - Content supplies the information: reagent data, MSDS QR codes, and uploaded experiment manuals carry the screen
 
 ## Colors
@@ -24,7 +24,8 @@ Source screens (PRD §7): login (school select), reagent list, reagent detail (M
 ### Brand & Accent
 
 - **Ink Black** (`{colors.primary}` — #141414): The brand color. Fills every primary CTA pill and all display typography. Lab_Stock's identity is this near-black, softened just off pure black.
-- **Deep Pink** (`{colors.accent}` — #d6246a): The stock-shortage accent. Reserved for the stock-shortage signal — the low-stock badge and the reorder alert. Never used decoratively, never used for CTAs.
+- **Deep Pink** (`{colors.accent}` — #d6246a): The stock-shortage accent. Reserved for decision signals — the low-stock badge, the reorder alert, and the cabinet mix warning (`mix-warning`). Never used decoratively, never used for CTAs.
+- **Soft Pink** (`{colors.accent-soft}` — #fbe9f0): The pink at 10% over white (added 2026-10-02). Fills the cabinet mix warning (`mix-warning`) so the signal reads clearly without glare; text on it is `{colors.ink}` (15.8:1) and the warning icon stays `{colors.accent}` (4.17:1). Allowed only inside `badge-low-stock`, `reorder-alert-card`, and `mix-warning`.
 - **Sky Blue** (`{colors.highlight}` — #2b9fe0): Emphasis accent for everything except stock shortage — selected-state borders and indicators, active tab/segment markers, links underline, progress bars, and icons. Contrast on white is 2.94:1, so it is never a text color; text placed on it is `{colors.ink}` (6.26:1). Never inside `badge-low-stock`, `reorder-alert-card`, or as the fill of `button-primary`.
 - **Sky Tint** (`{colors.highlight-soft}` — #e6f4fc): Pale background for selected rows, chosen options, and informational surfaces; text on it is `{colors.ink}` (16.41:1). Same exclusions as Sky Blue.
 
@@ -220,6 +221,16 @@ Composed only from the primitives and tokens above; no new literal values.
 
 - The pill tightens to logomark + CTA; links collapse behind the pill
 
+**`tab-bar`** — Bottom Tab Bar (Mobile, added 2026-10-02, squared 2026-10-02)
+
+- Primary mobile navigation: a full-width rectangular bar docked to the bottom edge — `{rounded.none}` (0), not a floating pill. The one deliberate exception to the stadium-pill language, so the bar reads as the device's frame rather than a control
+- `{colors.canvas}` fill with a 1px `{colors.hairline-soft}` top border, no shadow
+- Exactly four `tab-item`s, identical for every role: 홈 · 시약 · QR 스캔 · 기록. Equal width — the scan tab is not enlarged
+- Each `tab-item` is an icon above a `{typography.label}` label, tap target ≥ 44px, square (no pill behind it)
+- Active tab: `{colors.highlight}` icon with `{colors.ink}` label. Inactive: `{colors.text-muted}` icon and label
+- Present on every mobile screen after login (screens 2–13); absent on login (screen 1) and on desktop, where `nav-pill` carries navigation
+- Role-specific actions (입고, 사용자 관리) are never tabs; they live in the home `quick-action` area
+
 ### Signature Components
 
 **`badge-overlay`** — translucent gray pill (rgba(115, 115, 115, 0.56)) with `{colors.on-primary}` `{typography.label}` text, laid over image content (manual preview tags)
@@ -261,7 +272,7 @@ Composed only from the primitives and tokens above; no new literal values.
 - Keep the canvas `{colors.canvas}` white and let reagent data supply the information.
 - Use `{rounded.full}` for every interactive element — a rectangular button does not exist in this system.
 - Build emphasis with the tint ladder: `{colors.canvas-soft}` fill for rows and alerts, `{colors.hairline-soft}` outlines for resting cards.
-- Reserve `{colors.accent}` for the stock-shortage signal only (`badge-low-stock`, `reorder-alert-card`).
+- Reserve `{colors.accent}` for decision signals only (`badge-low-stock`, `reorder-alert-card`, `mix-warning`).
 - Use `{colors.highlight}` / `{colors.highlight-soft}` for selection and emphasis everywhere else; keep text on them in `{colors.ink}`.
 - Set every heading in Pretendard Bold 700 with line-height 1.3–1.35.
 - Pair Bold 700 headings with 300-weight `{typography.body-lg}` subtitles for hierarchy without color.
@@ -272,7 +283,7 @@ Composed only from the primitives and tokens above; no new literal values.
 - Don't add drop shadows — elevation is fills and hairlines only.
 - Don't use `{colors.accent}` for CTAs; primary actions are always `{colors.primary}` ink pills.
 - Don't introduce accent hues beyond pink and sky blue, gradients on UI chrome, or colored section bands.
-- Don't use sky blue as a text color, inside the stock-shortage signal, or as the `button-primary` fill.
+- Don't use sky blue as a text color, inside a pink decision signal, or as the `button-primary` fill.
 - Don't apply letter-spacing or all-caps styling; the type system runs at natural tracking in sentence case.
 - Don't put borders on form fields at rest — inputs are `{colors.field}` tint fills; the border appears only as the 2px ink focus ring.
 - Don't square off pill geometry at small sizes — badges, chips, and toggles stay stadium-shaped.

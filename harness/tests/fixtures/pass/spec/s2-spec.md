@@ -23,3 +23,7 @@
 | vendor-link | 0 | 1 | 1 |
 | vendor-register | 0 | 0 | 1 |
 | msds-entry | 1 | 1 | 1 |
+| stock-intake | 0 | 1 | 1 |
+| reagent-register | 0 | 1 | 1 |
+| user-manage | 0 | 0 | 1 |
+| cabinet-edit | 0 | 1 | 1 |

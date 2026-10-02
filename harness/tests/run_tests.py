@@ -74,6 +74,25 @@ def main():
         check(caught == all_rules, f"전체 규칙 {len(caught)}/{len(all_rules)}종 검출")
         check(N_RULES <= caught, f"★ N1·N2 규칙 {len(N_RULES & caught)}/{len(N_RULES)} 검출")
 
+        print("[split]")
+        split = Path(tmp) / "split"
+        shutil.copytree(HERE / "fixtures" / "pass", split)
+        st = json.loads((split / "state.json").read_text(encoding="utf-8"))
+        st["baseline_hash"] = current
+        (split / "state.json").write_text(json.dumps(st), encoding="utf-8")
+        for g, rel in (("S3", "s3-keyscreens"), ("S5", "s4-frames")):
+            src = split / "design" / f"{rel}.json"
+            doc = json.loads(src.read_text(encoding="utf-8"))
+            (split / "design" / rel).mkdir()
+            for f in doc["frames"]:
+                part = {"figma_file": doc.get("figma_file"), "frames": [f]}
+                (split / "design" / rel / f"{f['name']}.json").write_text(json.dumps(part, ensure_ascii=False), encoding="utf-8")
+            code, out = judge("--gate", g, "--run", str(split))
+            check(code == 2, f"{g}: 단일 파일 + 폴더 둘 다 → exit {code} (기대 2)")
+            src.unlink()
+            code, out = judge("--gate", g, "--run", str(split))
+            check(code == 0, f"{g}: 프레임별 파일 {len(doc['frames'])}개 → exit {code} (기대 0)")
+
         print("[empty]")
         empty = Path(tmp) / "empty"
         empty.mkdir()

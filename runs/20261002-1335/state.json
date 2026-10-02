@@ -1,0 +1,12 @@
+{
+  "stage": "aborted",
+  "retries": {
+    "S1": 0,
+    "S2": 0,
+    "S3": 0,
+    "S5": 0
+  },
+  "approval": "rejected",
+  "baseline_hash": "4fe8ec80e16f56f8f9746bb31e023c4556ab66669655a9693537fb70b7df2d54",
+  "note": "화면 13 홈(대시보드) 신규 / 반려(설계): 하단 탭바 채택 → design.md·rules 변경 위해 중단"
+}

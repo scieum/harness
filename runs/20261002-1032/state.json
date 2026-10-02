@@ -1,0 +1,12 @@
+{
+  "stage": "aborted",
+  "retries": {
+    "S1": 0,
+    "S2": 0,
+    "S3": 0,
+    "S5": 0
+  },
+  "approval": "approved",
+  "baseline_hash": "deadca3c877966437fdac3440f2280a34ef825ff99406b77bd2ce8ff9848f04a",
+  "note": "화면 7~10 신규 + 1·4·5 하늘색 버전 (기준: runs/20261002-0838) / S5 exit 2: s4-frames.json 단일 파일 저장 불가(1,057노드) → 사용자 결정으로 중단, 프레임별 JSON으로 하네스 수정 (Figma S4-screens-v2 41:2 프레임 14개는 완성)"
+}

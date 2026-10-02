@@ -9,6 +9,7 @@
 종료 코드: 0 통과 / 1 위반 있음 / 2 판정 불가
 """
 import argparse
+import fnmatch
 import hashlib
 import json
 import re
@@ -18,11 +19,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 RULES_PATH = ROOT / "harness" / "rules.json"
 
-D_RULES = ["D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D10"]
+D_RULES = ["D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D10", "C1", "C2"]
 N_RULES = ["N1-a", "N1-b", "N1-c", "N1-d", "N2-a", "N2-b", "N2-c"]
 GATES = {
     "S1": ["S1-a", "S1-b", "F1", "F2"],
-    "S2": ["R1", "R2", "R3", "R4", "N1-d", "N2-a", "N2-c", "F1", "F2"],
+    "S2": ["R1", "R2", "R3", "R4", "R5", "R6", "R7", "C1", "N1-d", "N2-a", "N2-c", "F1", "F2"],
     "S3": D_RULES + N_RULES + ["F1", "F2"],
     "S5": D_RULES + ["D9"] + N_RULES + ["F1", "F2"],
 }
@@ -121,11 +122,30 @@ def load_inputs(gate, run):
                 raise CannotJudge(f"역할별 노출 표의 숫자가 아님: {comp}")
         data["roles"] = roles
     if gate in FRAME_FILE:
-        doc = read_json(run / FRAME_FILE[gate])
-        if not isinstance(doc.get("frames"), list):
-            raise CannotJudge(f"{FRAME_FILE[gate]}에 frames 목록 없음")
-        data["frames"] = doc["frames"]
+        data["frames"] = load_frames(run, FRAME_FILE[gate])
     return data
+
+
+def load_frames(run, rel):
+    """단일 파일(design/s4-frames.json) 또는 프레임별 폴더(design/s4-frames/*.json) 중 하나."""
+    single, folder = run / rel, run / rel[:-len(".json")]
+    if single.exists() and folder.is_dir():
+        raise CannotJudge(f"{rel}과 {folder.name}/ 가 둘 다 있음 — 하나만 둔다")
+    if not folder.is_dir():
+        doc = read_json(single)
+        if not isinstance(doc.get("frames"), list):
+            raise CannotJudge(f"{rel}에 frames 목록 없음")
+        return doc["frames"]
+    parts = sorted(folder.glob("*.json"))
+    if not parts:
+        raise CannotJudge(f"{folder.name}/ 에 프레임 파일 없음")
+    frames = []
+    for p in parts:
+        doc = read_json(p)
+        if not isinstance(doc.get("frames"), list):
+            raise CannotJudge(f"{folder.name}/{p.name}에 frames 목록 없음")
+        frames += doc["frames"]
+    return frames
 
 
 # ---------- S1 ----------
@@ -208,13 +228,16 @@ def check_D1(d, r, run):
 
 
 def check_D2(d, r, run):
-    acc = norm_color(r["colors"]["accent"]["value"])
-    ok = r["colors"]["accent"]["only_within"]
     out = []
-    for f, n in iter_nodes(d["frames"]):
-        colors = [norm_color(c) for c in n.get("fills", []) + n.get("strokes", [])]
-        if acc in colors and not any(p in ok for p in (n.get("path") or [])):
-            out.append(v("D2", where(f, n), acc, f"{ok} 안에서만"))
+    for key in ("accent", "accent_soft"):
+        if key not in r["colors"]:
+            continue
+        acc = norm_color(r["colors"][key]["value"])
+        ok = r["colors"][key]["only_within"]
+        for f, n in iter_nodes(d["frames"]):
+            colors = [norm_color(c) for c in n.get("fills", []) + n.get("strokes", [])]
+            if acc in colors and not any(p in ok for p in (n.get("path") or [])):
+                out.append(v("D2", where(f, n), acc, f"{ok} 안에서만"))
     return out
 
 
@@ -420,6 +443,60 @@ def check_N2b(d, r, run):
     return out
 
 
+def check_C1(d, r, run):
+    """화면별 필수 컴포넌트: S2는 설계서의 '## 화면 N' 구성 요소, S3·S5는 그 화면 프레임 노드 이름."""
+    req = {int(k): v for k, v in r.get("screens_required", {}).items() if k.isdigit()}
+    out = []
+    if "frames" not in d:
+        for s, comps in req.items():
+            m = re.search(rf"^## 화면\s*{s}\s*$(.*?)(?=^## |\Z)", d["spec"], re.M | re.S)
+            if not m:
+                continue
+            names = set(re.findall(r"^-\s*([\w-]+)\s*:", m.group(1), re.M))
+            missing = [c for c in comps if c not in names]
+            if missing:
+                out.append(v("C1", f"spec/s2-spec.md 화면 {s}", f"없음 {missing}", comps))
+        return out
+    for f in d["frames"]:
+        s = frame_screen(f.get("name", ""), r)
+        if s not in req:
+            continue
+        names = {n.get("name") for n in f.get("nodes", [])}
+        missing = [c for c in req[s] if c not in names]
+        if missing:
+            out.append(v("C1", f["name"], f"없음 {missing}", req[s]))
+    return out
+
+
+def check_C2(d, r, run):
+    """하단 탭바: 화면 2~13 mobile 프레임마다 tab-bar 1개 + 그 안 tab-item 4개, 그 밖 프레임은 tab-bar 0."""
+    tb = r.get("tab_bar")
+    if not tb:
+        return []
+    out = []
+    for f in d["frames"]:
+        name = f.get("name", "")
+        s = frame_screen(name, r)
+        if s is None:
+            continue
+        nodes = f.get("nodes", [])
+        bars = [n for n in nodes if n.get("name") == tb["component"]]
+        need = name.endswith("-mobile") and s in tb["mobile_screens"]
+        if not need:
+            if bars:
+                out.append(v("C2", name, f"{tb['component']} {len(bars)}개", "0 (화면 1·desktop)"))
+            continue
+        if len(bars) != 1:
+            out.append(v("C2", name, f"{tb['component']} {len(bars)}개", 1))
+            continue
+        if "radius" in tb and radii(bars[0]) and any(x != tb["radius"] for x in radii(bars[0])):
+            out.append(v("C2", where(f, bars[0]), bars[0].get("cornerRadius"), f"radius {tb['radius']} (사각형)"))
+        items = [n for n in nodes if n.get("name") == tb["item"] and tb["component"] in (n.get("path") or [])]
+        if len(items) != tb["items"]:
+            out.append(v("C2", name, f"{tb['item']} {len(items)}개", tb["items"]))
+    return out
+
+
 def check_N2c(d, r, run):
     pat = re.compile(r["never"]["N2"]["key_value_pattern"])
     out = []
@@ -453,8 +530,12 @@ def tree_hash(r):
 
 def check_F1(d, r, run):
     allowed = set(r["files"]["allowed"])
+    patterns = r["files"].get("allowed_patterns", [])
+
+    def ok(rel):
+        return rel in allowed or any(fnmatch.fnmatchcase(rel, pat) for pat in patterns)
     return [v("F1", p.relative_to(run).as_posix(), "허용 목록 밖 파일", "rules.json files.allowed")
-            for p in sorted(run.rglob("*")) if p.is_file() and p.relative_to(run).as_posix() not in allowed]
+            for p in sorted(run.rglob("*")) if p.is_file() and not ok(p.relative_to(run).as_posix())]
 
 
 def check_F2(d, r, run):
@@ -468,6 +549,7 @@ def check_F2(d, r, run):
 CHECKS = {
     "S1-a": check_S1a, "S1-b": check_S1b,
     "R1": check_roles("R1"), "R2": check_roles("R2"), "R3": check_roles("R3"), "R4": check_roles("R4"),
+    "R5": check_roles("R5"), "R6": check_roles("R6"), "R7": check_roles("R7"), "C1": check_C1, "C2": check_C2,
     "D1": check_D1, "D2": check_D2, "D3": check_D3, "D4": check_D4, "D5": check_D5,
     "D6": check_D6, "D7": check_D7, "D8": check_D8, "D9": check_D9, "D10": check_D10,
     "N1-a": check_N1a, "N1-b": check_N1b, "N1-c": check_N1c, "N1-d": check_N1d,

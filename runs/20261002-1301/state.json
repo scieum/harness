@@ -1,0 +1,12 @@
+{
+  "stage": "done",
+  "retries": {
+    "S1": 0,
+    "S2": 0,
+    "S3": 0,
+    "S5": 0
+  },
+  "approval": "approved",
+  "baseline_hash": "33630574412be58de5a645f7ad944c0eb13d51e19299c519b9eb4f9c2e5fe6ec",
+  "note": "runs/20261002-1240 재실행 — mix-warning 연핑크 #fbe9f0 바탕(rules 1.7). S1 재사용, S2 경고색만 변경, S3는 S3-keyscreens-v4의 11-mobile mix-warning만 수정"
+}

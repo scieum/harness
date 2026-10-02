@@ -1,0 +1,12 @@
+{
+  "stage": "done",
+  "retries": {
+    "S1": 0,
+    "S2": 0,
+    "S3": 0,
+    "S5": 0
+  },
+  "approval": "approved",
+  "baseline_hash": "5eeb88da656fa84cb99f93e2a0a33eafe800a1ad26705c4efda7327872ddb0ea",
+  "note": "화면 2~12 모바일에 하단 사각형 탭바 추가(C2 일관성). 원본 = Figma 00 최신 시안(107:2). desktop은 내용 그대로"
+}

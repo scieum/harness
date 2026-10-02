@@ -556,6 +556,225 @@
             "letterSpacing": 0,
             "textCase": "ORIGINAL"
           }
+        },
+        {
+          "id": "9:1",
+          "name": "tab-bar",
+          "type": "FRAME",
+          "path": [
+            "2-mobile",
+            "tab-bar"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [
+            "#f0f0f0"
+          ],
+          "cornerRadius": 0,
+          "width": 390,
+          "height": 64,
+          "padding": [
+            8,
+            8,
+            8,
+            8
+          ],
+          "gap": 4,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "9:10",
+          "name": "tab-item",
+          "type": "FRAME",
+          "path": [
+            "2-mobile",
+            "tab-bar",
+            "tab-item"
+          ],
+          "fills": [],
+          "strokes": [],
+          "cornerRadius": 0,
+          "width": 84,
+          "height": 48,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "9:20",
+          "name": "label",
+          "type": "TEXT",
+          "path": [
+            "2-mobile",
+            "tab-bar",
+            "tab-item",
+            "label"
+          ],
+          "fills": [
+            "#707070"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 40,
+          "height": 16,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "홈",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 12,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "9:11",
+          "name": "tab-item",
+          "type": "FRAME",
+          "path": [
+            "2-mobile",
+            "tab-bar",
+            "tab-item"
+          ],
+          "fills": [],
+          "strokes": [],
+          "cornerRadius": 0,
+          "width": 84,
+          "height": 48,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "9:21",
+          "name": "label",
+          "type": "TEXT",
+          "path": [
+            "2-mobile",
+            "tab-bar",
+            "tab-item",
+            "label"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 40,
+          "height": 16,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "시약",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 12,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "9:12",
+          "name": "tab-item",
+          "type": "FRAME",
+          "path": [
+            "2-mobile",
+            "tab-bar",
+            "tab-item"
+          ],
+          "fills": [],
+          "strokes": [],
+          "cornerRadius": 0,
+          "width": 84,
+          "height": 48,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "9:22",
+          "name": "label",
+          "type": "TEXT",
+          "path": [
+            "2-mobile",
+            "tab-bar",
+            "tab-item",
+            "label"
+          ],
+          "fills": [
+            "#707070"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 40,
+          "height": 16,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "QR 스캔",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 12,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "9:13",
+          "name": "tab-item",
+          "type": "FRAME",
+          "path": [
+            "2-mobile",
+            "tab-bar",
+            "tab-item"
+          ],
+          "fills": [],
+          "strokes": [],
+          "cornerRadius": 0,
+          "width": 84,
+          "height": 48,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "9:23",
+          "name": "label",
+          "type": "TEXT",
+          "path": [
+            "2-mobile",
+            "tab-bar",
+            "tab-item",
+            "label"
+          ],
+          "fills": [
+            "#707070"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 40,
+          "height": 16,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "기록",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 12,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
         }
       ]
     }
