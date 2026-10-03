@@ -1,0 +1,12 @@
+{
+  "stage": "done",
+  "retries": {
+    "S1": 0,
+    "S2": 0,
+    "S3": 0,
+    "S5": 0
+  },
+  "approval": "approved",
+  "baseline_hash": "e656e76bdbfc09a5235f8ae3c1329a4e4609d70aec11e74ccbd5dac4fb1666ad",
+  "note": "둘러보기(비회원) 모드: 랜딩 15에 둘러보기 버튼 + 데모 학교 13·2·3 게스트 프레임 / S5 이후 사용자 Figma 수정(랜딩 15 줄바꿈 6곳, refs/figma-user-edits-20261003.md) 반영 → 15 JSON 재내보내기, S5 재판정"
+}

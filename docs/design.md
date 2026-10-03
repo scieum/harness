@@ -238,6 +238,13 @@ Composed only from the primitives and tokens above; no new literal values.
 - **`landing-hero`** — "Lab_Stock" wordmark, a one-line description in `{typography.heading-1}`, a `{typography.body-lg}` light subtitle. Monochrome; no school name (nothing is selected before sign-up)
 - **`feature-card`** — 3–4 cards (학교별 분리 · NEIS 학교 선택 · QR 스캔 · 재고 부족 알림): `{colors.canvas-soft}` fill, `{rounded.md}`, icon in `{colors.highlight}` + title + one line of body. The 재고 부족 알림 card may show a small `badge-low-stock` as an example (pink stays inside the badge)
 - **`landing-cta`** — bottom action area: `button-primary` "회원가입" (→ 14) and `button-outline` "로그인" (→ 1). No tab bar on this screen
+- **`guest-entry`** — a third, quieter action under the CTAs: `button-pill-soft` "둘러보기" (→ guest home). Added 2026-10-03
+
+**Guest mode (둘러보기, added 2026-10-03)** — read-only tour on the demo school
+
+- **`guest-banner`** — full-width strip at the top of every guest screen, under `nav-pill`: `{colors.highlight-soft}` fill, `{rounded.none}`, text "둘러보는 중 — 가입하면 우리 학교 데이터로 시작해요" in `{colors.ink}` `{typography.body-sm}`, a compact `button-primary` "가입하기" (→ 14) at the end
+- **`guest-lock`** — a small lock icon in `{colors.text-muted}`. Sits on every write action that stays visible but is disabled (e.g. "사용 기록 입력" in `quick-action`, "사용 기록" on reagent detail) and on the QR 스캔·기록 `tab-item`s. Tapping a locked item shows an `ex-toast` "가입하면 쓸 수 있어요" — never pink (no decision is pending)
+- School name shown everywhere is the single demo school "데모 학교"
 
 **`badge-overlay`** — translucent gray pill (rgba(115, 115, 115, 0.56)) with `{colors.on-primary}` `{typography.label}` text, laid over image content (manual preview tags)
 

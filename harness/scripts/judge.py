@@ -21,11 +21,12 @@ RULES_PATH = ROOT / "harness" / "rules.json"
 
 D_RULES = ["D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D10", "C1", "C2"]
 N_RULES = ["N1-a", "N1-b", "N1-c", "N1-d", "N2-a", "N2-b", "N2-c"]
+GM_RULES = ["GM1", "GM2", "GM3", "GM4", "GM5"]
 GATES = {
     "S1": ["S1-a", "S1-b", "F1", "F2"],
     "S2": ["R1", "R2", "R3", "R4", "R5", "R6", "R7", "C1", "N1-d", "N2-a", "N2-c", "F1", "F2"],
-    "S3": D_RULES + N_RULES + ["F1", "F2"],
-    "S5": D_RULES + ["D9"] + N_RULES + ["F1", "F2"],
+    "S3": D_RULES + N_RULES + GM_RULES + ["F1", "F2"],
+    "S5": D_RULES + ["D9"] + N_RULES + GM_RULES + ["F1", "F2"],
 }
 FRAME_FILE = {"S3": "design/s3-keyscreens.json", "S5": "design/s4-frames.json"}
 
@@ -336,22 +337,23 @@ def check_D8(d, r, run):
 def check_D9(d, r, run):
     fr = r["frames"]
     expected = {f"{s}-{dev}" for s in d["input"]["screens"] for dev in ("mobile", "desktop")}
+    expected |= {f"{s}-guest-{dev}" for s in d["input"].get("guest_screens", []) for dev in ("mobile", "desktop")}
     out = []
     names = set()
     for f in d["frames"]:
         name = f.get("name", "")
         names.add(name)
-        if not re.match(fr["name_pattern"], name):
+        if not (re.match(fr["name_pattern"], name) or is_guest(name, r)):
             out.append(v("D9", name, "프레임 이름", fr["name_pattern"]))
             continue
         size = [f.get("width"), f.get("height")]
-        want = fr[name.split("-")[1]]
+        want = fr[name.split("-")[-1]]
         if size != want:
             out.append(v("D9", name, size, want))
     for name in sorted(expected - names):
         out.append(v("D9", name, "없음", "프레임 필요"))
     for name in sorted(names - expected):
-        if re.match(fr["name_pattern"], name):
+        if re.match(fr["name_pattern"], name) or is_guest(name, r):
             out.append(v("D9", name, "대상 밖 프레임", sorted(expected)))
     return out
 
@@ -498,6 +500,88 @@ def check_C2(d, r, run):
     return out
 
 
+def is_guest(name, r):
+    pat = r["frames"].get("guest_name_pattern")
+    return bool(pat and re.match(pat, name))
+
+
+def guest_frames(d, r):
+    return [f for f in d["frames"] if is_guest(f.get("name", ""), r)]
+
+
+def check_GM1(d, r, run):
+    """둘러보기 띠: guest-banner 1개 + 그 안 가입 버튼."""
+    g = r.get("guest")
+    out = []
+    for f in guest_frames(d, r) if g else []:
+        bars = [n for n in f["nodes"] if n.get("name") == g["banner"]]
+        if len(bars) != 1:
+            out.append(v("GM1", f["name"], f"{g['banner']} {len(bars)}개", 1))
+            continue
+        if not any(n.get("name") == g["banner_cta"] and g["banner"] in (n.get("path") or []) for n in f["nodes"]):
+            out.append(v("GM1", f["name"], "띠 안 가입 버튼 없음", g["banner_cta"]))
+    return out
+
+
+def check_GM2(d, r, run):
+    """숨김 컴포넌트 0."""
+    g = r.get("guest")
+    return [v("GM2", where(f, n), n["name"], "둘러보기에서 0")
+            for f in (guest_frames(d, r) if g else []) for n in f["nodes"] if n.get("name") in g["hidden_components"]]
+
+
+def check_GM3(d, r, run):
+    """학교명 = 데모 학교 1종 (실제 학교명 패턴·input school_name 0)."""
+    g = r.get("guest")
+    if not g:
+        return []
+    pat = re.compile(r["never"]["N1"]["school_name_pattern"])
+    real = d["input"].get("school_name")
+    out = []
+    for f in guest_frames(d, r):
+        ts = [t for _, _, t in texts([f])]
+        if not any(g["school_name"] in t for t in ts):
+            out.append(v("GM3", f["name"], "데모 학교 표시 없음", g["school_name"]))
+        others = sorted({m.group(0) for t in ts for m in pat.finditer(t)} | ({real} if real and any(real in t for t in ts) else set()))
+        if others:
+            out.append(v("GM3", f["name"], others, f"{g['school_name']} 1종"))
+    return out
+
+
+def check_GM4(d, r, run):
+    """탭바: mobile = tab-bar 1·tab-item 4·그 안 guest-lock 2(QR·기록), desktop = tab-bar 0."""
+    g, tb = r.get("guest"), r.get("tab_bar")
+    out = []
+    for f in (guest_frames(d, r) if g and tb else []):
+        nodes = f["nodes"]
+        bars = [n for n in nodes if n.get("name") == tb["component"]]
+        if f["name"].endswith("-desktop"):
+            if bars:
+                out.append(v("GM4", f["name"], f"{tb['component']} {len(bars)}개", "0 (desktop)"))
+            continue
+        items = [n for n in nodes if n.get("name") == tb["item"] and tb["component"] in (n.get("path") or [])]
+        locks = [n for n in nodes if n.get("name") == g["lock"] and tb["component"] in (n.get("path") or [])]
+        if len(bars) != 1 or len(items) != tb["items"]:
+            out.append(v("GM4", f["name"], f"tab-bar {len(bars)}·tab-item {len(items)}", f"1·{tb['items']}"))
+        if len(locks) != g["tab_locks"]:
+            out.append(v("GM4", f["name"], f"탭 잠금 {len(locks)}개", f"{g['tab_locks']} ({g['locked_tabs']})"))
+    return out
+
+
+def check_GM5(d, r, run):
+    """쓰기 동작 잠금: write_lock_screens의 둘러보기 프레임에 탭바 밖 guest-lock ≥ 1."""
+    g, tb = r.get("guest"), r.get("tab_bar") or {"component": "tab-bar"}
+    out = []
+    for f in (guest_frames(d, r) if g else []):
+        s = int(f["name"].split("-")[0])
+        if s not in g["write_lock_screens"]:
+            continue
+        locks = [n for n in f["nodes"] if n.get("name") == g["lock"] and tb["component"] not in (n.get("path") or [])]
+        if not locks:
+            out.append(v("GM5", f["name"], "쓰기 동작 잠금 0", "guest-lock ≥ 1 (탭바 밖)"))
+    return out
+
+
 def check_N2c(d, r, run):
     pat = re.compile(r["never"]["N2"]["key_value_pattern"])
     out = []
@@ -555,6 +639,7 @@ CHECKS = {
     "D6": check_D6, "D7": check_D7, "D8": check_D8, "D9": check_D9, "D10": check_D10,
     "N1-a": check_N1a, "N1-b": check_N1b, "N1-c": check_N1c, "N1-d": check_N1d,
     "N2-a": check_N2a, "N2-b": check_N2b, "N2-c": check_N2c,
+    "GM1": check_GM1, "GM2": check_GM2, "GM3": check_GM3, "GM4": check_GM4, "GM5": check_GM5,
     "F1": check_F1, "F2": check_F2,
 }
 

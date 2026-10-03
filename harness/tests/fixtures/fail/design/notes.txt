@@ -3,3 +3,4 @@ N1-d: 화면 1이 school-select 1개뿐 (3단계 없음)
 N2-c: 5-mobile/leak 노드에 32자리 16진수
 D10: 2-mobile badge-low-stock 안 하늘색(sky-dot), 하늘색 글자(sky-text)
 D2: 2-mobile tint-row에 연핑크 #fbe9f0 (허용 범위 밖)
+GM: 3-guest-mobile — 띠 없음(GM1), stock-intake(GM2), 샘플고등학교·데모 학교 없음(GM3), 탭바 없음(GM4), 쓰기 잠금 없음(GM5), 3-guest-desktop 없음(D9)

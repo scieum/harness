@@ -34,6 +34,7 @@ docs/, harness/, 다른 runs/{id}/ 하위 폴더는 절대 쓰지 않는다.
 - 화면 14(회원가입) 학교 선택 = 3단계 노드 `school-select-sido` → `school-select-region` → `school-select-school` (노드 순서 그대로, N1-d). 선택값·목록 항목은 neis.json의 sido·region·school_list에서만 가져온다. 최종 선택 학교 = school_name.
 - 모바일 하단 탭바(C2): 화면 2~13 mobile 프레임마다 `tab-bar` 1개, 그 안에 `tab-item` 4개(홈·시약·QR 스캔·기록, 역할 무관 동일). 화면 1(로그인)·14(회원가입)·15(랜딩)와 desktop에는 넣지 않는다.
 - 화면 1(로그인)은 개인 이메일·비밀번호만 — school-select* 금지(N1-c), 학교명 표시 없음, "회원가입" 링크로 화면 14. 모양은 docs/design.md `tab-bar` — 하단에 붙은 전폭 사각형(radius 0), pill 아님.
+- 둘러보기(guest) 프레임: input.json `guest_screens` 화면마다 `{ID}-guest-mobile`·`{ID}-guest-desktop`. 학교명은 "데모 학교"만, 상단 `guest-banner`(안에 button-primary 가입), 쓰기 동작은 숨기거나(rules.json guest.hidden_components) 잠금(`guest-lock`), mobile 탭바의 QR 스캔·기록 tab-item에 `guest-lock` 각 1 (GM1~5).
 - 키·인증키 입력 칸이나 키 값처럼 보이는 문자열을 그리지 않는다 (N2-a·N2-c).
 - 재시도 시: judge 결과에 나온 노드만 고친다. 다른 노드는 건드리지 않는다.
 

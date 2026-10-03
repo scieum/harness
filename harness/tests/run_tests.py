@@ -18,7 +18,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 JUDGE = HERE.parent / "scripts" / "judge.py"
 GATES = ["S1", "S2", "S3", "S5"]
-N_RULES = {"N1-a", "N1-b", "N1-c", "N1-d", "N2-a", "N2-b", "N2-c"}
+N_RULES = {"N1-a", "N1-b", "N1-c", "N1-d", "N2-a", "N2-b", "N2-c", "GM1", "GM2", "GM3", "GM4", "GM5"}
 failures = []
 
 
@@ -72,7 +72,7 @@ def main():
                 print("         실제:", got)
         all_rules = {r for g in expected.values() for r in g}
         check(caught == all_rules, f"전체 규칙 {len(caught)}/{len(all_rules)}종 검출")
-        check(N_RULES <= caught, f"★ N1·N2 규칙 {len(N_RULES & caught)}/{len(N_RULES)} 검출")
+        check(N_RULES <= caught, f"★ N1·N2·GM 규칙 {len(N_RULES & caught)}/{len(N_RULES)} 검출")
 
         print("[split]")
         split = Path(tmp) / "split"

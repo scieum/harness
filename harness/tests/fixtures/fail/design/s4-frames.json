@@ -1762,6 +1762,249 @@
           }
         }
       ]
+    },
+    {
+      "name": "3-guest-mobile",
+      "width": 390,
+      "height": 844,
+      "nodes": [
+        {
+          "id": "1:100",
+          "name": "school-name",
+          "type": "TEXT",
+          "path": [
+            "3-guest-mobile",
+            "school-name"
+          ],
+          "fills": [
+            "#707070"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "샘플고등학교",
+            "fontFamily": "Pretendard",
+            "fontWeight": 400,
+            "fontSize": 12,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:101",
+          "name": "title",
+          "type": "TEXT",
+          "path": [
+            "3-guest-mobile",
+            "title"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "시약 상세",
+            "fontFamily": "Pretendard",
+            "fontWeight": 700,
+            "fontSize": 28,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:97",
+          "name": "reagent-detail-card",
+          "type": "FRAME",
+          "path": [
+            "3-guest-mobile",
+            "reagent-detail-card"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [
+            "#f0f0f0"
+          ],
+          "cornerRadius": 24,
+          "width": 100,
+          "height": 100,
+          "padding": [
+            24,
+            24,
+            24,
+            24
+          ],
+          "gap": 16,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:102",
+          "name": "stock",
+          "type": "TEXT",
+          "path": [
+            "3-guest-mobile",
+            "reagent-detail-card",
+            "stock"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "500",
+            "fontFamily": "Pretendard",
+            "fontWeight": 700,
+            "fontSize": 32,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "1:98",
+          "name": "msds-qr-tile",
+          "type": "FRAME",
+          "path": [
+            "3-guest-mobile",
+            "reagent-detail-card",
+            "msds-qr-tile"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [
+            "#f0f0f0"
+          ],
+          "cornerRadius": 24,
+          "width": 100,
+          "height": 100,
+          "padding": [
+            24,
+            24,
+            24,
+            24
+          ],
+          "gap": 16,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:99",
+          "name": "msds-entry",
+          "type": "FRAME",
+          "path": [
+            "3-guest-mobile",
+            "reagent-detail-card",
+            "msds-qr-tile",
+            "msds-entry"
+          ],
+          "fills": [],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 100,
+          "height": 100,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:103",
+          "name": "button-pill-soft",
+          "type": "FRAME",
+          "path": [
+            "3-guest-mobile",
+            "reagent-detail-card",
+            "msds-qr-tile",
+            "msds-entry",
+            "button-pill-soft"
+          ],
+          "fills": [
+            "#f3f3f3"
+          ],
+          "strokes": [],
+          "cornerRadius": 9999,
+          "width": 100,
+          "height": 44,
+          "padding": [
+            0,
+            16,
+            0,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "1:104",
+          "name": "label",
+          "type": "TEXT",
+          "path": [
+            "3-guest-mobile",
+            "reagent-detail-card",
+            "msds-qr-tile",
+            "msds-entry",
+            "button-pill-soft",
+            "label"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 80,
+          "height": 22,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "MSDS 보기",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 15,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "g:20",
+          "name": "stock-intake",
+          "type": "FRAME",
+          "path": [
+            "3-guest-mobile",
+            "stock-intake"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": 9999,
+          "width": 80,
+          "height": 44,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": null
+        }
+      ]
     }
   ]
 }

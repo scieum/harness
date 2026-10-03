@@ -6,7 +6,7 @@
 ## 0. 전제: 노드 이름 규칙
 
 - 컴포넌트 노드 이름 = design.md 컴포넌트명 (button-primary, badge-low-stock, reorder-alert-card, school-select …)
-- 2026-10-02 추가 이름: `stock-intake`, `reagent-register`, `user-manage`, `cabinet-edit`, `cabinet-door-select`, `cabinet-shelf-select`, `cabinet-slot`, `storage-class-chip`, `mix-warning`, `qr-scan`, `qr-manual-entry`, `home-summary`, `quick-action`, `tab-bar`, `tab-item`, `landing-hero`, `feature-card`, `landing-cta`(2026-10-03)
+- 2026-10-02 추가 이름: `stock-intake`, `reagent-register`, `user-manage`, `cabinet-edit`, `cabinet-door-select`, `cabinet-shelf-select`, `cabinet-slot`, `storage-class-chip`, `mix-warning`, `qr-scan`, `qr-manual-entry`, `home-summary`, `quick-action`, `tab-bar`, `tab-item`, `landing-hero`, `feature-card`, `landing-cta`, `guest-entry`, `guest-banner`, `guest-lock`(2026-10-03)
 - R5에서 추가한 이름: `manual-upload`, `vendor-link`, `vendor-register`, `msds-entry` (S2 설계서와 Figma 노드에 동일하게 사용)
 - NEIS 학교 선택(2026-10-01)으로 추가한 이름: `school-select-sido`, `school-select-region`, `school-select-school` (school-select 대신 사용)
 - 스크립트는 이름으로 노드를 찾는다 → 이름이 없거나 다르면 해당 규칙 "판정 불가" = 실패로 센다
@@ -17,9 +17,9 @@
 |---|---|---|---|---|
 | G-S1 | S1 끝 | research/s1-references.md, research/s1-adopt.md | S1-a, S1-b | 위반 0 |
 | G-S2 | S2 끝 | spec/s2-spec.md | R1~R7, C1, N1-d, N2-a, N2-c | 위반 0 |
-| G-S3 | S3 끝, 승인 요청 전 | design/s3-keyscreens.json | D1~D8, D10, C1, C2, N1-a~d, N2-a~c | 위반 0일 때만 승인 요청 생성 |
+| G-S3 | S3 끝, 승인 요청 전 | design/s3-keyscreens.json | D1~D8, D10, C1, C2, N1-a~d, N2-a~c, GM1~5 | 위반 0일 때만 승인 요청 생성 |
 | G-승인 ★사람 | S3→S4 | approval.md | result 줄 | result = approved |
-| G-S5 | S5 | design/s4-frames.json | D1~D10, C1, C2, N1-a~d, N2-a~c | 위반 0 = 완료 |
+| G-S5 | S5 | design/s4-frames.json | D1~D10, C1, C2, N1-a~d, N2-a~c, GM1~5 | 위반 0 = 완료 |
 
 ## 2. 규칙
 
@@ -75,6 +75,18 @@
 | N2-a | 키 서버 전용 | 금지어 포함 텍스트 = 0 (프레임 + s2-spec.md) |
 | N2-b | 키 서버 전용 | 화면 5의 text-input 중 라벨에 키·모델·model 포함 = 0 |
 | N2-c | 키 서버 전용 | 키 형식 문자열(32자리 16진수) = 0 (프레임 + s2-spec.md). 실제 키 값은 .env에만 |
+
+### GM — 둘러보기(비회원) 모드 (2026-10-03)
+
+둘러보기 프레임 = 이름 `{화면}-guest-{mobile|desktop}` (rules.json frames.guest_name_pattern). input.json `guest_screens`에 있는 화면만 만든다(D9이 셈). 일반 프레임 규칙(N1-a·b, C1, C2)은 둘러보기 프레임에 적용하지 않고 아래 GM 규칙을 쓴다. D 규칙은 모든 프레임에 적용.
+
+| ID | 조건 |
+|---|---|
+| GM1 | guest-banner 1개 + 그 안 button-primary(가입) |
+| GM2 | rules.json guest.hidden_components (입고·등록·매뉴얼·사용자 관리·시약장 편집·판매처·재주문·학교 선택) = 0 |
+| GM3 | 학교명 = "데모 학교" ≥ 1, 실제 학교명 패턴(…고등학교)·input school_name = 0 |
+| GM4 | mobile: tab-bar 1·tab-item 4·탭바 안 guest-lock 2(QR 스캔·기록), desktop: tab-bar 0 |
+| GM5 | 화면 13·3 둘러보기: 탭바 밖 guest-lock ≥ 1 (쓰기 동작 잠금) |
 
 ## 3. 사람 승인 (1곳)
 
