@@ -233,6 +233,14 @@ Composed only from the primitives and tokens above; no new literal values.
 
 ### Signature Components
 
+**Multiple cabinets (screen 11, added 2026-10-04)**
+
+- **`cabinet-switcher`** — horizontal row of pills, one per cabinet ("1번 시약장", "2번 시약장", …), scrolls sideways when long. Active cabinet = `{colors.highlight-soft}` fill + `{colors.highlight}` 1px border, label `{colors.ink}`; others `{colors.canvas-soft}`. Visible to every role
+- **`cabinet-add`** — `button-pill-soft` "+ 시약장 추가" at the end of the switcher (teacher·admin only; never rendered for students)
+- Rename and delete live inside `cabinet-edit`: `button-outline` "이름 바꾸기" and a quiet text action "삭제". Delete opens an `ex-modal-card` confirm — "이 시약장을 삭제할까요? 배치된 시약 N개는 '칸 없음'으로 바뀌어요" with `button-outline` "취소" and `button-primary` "삭제". No pink: deleting a cabinet is not a stock or safety signal
+- Unassigned reagents show the slot label "칸 없음" in `{colors.text-muted}`
+- Empty state (no cabinets yet): `ex-empty-state-card` "아직 시약장이 없어요" + one line of guidance; teachers·admins get `cabinet-add` inside the card, students see the text only
+
 **Landing (screen 15, added 2026-10-03)** — the pre-login first screen
 
 - **`landing-hero`** — "Lab_Stock" wordmark, a one-line description in `{typography.heading-1}`, a `{typography.body-lg}` light subtitle. Monochrome; no school name (nothing is selected before sign-up)

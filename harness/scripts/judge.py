@@ -81,8 +81,15 @@ def md_tables_by_section(text, section_re):
     return out
 
 
+def frame_variant(name, rules):
+    """상태 프레임({ID}-{state}-{device})이면 state, 아니면 None."""
+    pat = rules["frames"].get("variant_name_pattern")
+    m = re.match(pat, name) if pat else None
+    return m.group(2) if m else None
+
+
 def frame_screen(name, rules):
-    if not re.match(rules["frames"]["name_pattern"], name):
+    if not (re.match(rules["frames"]["name_pattern"], name) or frame_variant(name, rules)):
         return None
     return int(name.split("-")[0])
 
@@ -338,12 +345,13 @@ def check_D9(d, r, run):
     fr = r["frames"]
     expected = {f"{s}-{dev}" for s in d["input"]["screens"] for dev in ("mobile", "desktop")}
     expected |= {f"{s}-guest-{dev}" for s in d["input"].get("guest_screens", []) for dev in ("mobile", "desktop")}
+    expected |= {f"{s}-{st}-{dev}" for s, sts in d["input"].get("variants", {}).items() for st in sts for dev in ("mobile", "desktop")}
     out = []
     names = set()
     for f in d["frames"]:
         name = f.get("name", "")
         names.add(name)
-        if not (re.match(fr["name_pattern"], name) or is_guest(name, r)):
+        if not (re.match(fr["name_pattern"], name) or is_guest(name, r) or frame_variant(name, r)):
             out.append(v("D9", name, "프레임 이름", fr["name_pattern"]))
             continue
         size = [f.get("width"), f.get("height")]
@@ -353,7 +361,7 @@ def check_D9(d, r, run):
     for name in sorted(expected - names):
         out.append(v("D9", name, "없음", "프레임 필요"))
     for name in sorted(names - expected):
-        if re.match(fr["name_pattern"], name) or is_guest(name, r):
+        if re.match(fr["name_pattern"], name) or is_guest(name, r) or frame_variant(name, r):
             out.append(v("D9", name, "대상 밖 프레임", sorted(expected)))
     return out
 
@@ -460,14 +468,17 @@ def check_C1(d, r, run):
             if missing:
                 out.append(v("C1", f"spec/s2-spec.md 화면 {s}", f"없음 {missing}", comps))
         return out
+    var_req = r.get("variants", {})
     for f in d["frames"]:
         s = frame_screen(f.get("name", ""), r)
-        if s not in req:
+        state = frame_variant(f.get("name", ""), r)
+        need = var_req.get(str(s), {}).get(state, []) if state else req.get(s, [])
+        if not need:
             continue
         names = {n.get("name") for n in f.get("nodes", [])}
-        missing = [c for c in req[s] if c not in names]
+        missing = [c for c in need if c not in names]
         if missing:
-            out.append(v("C1", f["name"], f"없음 {missing}", req[s]))
+            out.append(v("C1", f["name"], f"없음 {missing}", need))
     return out
 
 

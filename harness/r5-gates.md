@@ -6,7 +6,7 @@
 ## 0. 전제: 노드 이름 규칙
 
 - 컴포넌트 노드 이름 = design.md 컴포넌트명 (button-primary, badge-low-stock, reorder-alert-card, school-select …)
-- 2026-10-02 추가 이름: `stock-intake`, `reagent-register`, `user-manage`, `cabinet-edit`, `cabinet-door-select`, `cabinet-shelf-select`, `cabinet-slot`, `storage-class-chip`, `mix-warning`, `qr-scan`, `qr-manual-entry`, `home-summary`, `quick-action`, `tab-bar`, `tab-item`, `landing-hero`, `feature-card`, `landing-cta`, `guest-entry`, `guest-banner`, `guest-lock`(2026-10-03)
+- 2026-10-02 추가 이름: `stock-intake`, `reagent-register`, `user-manage`, `cabinet-edit`, `cabinet-door-select`, `cabinet-shelf-select`, `cabinet-slot`, `storage-class-chip`, `mix-warning`, `qr-scan`, `qr-manual-entry`, `home-summary`, `quick-action`, `tab-bar`, `tab-item`, `landing-hero`, `feature-card`, `landing-cta`, `guest-entry`, `guest-banner`, `guest-lock`(2026-10-03), `cabinet-switcher`, `cabinet-add`(2026-10-04)
 - R5에서 추가한 이름: `manual-upload`, `vendor-link`, `vendor-register`, `msds-entry` (S2 설계서와 Figma 노드에 동일하게 사용)
 - NEIS 학교 선택(2026-10-01)으로 추가한 이름: `school-select-sido`, `school-select-region`, `school-select-school` (school-select 대신 사용)
 - 스크립트는 이름으로 노드를 찾는다 → 이름이 없거나 다르면 해당 규칙 "판정 불가" = 실패로 센다
@@ -40,13 +40,13 @@
 | R4 | MSDS 진입점(msds-entry): 학생·교사·admin 행 각각 ≥ 1 |
 | R5 | 학생 행: 입고(stock-intake) = 0, 시약 등록(reagent-register) = 0 (화면 7, 2026-10-02) |
 | R6 | 사용자 관리(user-manage): admin 행에만 존재 (화면 8, 2026-10-02) |
-| R7 | 학생 행: 시약장 편집(cabinet-edit) = 0 (화면 11, 2026-10-02) |
+| R7 | 학생 행: 시약장 편집(cabinet-edit)·시약장 추가(cabinet-add) = 0 (화면 11, 2026-10-02·10-04) |
 
 ### C — 화면별 필수 컴포넌트 (2026-10-02)
 
 | ID | 조건 |
 |---|---|
-| C1 | rules.json `screens_required`의 화면(11 시약장 설정, 12 QR 스캔, 13 홈, 15 랜딩): S2는 설계서 해당 화면 구성 요소에, S3·S5는 해당 화면 프레임 노드 이름에 필수 컴포넌트가 모두 있음 |
+| C1 | rules.json `screens_required`의 화면(11 시약장 설정, 12 QR 스캔, 13 홈, 15 랜딩): S2는 설계서 해당 화면 구성 요소에, S3·S5는 해당 화면 프레임 노드 이름에 필수 컴포넌트가 모두 있음. 상태 프레임({ID}-{empty|delete}-*)은 rules.json `variants`의 목록으로 검사 (2026-10-04) |
 | C2 | 하단 탭바: 화면 2~13 mobile 프레임마다 tab-bar 1개(radius 0 사각형) + 그 안 tab-item 4개, 화면 1·14·15·desktop 프레임에는 tab-bar 0 (2026-10-02) |
 
 ### D — 디자인 가이드 (story-work 멈칫 7)
@@ -61,7 +61,7 @@
 | D6 | DROP_SHADOW 개수 = 0 (segmented-control-active 예외) |
 | D7 | auto-layout padding·gap ∈ spacing.allowed |
 | D8 | button-* 노드: cornerRadius = 9999, height ≥ 44 |
-| D9 | 프레임 수 = 화면 수 × 2, 크기 ∈ {390×844, 1440×900} (S5만) |
+| D9 | 프레임 수 = 화면 수 × 2 (+ 둘러보기 guest_screens × 2 + 상태 variants × 2), 크기 ∈ {390×844, 1440×900} (S5만) |
 | D10 | 하늘색(#2b9fe0·#e6f4fc): badge-low-stock·reorder-alert-card·mix-warning·button-primary 안에서 0, 텍스트 노드 글자색으로 0 (2026-10-02) |
 
 ### N — 어기면 안 되는 것 ★ (story-service N1·N2)

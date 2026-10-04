@@ -2005,6 +2005,65 @@
           "text": null
         }
       ]
+    },
+    {
+      "name": "11-empty-mobile",
+      "width": 390,
+      "height": 844,
+      "nodes": [
+        {
+          "id": "v:1",
+          "name": "school-name",
+          "type": "TEXT",
+          "path": [
+            "11-empty-mobile",
+            "school-name"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 120,
+          "height": 20,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "샘플고등학교",
+            "fontFamily": "Pretendard",
+            "fontWeight": 600,
+            "fontSize": 15,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
+        },
+        {
+          "id": "v:2",
+          "name": "ex-empty-state-card",
+          "type": "FRAME",
+          "path": [
+            "11-empty-mobile",
+            "ex-empty-state-card"
+          ],
+          "fills": [
+            "#f3f3f3"
+          ],
+          "strokes": [],
+          "cornerRadius": 24,
+          "width": 358,
+          "height": 200,
+          "padding": [
+            24,
+            24,
+            24,
+            24
+          ],
+          "gap": 16,
+          "effects": [],
+          "text": null
+        }
+      ]
     }
   ]
 }

@@ -8,5 +8,10 @@
   "school_name": "샘플고등학교",
   "guest_screens": [
     3
-  ]
+  ],
+  "variants": {
+    "11": [
+      "empty"
+    ]
+  }
 }

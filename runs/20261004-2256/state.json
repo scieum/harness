@@ -1,0 +1,12 @@
+{
+  "stage": "done",
+  "retries": {
+    "S1": 0,
+    "S2": 0,
+    "S3": 0,
+    "S5": 0
+  },
+  "approval": "approved",
+  "baseline_hash": "2546e8f2b72226971f6de3186f6d50c554eaf3766bc0bdecd9af35dabe83045f",
+  "note": "화면 11 여러 시약장: 전환·추가·이름 바꾸기·삭제(칸 없음)·0개 빈 상태 (개발 세션 요청 2026-10-04)"
+}
