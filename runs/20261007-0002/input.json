@@ -1,0 +1,7 @@
+{
+  "screens": [2, 3, 7],
+  "variants": {"2": ["msds-bulk"], "3": ["location", "msds"], "7": ["doc-upload", "doc-review", "doc-fail", "suggest", "msds"]},
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/yPF9ZLVjkg22kgSDD2aKEd",
+  "keyscreens": ["7-doc-review-mobile", "7-suggest-mobile", "7-msds-mobile"]
+}
