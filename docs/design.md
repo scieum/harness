@@ -194,11 +194,13 @@ Composed only from the primitives and tokens above; no new literal values.
 
 - Uses `ex-data-table-cell` chrome inside a `{rounded.sm}` container; editable cells use `text-input`
 - Closed by a `button-primary` "확인 후 저장" (results are saved only after the user confirms — PRD §5)
+- Each extracted row has a second line (added 2026-10-06): "우리 학교 시약" select + delete, and a muted note "기존 기준 N · 그대로 둬요 / 바뀌어요". Unit is a select (병 · mL · g). The 조 수 field starts empty
 
 **`reorder-alert-card`** — reorder alert → vendor link
 
 - `{colors.canvas-soft}` fill, borderless, `{rounded.md}` corners, padding `{spacing.lg}`
 - `badge-low-stock` + reagent name in `{typography.heading-4}` + required vs. current amount in `{typography.body}`, closed by a `button-primary` "판매처 연결"
+- After the vendor is confirmed (added 2026-10-06): a muted line "사이트를 새 창으로 열었어요. 열리지 않았다면 [직접 열기]" with the link as `button-pill-soft`
 
 ### Inputs & Forms
 
@@ -217,6 +219,8 @@ Composed only from the primitives and tokens above; no new literal values.
 - A floating, horizontally-centered stadium bar in `{colors.canvas-soft}`: "Lab_Stock" logomark + wordmark left, section links in `{typography.link}` right, capped by a `button-primary` CTA
 - Detaches from the page edge with visible canvas above it; persists as a sticky element on scroll
 
+- After login, the school name in the pill carries a small ▾ (**`nav-account-menu`**, added 2026-10-06): it opens a small `{colors.canvas}` menu (`{rounded.md}`, 1px `{colors.hairline-soft}` outline) with one item "로그아웃"
+
 **Top Nav (Mobile)**
 
 - The pill tightens to logomark + CTA; links collapse behind the pill
@@ -229,7 +233,7 @@ Composed only from the primitives and tokens above; no new literal values.
 - Each `tab-item` is an icon above a `{typography.label}` label, tap target ≥ 44px, square (no pill behind it)
 - Active tab: `{colors.highlight}` icon with `{colors.ink}` label. Inactive: `{colors.text-muted}` icon and label
 - Present on every mobile screen after login (screens 2–13); absent on login (screen 1) and on desktop, where `nav-pill` carries navigation
-- Role-specific actions (입고, 사용자 관리) are never tabs; they live in the home `quick-action` area
+- Role-specific actions (입고, 사용자 관리) are never tabs; they live in the home `quick-action` area — three tiles (added 2026-10-06): teacher = 사용 기록 입력 · 입고 · 시약장 설정, admin = 입고 · 사용자 관리 · 시약장 설정; mobile lays them out 2 + 1
 
 ### Signature Components
 
@@ -240,6 +244,24 @@ Composed only from the primitives and tokens above; no new literal values.
 - Rename and delete live inside `cabinet-edit`: `button-outline` "이름 바꾸기" and a quiet text action "삭제". Delete opens an `ex-modal-card` confirm — "이 시약장을 삭제할까요? 배치된 시약 N개는 '칸 없음'으로 바뀌어요" with `button-outline` "취소" and `button-primary` "삭제". No pink: deleting a cabinet is not a stock or safety signal
 - Unassigned reagents show the slot label "칸 없음" in `{colors.text-muted}`
 - Empty state (no cabinets yet): `ex-empty-state-card` "아직 시약장이 없어요" + one line of guidance; teachers·admins get `cabinet-add` inside the card, students see the text only
+- Unsaved edits (added 2026-10-06): switching cabinets or leaving with unsaved `cabinet-edit` changes opens an `ex-modal-card` — "저장하지 않은 변경이 있어요" with `button-outline` "버리고 이동" and `button-primary` "계속 편집". No pink
+
+**Cabinet number & QR print (screens 11·12, added 2026-10-06)**
+
+- **`cabinet-number`** — every cabinet has a fixed school-local number (1, 2, 3 …) separate from its editable name; a deleted number is never reused. Rendered as a small `{colors.canvas}` circle with 1px `{colors.hairline}` border and the numeral in `{colors.ink}` `{typography.label}`, placed before the name inside each `cabinet-switcher` pill and on the QR label. Never pink, never sky-blue text
+- **`qr-print`** — `button-outline` "QR 인쇄" in the screen 11 management row beside "이름 바꾸기" (teacher·admin only; never rendered for students)
+- **`qr-print-sheet`** — bottom sheet (mobile) / `ex-modal-card` (desktop): cabinet choice as `storage-class-chip`-style pills (default = current cabinet, plus "모두"), a white A4 preview tile (`{colors.hairline-soft}` outline, `{rounded.md}`) holding several `qr-label`s, closed by `button-primary` "인쇄". × close top right
+- **`qr-label`** — one printable label: QR image 1:1 `{rounded.none}`, school name in `{typography.caption}`, `cabinet-number` + cabinet name in `{typography.title}`, one line "QR을 찍으면 이 시약장의 시약을 봐요" in `{typography.caption}` `{colors.text-muted}`. Monochrome only — it is printed
+- **`qr-result-sheet`** (screen 12) — after a scan or a manual number lookup: sheet titled `cabinet-number` + cabinet name, the cabinet's reagents as `reagent-row`s each with its slot ("좌 2단" / "칸 없음" muted), closed by `button-pill-soft` "배치도 보기" (→ that cabinet on screen 11). `qr-manual-entry` asks for "시약장 번호" (numeric `text-input`)
+
+**Reagent slots (screens 11·3, added 2026-10-06)**
+
+- **`slot-count`** — small `{colors.canvas}` pill inside a `cabinet-slot` showing how many reagents it holds ("3"), `{typography.label}` `{colors.ink}`. Empty slots show nothing. Never pink — a count is not a decision signal
+- **`slot-sheet`** — tapping a `cabinet-slot` opens a sheet: slot name ("좌 2단") + its `storage-class-chip`s, the reagents in it as `reagent-row`s, each with a quiet "빼기" text action (teacher·admin). Students see the list only
+- **`slot-assign`** — `button-primary` "시약 넣기" at the bottom of `slot-sheet` (teacher·admin only); opens a picker list of "칸 없음" reagents with a search `text-input`
+- Class mismatch (warn, never block): when a reagent's storage class is not among the slot's classes, show `mix-warning` "이 칸은 {분류} 칸이에요 — 그래도 넣을 수 있어요"; when it forms a `cabinet.incompatible` pair with the slot or a reagent already there, the same `mix-warning` with stronger copy "{A}와 {B}는 섞으면 위험해요". Saving stays enabled in both cases
+- **`reagent-location`** (screen 3) — a row in `reagent-detail-card`: caption "보관 위치" + "`cabinet-number` 이름 · 좌 2단" or "칸 없음" in `{colors.text-muted}`. Teachers·admins get **`location-edit`** — `button-pill-soft` "위치 바꾸기" — which opens **`location-picker`**: `cabinet-switcher` on top, the cabinet's `cabinet-slot` grid below (each with `slot-count`), tap a slot to choose; "칸 없음으로" as a quiet text action; `mix-warning` appears under the grid on mismatch; closed by `button-primary` "저장"
+- **`reorder-threshold`** (screen 3) — a row in `reagent-detail-card`: caption "재주문 기준" + amount + unit, or "아직 없어요" muted. Teachers·admins get **`threshold-edit`** — tapping turns the amount into a numeric `text-input` with unit and `button-primary` "저장". Same field as the screen 5 extraction result
 
 **Landing (screen 15, added 2026-10-03)** — the pre-login first screen
 
@@ -275,6 +297,8 @@ Composed only from the primitives and tokens above; no new literal values.
 - Properties: `backgroundColor`, `rounded`, `padding`
 
 **`ex-modal-card`** — Modal dialog surface — same chrome as feature-card with elevated shadow.
+
+- Sheets and forms that open over a screen carry a × close at top right (added 2026-10-06 — user-manage sheet on 8, vendor-register form on 9). On 8 the delete confirm reads "{이름} · 사용·입고 기록은 남아요" and invite is email only (no name field); on 9 there is no extra-info field
 
 - Properties: `backgroundColor`, `rounded`, `padding`
 

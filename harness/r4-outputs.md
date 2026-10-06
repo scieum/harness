@@ -8,7 +8,7 @@
 
 | 파일 | 만드는 단계 | 내용 | 셀 수 있는 조건 |
 |---|---|---|---|
-| input.json | 실행 시작 | 대상 화면 ID 목록, school_name (기본 "샘플고등학교", R5 추가), school_sido·school_region (선택, 기본 = rules.json neis) | ID ⊂ {1..15}, 개수 1~15, school_name 1개. 선택: guest_screens ⊂ rules.json guest.screens (둘러보기 프레임 {ID}-guest-*), variants {"ID": ["empty","delete"]} (상태 프레임 {ID}-{state}-*) |
+| input.json | 실행 시작 | 대상 화면 ID 목록, school_name (기본 "샘플고등학교", R5 추가), school_sido·school_region (선택, 기본 = rules.json neis) | ID ⊂ {1..15}, 개수 1~15, school_name 1개. 선택: guest_screens ⊂ rules.json guest.screens (둘러보기 프레임 {ID}-guest-*), variants {"ID": [state…]} (상태 프레임 {ID}-{state}-*, state·필수 컴포넌트 = rules.json variants) |
 | neis.json | 실행 시작 (화면 14 회원가입이 대상일 때) | `harness/scripts/neis.py`가 NEIS에서 받은 시/도 목록·지역 목록·학교 목록 (키 없음) | sido_list ≥ 1, region_list ≥ 1, school_list ≥ 1 |
 | research/s1-references.md | S1 | 레퍼런스 모음 | 화면당 ui_url 3~5개 |
 | research/s1-adopt.md | S1 | 반영 항목 표 | 레퍼런스마다 "가져올 것" 1줄 |
