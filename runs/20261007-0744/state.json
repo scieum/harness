@@ -1,0 +1,7 @@
+{
+  "stage": "done",
+  "retries": {"S1": 0, "S2": 0, "S3": 0, "S5": 0},
+  "approval": "approved",
+  "baseline_hash": "b09960da3c40de5ec10c89b0cd8bdbaeb7bac13721da20da267bfd38e2e930b2",
+  "note": "시약 목록 필터·정렬(2)·사용일 고르기(4)·기록 내역 사용일 기준(10) (개발 세션 요청 3, 2026-10-07)"
+}

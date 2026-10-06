@@ -1,0 +1,7 @@
+{
+  "screens": [2, 4, 10],
+  "variants": {"2": ["filter", "filter-empty"], "4": ["past-date"]},
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/yPF9ZLVjkg22kgSDD2aKEd",
+  "keyscreens": ["2-filter-mobile", "4-past-date-mobile", "10-mobile"]
+}
