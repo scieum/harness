@@ -1,5 +1,5 @@
 {
-  "version": "1.16",
+  "version": "1.17",
   "sources": [
     "docs/design.md",
     "docs/story-service.md",
@@ -16,7 +16,8 @@
     "2026-10-03 둘러보기(guest) 모드",
     "2026-10-04 학교당 시약장 여러 개",
     "2026-10-06 시약 칸 배치·시약장 번호·QR 인쇄·재주문 기준 직접 입력 (개발 세션 요청)",
-    "2026-10-07 서류로 입고·MSDS 자동 찾기·위치 자동 추천·자동 재주문 기준 표시 (개발 세션 요청 2)"
+    "2026-10-07 서류로 입고·MSDS 자동 찾기·위치 자동 추천·자동 재주문 기준 표시 (개발 세션 요청 2)",
+    "2026-10-07 시약 목록 필터·정렬, 사용일 고르기 (개발 세션 요청 3)"
   ],
   "colors": {
     "allowed": [
@@ -178,8 +179,8 @@
       15
     ],
     "guest_name_pattern": "^([1-9]|1[0-5])-guest-(mobile|desktop)$",
-    "variant_name_pattern": "^([1-9]|1[0-5])-(empty|delete|slot|print|unsaved|location|result|doc-upload|doc-review|doc-fail|suggest|msds|msds-bulk)-(mobile|desktop)$",
-    "variant_note": "같은 화면의 다른 상태 프레임. input.json variants {\"11\": [\"empty\",\"delete\"]} 로 요청 (2026-10-04) · 2026-10-06 상태 추가: 11-slot·11-print·11-unsaved·3-location·12-result · 2026-10-07 상태 추가: 7-doc-upload·doc-review·doc-fail·suggest·msds, 3-msds, 2-msds-bulk"
+    "variant_name_pattern": "^([1-9]|1[0-5])-(empty|delete|slot|print|unsaved|location|result|doc-upload|doc-review|doc-fail|suggest|msds|msds-bulk|filter|filter-empty|past-date)-(mobile|desktop)$",
+    "variant_note": "같은 화면의 다른 상태 프레임. input.json variants {\"11\": [\"empty\",\"delete\"]} 로 요청 (2026-10-04) · 2026-10-06 상태 추가: 11-slot·11-print·11-unsaved·3-location·12-result · 2026-10-07 상태 추가: 7-doc-upload·doc-review·doc-fail·suggest·msds, 3-msds, 2-msds-bulk · 2026-10-07 상태 추가: 2-filter·2-filter-empty, 4-past-date"
   },
   "s1": {
     "refs_per_screen": [
@@ -412,7 +413,13 @@
     "7": [
       "intake-mode"
     ],
-    "source": "2026-10-02 story-service 결정 (화면별 필수 컴포넌트, 규칙 C1) · 15 랜딩 2026-10-03 · 2026-10-06 화면 3 보관 위치·재주문 기준, 화면 11 시약장 번호·QR 인쇄 · 2026-10-07 화면 7 intake-mode"
+    "2": [
+      "list-filter-button"
+    ],
+    "4": [
+      "usage-date"
+    ],
+    "source": "2026-10-02 story-service 결정 (화면별 필수 컴포넌트, 규칙 C1) · 15 랜딩 2026-10-03 · 2026-10-06 화면 3 보관 위치·재주문 기준, 화면 11 시약장 번호·QR 인쇄 · 2026-10-07 화면 7 intake-mode · 2026-10-07 화면 2 list-filter-button, 화면 4 usage-date"
   },
   "cabinet": {
     "door_types": [
@@ -640,9 +647,24 @@
       "msds-bulk": [
         "msds-bulk-banner",
         "msds-candidates"
+      ],
+      "filter": [
+        "list-filter-sheet",
+        "storage-class-chip",
+        "filter-chip-row"
+      ],
+      "filter-empty": [
+        "filter-chip-row",
+        "ex-empty-state-card"
       ]
     },
-    "source": "2026-10-04 여러 시약장: 빈 상태(교사 기준)·삭제 확인 상태 필수 컴포넌트 (C1) · 2026-10-06 11-slot·11-print·11-unsaved·3-location·12-result · 2026-10-07 7-doc-upload·doc-review·doc-fail·suggest·msds, 3-msds, 2-msds-bulk, 3-location + suggest-badge"
+    "4": {
+      "past-date": [
+        "usage-date",
+        "past-date-note"
+      ]
+    },
+    "source": "2026-10-04 여러 시약장: 빈 상태(교사 기준)·삭제 확인 상태 필수 컴포넌트 (C1) · 2026-10-06 11-slot·11-print·11-unsaved·3-location·12-result · 2026-10-07 7-doc-upload·doc-review·doc-fail·suggest·msds, 3-msds, 2-msds-bulk, 3-location + suggest-badge · 2026-10-07 2-filter·2-filter-empty, 4-past-date"
   },
   "reorder": {
     "threshold_edit": "화면 3 시약 상세에서 교사·admin이 재주문 기준(필요량)을 숫자로 직접 입력 (reorder-threshold 안 threshold-edit). 화면 5 AI 추출 값과 같은 칸을 덮어씀",
@@ -694,5 +716,21 @@
     "picker": "location-picker·slot-sheet에서 추천 칸에 suggest-badge, 처음 선택으로 둠",
     "after_register": "location-suggest: 시약마다 '추천 위치: {번호}번 시약장 좌2단' + [여기에 두기][다른 칸], 아래 '모두 추천대로'·'나중에'. 추천 칸 없음 = '맞는 칸이 없어요 — 시약장 설정에서 칸 분류를 정해 주세요'",
     "source": "2026-10-07 사용자 결정 (개발 세션 요청 2-3)"
+  },
+  "list_filter": {
+    "entry": "화면 2 검색 text-input 오른쪽 list-filter-button '필터' pill. 적용 중이면 개수 배지(colors.highlight-soft 채움 + highlight 테두리, ink 글자). 기존 segmented-control '전체 / 재고 부족'은 그대로",
+    "sheet": "list-filter-sheet: 모바일 바텀시트, 데스크톱 드롭다운 패널. 순서 = 정렬(이름순 기본·재고 적은 순·최근 입고순) → 보관 분류 storage-class-chip 여러 개 + '분류 없음' → 보관 위치(시약장 번호·이름 → 칸, '칸 없음만') → 'MSDS 없는 시약만' 토글. 아래 button-outline '초기화' + button-primary '{N}종 보기'",
+    "chips": "filter-chip-row: 목록 위 적용 칩(×로 하나씩 빼기) + '모두 지우기' + 결과 수 '12종'",
+    "empty": "ex-empty-state-card '조건에 맞는 시약이 없어요' + button-outline '필터 지우기'",
+    "msds_link": "MSDS 없는 시약 필터가 켜지면 교사·admin에게 msds-bulk-banner가 함께 보임",
+    "roles": "모든 역할·둘러보기 동일. 상태는 주소창에 유지(개발 쪽)",
+    "source": "2026-10-07 사용자 결정 (개발 세션 요청 3-1)"
+  },
+  "usage_date": {
+    "field": "화면 4 usage-date '사용일' — 화면 7 입고일과 같은 모양(text-input 날짜), 수량 아래. 기본 오늘, 오늘 이후 못 고름",
+    "past_note": "오늘이 아니면 저장 버튼 위 past-date-note 무채색 한 줄 '10월 3일 사용으로 기록해요'",
+    "history": "화면 10은 사용일로 묶고 정렬. 기록한 날이 사용일과 다를 때만 회색 캡션 '10월 6일에 기록'",
+    "auto_threshold": "자동 재주문 기준(최근 28일)도 사용일 기준 (개발 쪽)",
+    "source": "2026-10-07 사용자 결정 (개발 세션 요청 3-2)"
   }
 }

@@ -12,6 +12,7 @@
 ## 화면 2
 ### 구성 요소
 - button-primary: 주요 행동
+- list-filter-button: 필터 열기
 ### 반영한 레퍼런스
 - https://uibowl.io/screen/201
 

@@ -278,6 +278,19 @@ Composed only from the primitives and tokens above; no new literal values.
 - **`auto-threshold-badge`** — `{colors.canvas-soft}` pill "자동" in `{colors.ink}` `{typography.label}` beside the threshold in `reorder-threshold` / `reorder-alert-card`, with a caption "최근 사용량으로 계산했어요". Manual and manual-extracted values show no badge. Not pink, not sky-blue — it is information, not a decision
 - Screen 5: when the same reagent appears in several rows they merge into one, with a muted line "2개 행을 합쳤어요"
 
+**List filter (screen 2, added 2026-10-07)** — every role, guest included
+
+- **`list-filter-button`** — `button-pill-soft` "필터" with a filter icon, right of the search `text-input`. When filters are applied it carries a count pill (`{colors.highlight-soft}` fill, 1px `{colors.highlight}` border, `{colors.ink}` `{typography.label}`). The `segmented-control` "전체 / 재고 부족" stays as is
+- **`list-filter-sheet`** — bottom sheet (mobile) / dropdown panel under the button (desktop), × close. Sections in order: 정렬 (`segmented-control`-style options 이름순 · 재고 적은 순 · 최근 입고순), 보관 분류 (`storage-class-chip`s, multi-select, plus "분류 없음"; selected = `{colors.highlight-soft}` + `{colors.highlight}` border), 보관 위치 (`cabinet-number` + name select → slot select, plus a "칸 없음만" toggle), "MSDS 없는 시약만" toggle. Footer `button-outline` "초기화" + `button-primary` "{N}종 보기"
+- **`filter-chip-row`** — above the list: one `{colors.canvas-soft}` pill per applied filter with ×, a quiet "모두 지우기", and the result count "12종" in `{typography.caption}`. With "MSDS 없는 시약만" on, teachers·admins also see `msds-bulk-banner`
+- No results: `ex-empty-state-card` "조건에 맞는 시약이 없어요" + `button-outline` "필터 지우기". No pink
+
+**Usage date (screens 4·10, added 2026-10-07)**
+
+- **`usage-date`** — "사용일" date `text-input` under the quantity on screen 4, same shape as screen 7's 입고일. Defaults to today; future dates are disabled
+- **`past-date-note`** — when the date is not today, a muted line above the save button: "10월 3일 사용으로 기록해요"
+- Screen 10 groups and sorts by 사용일; when the recorded day differs, a muted caption "10월 6일에 기록" under the row
+
 **Reagent slots (screens 11·3, added 2026-10-06)**
 
 - **`slot-count`** — small `{colors.canvas}` pill inside a `cabinet-slot` showing how many reagents it holds ("3"), `{typography.label}` `{colors.ink}`. Empty slots show nothing. Never pink — a count is not a decision signal

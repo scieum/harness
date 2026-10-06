@@ -1056,6 +1056,31 @@
             "letterSpacing": 0,
             "textCase": "ORIGINAL"
           }
+        },
+        {
+          "id": "99:2-mobile",
+          "name": "list-filter-button",
+          "type": "FRAME",
+          "path": [
+            "2-mobile",
+            "list-filter-button"
+          ],
+          "fills": [
+            "#f3f3f3"
+          ],
+          "strokes": [],
+          "cornerRadius": 9999,
+          "width": 88,
+          "height": 44,
+          "padding": [
+            0,
+            16,
+            0,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
         }
       ]
     },
@@ -1333,6 +1358,31 @@
             "letterSpacing": 0,
             "textCase": "ORIGINAL"
           }
+        },
+        {
+          "id": "99:2-desktop",
+          "name": "list-filter-button",
+          "type": "FRAME",
+          "path": [
+            "2-desktop",
+            "list-filter-button"
+          ],
+          "fills": [
+            "#f3f3f3"
+          ],
+          "strokes": [],
+          "cornerRadius": 9999,
+          "width": 88,
+          "height": 44,
+          "padding": [
+            0,
+            16,
+            0,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
         }
       ]
     },

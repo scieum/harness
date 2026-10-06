@@ -57,7 +57,7 @@ docs/, harness/, 다른 runs/{id}/ 하위 폴더는 절대 쓰지 않는다.
 - 학교 선택은 화면 14(회원가입)에만 둔다. 화면 1(로그인)은 개인 이메일·비밀번호만. 화면 14 구성 요소에 `school-select-sido` → `school-select-region` → `school-select-school` 를 이 순서로 적는다 (NEIS 시/도 → 지역(시/군/구) → 학교, N1-d). 화면 2~13에는 현재 학교명 표시를 둔다.
 - input.json `variants`가 있으면 `## 상태 화면 {ID}-{state}` 섹션에 그 상태 구성을 적는다(rules.json `variants` 필수 컴포넌트 포함).
 - input.json `guest_screens`가 있으면 `## 둘러보기 화면 {ID}` 섹션에 둘러보기 구성(guest-banner, 숨김·잠금 컴포넌트, 데모 학교)을 적는다. 역할별 노출 표에는 넣지 않는다(게스트는 R 규칙 대상 아님).
-- rules.json `screens_required`의 화면(3·7·11·12·13·15)은 그 필수 컴포넌트를 구성 요소에 모두 적는다 (C1).
+- rules.json `screens_required`의 화면(2·3·4·7·11·12·13·15)은 그 필수 컴포넌트를 구성 요소에 모두 적는다 (C1).
 
 ## 보고
 끝나면 파일 경로와 화면별 구성 요소 개수만 보고한다.
