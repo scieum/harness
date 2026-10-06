@@ -254,6 +254,30 @@ Composed only from the primitives and tokens above; no new literal values.
 - **`qr-label`** — one printable label: QR image 1:1 `{rounded.none}`, school name in `{typography.caption}`, `cabinet-number` + cabinet name in `{typography.title}`, one line "QR을 찍으면 이 시약장의 시약을 봐요" in `{typography.caption}` `{colors.text-muted}`. Monochrome only — it is printed
 - **`qr-result-sheet`** (screen 12) — after a scan or a manual number lookup: sheet titled `cabinet-number` + cabinet name, the cabinet's reagents as `reagent-row`s each with its slot ("좌 2단" / "칸 없음" muted), closed by `button-pill-soft` "배치도 보기" (→ that cabinet on screen 11). `qr-manual-entry` asks for "시약장 번호" (numeric `text-input`)
 
+**Document intake (screen 7, added 2026-10-07)**
+
+- **`intake-mode`** — `segmented-control` at the top of screen 7: "서류로 입고" (default) / "직접 입력"
+- **`doc-upload`** — `ex-empty-state-card`-style drop zone: "품의서·영수증·거래명세서를 올려 주세요" + caption "PDF·JPG·PNG, 4MB까지", `button-primary` "AI로 읽기". While reading: the same card with a progress line in `{colors.highlight}` and "읽는 중이에요". Teacher·admin only
+- **`doc-intake-table`** — `extraction-table` chrome. Each `doc-item-row` = 품명(서류 표기) · 규격 · 수량 on line 1, and **`reagent-link`** on line 2: "우리 학교 시약" select (auto-linked, "바꾸기"), a quiet "빼기", or "새 시약으로 등록". Unit conversion as a muted caption ("500 mL × 4병 = 2,000 mL"). On mobile each row is a `{colors.canvas-soft}` card. Intake date field at the top ("서류 날짜", editable). Non-reagent items fold at the bottom as "시약 아님 N개" (muted, expandable). Closed by `button-primary` "확인 후 입고"
+- **`new-reagent-fields`** — choosing "새 시약으로 등록" expands that row downward: 이름 · 보관 분류 (`storage-class-chip`s with the AI pick marked by `suggest-badge`) · 단위 · 재고량 · MSDS (`msds-search`)
+- Failure / nothing found: `ex-empty-state-card` "서류에서 품목을 찾지 못했어요" + one line of guidance + `doc-upload` again. No pink — nothing is low on stock
+
+**MSDS search (screens 7·3·2, added 2026-10-07)**
+
+- **`msds-search`** — `button-pill-soft` "MSDS 찾기" next to the MSDS field (screen 7) or in place of `msds-qr-tile` when a reagent has none (screen 3; students see "MSDS가 아직 없어요" muted instead). Teacher·admin only
+- **`msds-candidates`** — sheet listing candidates: 물질명 in `{typography.title}` + "CAS 7647-01-0" in `{typography.caption}` `{colors.text-muted}`; the chosen one gets the `{colors.highlight-soft}` selection fill; closed by `button-primary` "이 MSDS로". Zero results: "찾지 못했어요 — 직접 입력" with a `text-input` for the address
+- **`msds-bulk-banner`** (screen 2) — `{colors.highlight-soft}` strip above the list: "MSDS 없는 시약 N종" + `button-pill-soft` "한 번에 찾기" → `msds-candidates` per reagent in sequence (reagent name as the sheet title, "건너뛰기"). Teacher·admin only
+
+**Location suggestion (screens 7·3·11, added 2026-10-07)**
+
+- **`suggest-badge`** — small pill "추천": `{colors.highlight-soft}` fill, 1px `{colors.highlight}` border, `{colors.ink}` `{typography.label}`. Marks the suggested `cabinet-slot` in `location-picker` and `slot-sheet` (which starts selected) and the AI's storage-class pick. Never pink
+- **`location-suggest`** — after saving with new reagents: list of `reagent-row`s, each with "추천 위치: `cabinet-number` 이름 · 좌 2단" + `button-outline` "다른 칸" and `button-primary` "여기에 두기"; footer `button-primary` "모두 추천대로" and a quiet "나중에" (→ screen 2). No matching slot: muted line "맞는 칸이 없어요 — 시약장 설정에서 칸 분류를 정해 주세요" with `button-pill-soft` "시약장 설정"
+
+**Auto reorder threshold (screens 3·6, added 2026-10-07)**
+
+- **`auto-threshold-badge`** — `{colors.canvas-soft}` pill "자동" in `{colors.ink}` `{typography.label}` beside the threshold in `reorder-threshold` / `reorder-alert-card`, with a caption "최근 사용량으로 계산했어요". Manual and manual-extracted values show no badge. Not pink, not sky-blue — it is information, not a decision
+- Screen 5: when the same reagent appears in several rows they merge into one, with a muted line "2개 행을 합쳤어요"
+
 **Reagent slots (screens 11·3, added 2026-10-06)**
 
 - **`slot-count`** — small `{colors.canvas}` pill inside a `cabinet-slot` showing how many reagents it holds ("3"), `{typography.label}` `{colors.ink}`. Empty slots show nothing. Never pink — a count is not a decision signal
