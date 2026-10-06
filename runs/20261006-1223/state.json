@@ -1,0 +1,7 @@
+{
+  "stage": "done",
+  "retries": {"S1": 0, "S2": 0, "S3": 0, "S5": 0},
+  "approval": "approved",
+  "baseline_hash": "6efc75b31fdd55e94d2e8e43292357b8ba9d87ded5b8baf3b2e0bf77a9c299e7",
+  "note": "시약 칸 배치(11 칸 시트·3 위치)·시약장 번호·QR 인쇄·12 결과 시트·재주문 기준 직접 입력·저장 안 한 편집 확인·13 빠른 실행 (개발 세션 요청 2026-10-06)"
+}

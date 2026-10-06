@@ -1,0 +1,7 @@
+{
+  "screens": [3, 11, 12, 13],
+  "variants": {"3": ["location"], "11": ["slot", "print", "unsaved"], "12": ["result"]},
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/yPF9ZLVjkg22kgSDD2aKEd",
+  "keyscreens": ["11-slot-mobile", "3-location-mobile", "12-result-mobile"]
+}
