@@ -1,0 +1,7 @@
+{
+  "screens": [14],
+  "variants": {"14": ["no-school"]},
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/yPF9ZLVjkg22kgSDD2aKEd",
+  "keyscreens": ["14-mobile", "14-no-school-mobile"]
+}
