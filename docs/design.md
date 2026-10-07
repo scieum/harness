@@ -1,6 +1,6 @@
 ## Overview
 
-Lab_Stock is a SaaS for high-school science labs — it tracks each reagent's type, stock level, intake date, usage date, and user, links each reagent to its MSDS through a QR code, and connects the school to a vendor when stock runs low. Its own interface is engineered to get out of the way. The system is strictly monochrome: near-black ink (`{colors.ink}` — #141414) on a pure white canvas (`{colors.canvas}`), with structure carried by a ladder of barely-perceptible neutral tints rather than by shadows or color. The reagent data the app exists to show — names, quantities, dates, stock status — is what the chrome frames, the way a gallery wall frames paintings.
+Lab_Stock is a SaaS for school science labs (elementary, middle and high school — widened from high school only on 2026-10-07) — it tracks each reagent's type, stock level, intake date, usage date, and user, links each reagent to its MSDS through a QR code, and connects the school to a vendor when stock runs low. Its own interface is engineered to get out of the way. The system is strictly monochrome: near-black ink (`{colors.ink}` — #141414) on a pure white canvas (`{colors.canvas}`), with structure carried by a ladder of barely-perceptible neutral tints rather than by shadows or color. The reagent data the app exists to show — names, quantities, dates, stock status — is what the chrome frames, the way a gallery wall frames paintings.
 
 The geometry does the brand work that color refuses to do. Every interactive element is a stadium pill (`{rounded.full}`): the floating navigation bar, every button, the segmented toggle, the status badges. Containers sit at a calm `{rounded.md}` (24px) and rows, inputs, and media tiles at `{rounded.sm}` (16px). Type is set in Pretendard with strong weight contrast — Bold 700 for every heading, Regular 400 for text, Light 300 for lead subtitles — which gives the monochrome pages a strong typographic voice without a single decorative flourish.
 
@@ -277,6 +277,11 @@ Composed only from the primitives and tokens above; no new literal values.
 
 - **`auto-threshold-badge`** — `{colors.canvas-soft}` pill "자동" in `{colors.ink}` `{typography.label}` beside the threshold in `reorder-threshold` / `reorder-alert-card`, with a caption "최근 사용량으로 계산했어요". Manual and manual-extracted values show no badge. Not pink, not sky-blue — it is information, not a decision
 - Screen 5: when the same reagent appears in several rows they merge into one, with a muted line "2개 행을 합쳤어요"
+
+**School level (screen 14, added 2026-10-07)**
+
+- **`school-select-kind`** — `segmented-control` with three options 초등학교 · 중학교 · 고등학교, placed after `school-select-region` and before `school-select-school`. No default: until one is chosen, `school-select-school` is disabled with the placeholder "학교급을 먼저 골라 주세요"
+- No schools for that level in the region: in place of the school list, a muted line "이 지역에 {학교급}이 없어요 — 지역을 다시 골라 주세요". No pink
 
 **List filter (screen 2, added 2026-10-07)** — every role, guest included
 

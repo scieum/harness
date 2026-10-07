@@ -31,7 +31,7 @@ docs/, harness/, 다른 runs/{id}/ 하위 폴더는 절대 쓰지 않는다.
 - 색·radius·폰트·크기·간격은 rules.json 허용 집합 안의 값만 쓴다. 근사값 금지.
 - 하늘색(rules.json `colors.highlight`)은 선택·현재 위치·링크·진행·아이콘 강조에 쓴다. 재고 부족 신호와 button-primary 채움, 글자색에는 쓰지 않는다 (D10).
 - 화면 2~13 텍스트의 학교명은 input.json `school_name` 하나만 쓴다. 더미 데이터에 다른 학교명 금지.
-- 화면 14(회원가입) 학교 선택 = 3단계 노드 `school-select-sido` → `school-select-region` → `school-select-school` (노드 순서 그대로, N1-d). 선택값·목록 항목은 neis.json의 sido·region·school_list에서만 가져온다. 최종 선택 학교 = school_name.
+- 화면 14(회원가입) 학교 선택 = 4단계 노드 `school-select-sido` → `school-select-region` → `school-select-kind`(초·중·고 segmented-control, 2026-10-07) → `school-select-school` (노드 순서 그대로, N1-d). 선택값·목록 항목은 neis.json의 sido·region·kind_list·kind·school_list에서만 가져온다. 최종 선택 학교 = school_name.
 - 모바일 하단 탭바(C2): 화면 2~13 mobile 프레임마다 `tab-bar` 1개, 그 안에 `tab-item` 4개(홈·시약·QR 스캔·기록, 역할 무관 동일). 화면 1(로그인)·14(회원가입)·15(랜딩)와 desktop에는 넣지 않는다.
 - 화면 1(로그인)은 개인 이메일·비밀번호만 — school-select* 금지(N1-c), 학교명 표시 없음, "회원가입" 링크로 화면 14. 모양은 docs/design.md `tab-bar` — 하단에 붙은 전폭 사각형(radius 0), pill 아님.
 - 상태 프레임: input.json `variants`(예: {"11": ["slot","print"]}, 가능한 state = rules.json variants)마다 `{ID}-{state}-mobile`·`{ID}-{state}-desktop`. 일반 프레임과 같은 규칙(학교명·탭바 등)에 rules.json `variants` 필수 컴포넌트(C1).

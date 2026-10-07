@@ -4,6 +4,7 @@
 ### 구성 요소
 - school-select-sido: 시/도 선택
 - school-select-region: 지역(시/군/구) 선택
+- school-select-kind: 학교급(초·중·고)
 - school-select-school: 학교 선택
 - button-primary: 주요 행동
 ### 반영한 레퍼런스
