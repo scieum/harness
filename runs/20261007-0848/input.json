@@ -1,0 +1,6 @@
+{
+  "screens": [5, 6, 8, 9],
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/yPF9ZLVjkg22kgSDD2aKEd",
+  "keyscreens": ["5-mobile", "6-mobile", "8-mobile"]
+}
