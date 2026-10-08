@@ -1,0 +1,7 @@
+{
+  "stage": "done",
+  "retries": {"S1": 0, "S2": 0, "S3": 0, "S5": 0},
+  "approval": "approved",
+  "baseline_hash": "3b6880beb83d4bd4cdd27b2af4fa43168f6a8478687351863ed54e8b76d32cea",
+  "note": "데스크톱 웹앱 재구성 1차(화면 2~13) + 화면 16 MSDS 요약 + 요청 5 맞춤. 모바일은 승인본 복제(16만 새로)"
+}

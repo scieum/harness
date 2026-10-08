@@ -1,0 +1,18 @@
+{
+  "screens": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 16],
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/yPF9ZLVjkg22kgSDD2aKEd",
+  "keyscreens": ["13-desktop", "3-desktop", "16-mobile"],
+  "mobile_source": {
+    "2": "S4-screens-v12 (300:2)", "3": "S4-screens-v11 (257:2)", "4": "S4-screens-v12 (300:2)",
+    "5": "S4-screens-v13 (325:2)", "6": "S4-screens-v13 (325:2)", "7": "S4-screens-v11 (257:2)",
+    "8": "S4-screens-v13 (325:2)", "9": "S4-screens-v13 (325:2)", "10": "S4-screens-v12 (300:2)",
+    "11": "S4-screens-v10 (218:2)", "12": "S4-screens-v10 (218:2)", "13": "S4-screens-v10 (218:2)",
+    "16": "새로 그림"
+  },
+  "mobile_text_fixes": {
+    "6": "재주문 알림 카드 '재주문 기준 N{단위}' · '10월 7일 알림', 자동 기준 캡션은 근거에 맞게",
+    "8": "머리에 '학생 a · 교사 b · admin c' 줄, 초대 = 이메일 + 역할(학생·교사)",
+    "9": "판매처 행 = 이름 + 연락처만(웹사이트 주소 빼기)"
+  }
+}
