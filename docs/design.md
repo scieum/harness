@@ -226,7 +226,14 @@ Composed only from the primitives and tokens above; no new literal values.
 - Home (13) on desktop: a top row of number tiles "지금 처리할 것" (재고 부족 N · 재주문 알림 N · MSDS 없는 시약 N — role-scoped), below a 2–3 column grid of widgets (최근 사용 기록 `data-table` · 재고 부족 · 시약장 요약), each with "전체 보기 ›". The mobile `quick-action` tiles are replaced by the sidebar plus page-head buttons
 - Mobile stays exactly as approved
 
-**`nav-pill`** — Top Nav (Desktop · pre-login screens 1·14·15 only from 2026-10-08)
+**Pre-login desktop (screens 1·14·15, added 2026-10-08)**
+
+- **`web-header`** — full-width top bar, 64 high, `{rounded.none}`, `{colors.canvas}` with a 1px `{colors.hairline-soft}` bottom edge: "Lab_Stock" wordmark left; `button-outline` "로그인" + `button-primary` "회원가입" right (the current page's own button is omitted). No `nav-pill`, no `app-sidebar`
+- Screens 1 (login) and 14 (sign-up): split layout under the header — left half the form (single column ~440), right half a `{colors.canvas-soft}` service panel (one-line pitch + the four `feature-card` points in a list). Sign-up form uses numbered sections with hairlines: "1 학교 선택" (sido → region → kind → school) → "2 계정"
+- Screen 15 (landing): a web landing — `landing-hero` left-aligned with `landing-cta` beside it, `feature-card`s in a 4-column row, `guest-entry` under the CTAs
+- Guest desktop (둘러보기): the same `app-sidebar` as after login, school "데모 학교"; `sidebar-item`s 홈 · 시약 active, 기록 · QR 찾기 carry `guest-lock`; management items hidden; `guest-banner` across the top of the content area
+
+**`nav-pill`** — Top Nav (mobile pre-login only from 2026-10-08)
 
 - A floating, horizontally-centered stadium bar in `{colors.canvas-soft}`: "Lab_Stock" logomark + wordmark left, section links in `{typography.link}` right, capped by a `button-primary` CTA
 - Detaches from the page edge with visible canvas above it; persists as a sticky element on scroll

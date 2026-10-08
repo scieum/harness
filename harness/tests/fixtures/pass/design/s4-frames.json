@@ -314,6 +314,33 @@
       "height": 900,
       "nodes": [
         {
+          "id": "96:14d",
+          "name": "web-header",
+          "type": "FRAME",
+          "path": [
+            "14-desktop",
+            "web-header"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [
+            "#f0f0f0"
+          ],
+          "cornerRadius": 0,
+          "width": 1440,
+          "height": 64,
+          "padding": [
+            16,
+            32,
+            16,
+            32
+          ],
+          "gap": 16,
+          "effects": [],
+          "text": null
+        },
+        {
           "id": "1:25",
           "name": "title",
           "type": "TEXT",
@@ -2182,19 +2209,19 @@
       "nodes": [
         {
           "id": "1:39",
-          "name": "nav-pill",
+          "name": "app-sidebar",
           "type": "FRAME",
           "path": [
             "2-guest-desktop",
-            "nav-pill"
+            "app-sidebar"
           ],
           "fills": [
             "#f3f3f3"
           ],
           "strokes": [],
-          "cornerRadius": 9999,
-          "width": 100,
-          "height": 56,
+          "cornerRadius": 0,
+          "width": 240,
+          "height": 900,
           "padding": [
             8,
             16,
@@ -2211,7 +2238,7 @@
           "type": "FRAME",
           "path": [
             "2-guest-desktop",
-            "nav-pill",
+            "app-sidebar",
             "button-primary"
           ],
           "fills": [
@@ -2237,7 +2264,7 @@
           "type": "TEXT",
           "path": [
             "2-guest-desktop",
-            "nav-pill",
+            "app-sidebar",
             "button-primary",
             "label"
           ],
@@ -2547,6 +2574,132 @@
             "letterSpacing": 0,
             "textCase": "ORIGINAL"
           }
+        },
+        {
+          "id": "96:g:0",
+          "name": "sidebar-item",
+          "type": "FRAME",
+          "path": [
+            "2-guest-desktop",
+            "app-sidebar",
+            "sidebar-item"
+          ],
+          "fills": [],
+          "strokes": [],
+          "cornerRadius": 0,
+          "width": 208,
+          "height": 44,
+          "padding": [
+            8,
+            16,
+            8,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "96:g:1",
+          "name": "sidebar-item",
+          "type": "FRAME",
+          "path": [
+            "2-guest-desktop",
+            "app-sidebar",
+            "sidebar-item"
+          ],
+          "fills": [],
+          "strokes": [],
+          "cornerRadius": 0,
+          "width": 208,
+          "height": 44,
+          "padding": [
+            8,
+            16,
+            8,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "96:g:2",
+          "name": "sidebar-item",
+          "type": "FRAME",
+          "path": [
+            "2-guest-desktop",
+            "app-sidebar",
+            "sidebar-item"
+          ],
+          "fills": [],
+          "strokes": [],
+          "cornerRadius": 0,
+          "width": 208,
+          "height": 44,
+          "padding": [
+            8,
+            16,
+            8,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "96:gl:0",
+          "name": "guest-lock",
+          "type": "FRAME",
+          "path": [
+            "2-guest-desktop",
+            "app-sidebar",
+            "sidebar-item",
+            "guest-lock"
+          ],
+          "fills": [
+            "#707070"
+          ],
+          "strokes": [],
+          "cornerRadius": 0,
+          "width": 16,
+          "height": 16,
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gap": 0,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "96:gl:1",
+          "name": "guest-lock",
+          "type": "FRAME",
+          "path": [
+            "2-guest-desktop",
+            "app-sidebar",
+            "sidebar-item",
+            "guest-lock"
+          ],
+          "fills": [
+            "#707070"
+          ],
+          "strokes": [],
+          "cornerRadius": 0,
+          "width": 16,
+          "height": 16,
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gap": 0,
+          "effects": [],
+          "text": null
         }
       ]
     },

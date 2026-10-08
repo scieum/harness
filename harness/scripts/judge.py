@@ -526,6 +526,16 @@ def check_C3(d, r, run):
             continue
         nodes = f.get("nodes", [])
         bars = [n for n in nodes if n.get("name") == comp]
+        pre = ds.get("pre_login")
+        if pre and name.endswith("-desktop") and s in pre["screens"]:  # 2026-10-08: 로그인 전 desktop = 전폭 web-header
+            heads = sum(n.get("name") == pre["component"] for n in nodes)
+            if heads != 1:
+                out.append(v("C3", name, f"{pre['component']} {heads}개", 1))
+            for bad in pre.get("forbidden", []):
+                k = sum(n.get("name") == bad for n in nodes)
+                if k:
+                    out.append(v("C3", name, f"{bad} {k}개", "0 (로그인 전 desktop)"))
+            continue
         if not (name.endswith("-desktop") and s in ds["screens"]):
             if name.endswith("-mobile") and bars:
                 out.append(v("C3", name, f"{comp} {len(bars)}개", "0 (mobile)"))
@@ -602,7 +612,7 @@ def check_GM3(d, r, run):
 
 
 def check_GM4(d, r, run):
-    """탭바: mobile = tab-bar 1·tab-item 4·그 안 guest-lock 2(QR·기록), desktop = tab-bar 0."""
+    """탭바: mobile = tab-bar 1·tab-item 4·그 안 guest-lock 2(QR·기록), desktop = tab-bar 0 + app-sidebar 1·그 안 guest-lock 2·nav-pill 0."""
     g, tb = r.get("guest"), r.get("tab_bar")
     out = []
     for f in (guest_frames(d, r) if g and tb else []):
@@ -611,6 +621,15 @@ def check_GM4(d, r, run):
         if f["name"].endswith("-desktop"):
             if bars:
                 out.append(v("GM4", f["name"], f"{tb['component']} {len(bars)}개", "0 (desktop)"))
+            ds = r.get("desktop_shell")
+            if ds and "sidebar_locks" in g:  # 2026-10-08: 둘러보기 desktop = 로그인 후와 같은 사이드바
+                side = [n for n in nodes if n.get("name") == ds["component"]]
+                slocks = [n for n in nodes if n.get("name") == g["lock"] and ds["component"] in (n.get("path") or [])]
+                pills = [n for n in nodes if n.get("name") in ds.get("forbidden_on_desktop", [])]
+                if len(side) != 1 or pills:
+                    out.append(v("GM4", f["name"], f"{ds['component']} {len(side)}·nav-pill {len(pills)}", "1·0 (desktop)"))
+                if len(slocks) != g["sidebar_locks"]:
+                    out.append(v("GM4", f["name"], f"사이드바 잠금 {len(slocks)}개", f"{g['sidebar_locks']} ({g['locked_tabs']})"))
             continue
         items = [n for n in nodes if n.get("name") == tb["item"] and tb["component"] in (n.get("path") or [])]
         locks = [n for n in nodes if n.get("name") == g["lock"] and tb["component"] in (n.get("path") or [])]

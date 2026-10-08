@@ -1,5 +1,5 @@
 {
-  "version": "1.20",
+  "version": "1.21",
   "sources": [
     "docs/design.md",
     "docs/story-service.md",
@@ -20,7 +20,8 @@
     "2026-10-07 시약 목록 필터·정렬, 사용일 고르기 (개발 세션 요청 3)",
     "2026-10-07 초·중·고 학교급 (개발 세션 요청 4)",
     "2026-10-08 데스크톱 웹앱 재구성 — 왼쪽 사이드바·데이터 테이블·오른쪽 드로어 (refs/uibowl-desktop-web-20261008.md, 사용자 결정 A)",
-    "2026-10-08 화면 16 MSDS 요약 · GHS 표준 빨강 예외 · 개발 기준 맞춤 6건 (개발 세션 요청 5)"
+    "2026-10-08 화면 16 MSDS 요약 · GHS 표준 빨강 예외 · 개발 기준 맞춤 6건 (개발 세션 요청 5)",
+    "2026-10-08 데스크톱 2차 — 로그인 전 web-header·반 나눔, 둘러보기 사이드바"
   ],
   "colors": {
     "allowed": [
@@ -605,7 +606,10 @@
       "msds-bulk-banner",
       "location-suggest"
     ],
-    "source": "2026-10-03 사용자 결정: 비회원 둘러보기 (데모 학교 읽기 전용)"
+    "source": "2026-10-03 사용자 결정: 비회원 둘러보기 (데모 학교 읽기 전용)",
+    "sidebar_locks": 2,
+    "desktop": "로그인 후와 같은 app-sidebar(위 '데모 학교'), sidebar-item = 홈·시약 활성 + 기록·QR 찾기 guest-lock(2), 관리 메뉴 숨김. 본문 위 guest-banner",
+    "desktop_source": "2026-10-08 사용자 결정"
   },
   "variants": {
     "11": {
@@ -860,8 +864,22 @@
     ],
     "form_width": 640,
     "overlay": "모달 = 확인·짧은 입력만. 모바일 고르기용 바텀시트(필터·MSDS 후보·위치 등) → 데스크톱 드롭다운·팝오버. 한 건 보기 → detail-drawer",
-    "screens_note": "로그인 전 1·14·15와 둘러보기 데스크톱은 2차에서 정함",
-    "source": "2026-10-08 사용자 결정 (A + 무거운 작업은 페이지, 모바일 그대로)"
+    "screens_note": "둘러보기 desktop은 GM4(사이드바 1·잠금 2), 로그인 전 1·14·15는 pre_login",
+    "source": "2026-10-08 사용자 결정 (A + 무거운 작업은 페이지, 모바일 그대로)",
+    "pre_login": {
+      "screens": [
+        1,
+        14,
+        15
+      ],
+      "component": "web-header",
+      "forbidden": [
+        "nav-pill",
+        "app-sidebar"
+      ],
+      "layout": "web-header = 전폭 상단 바(왼쪽 Lab_Stock / 오른쪽 로그인·회원가입, radius 0, canvas 바탕 + 아래 hairline-soft). 1·14 = 왼쪽 폼 / 오른쪽 서비스 소개 패널 반 나눔(14는 번호 붙은 섹션: 1 학교 선택 → 2 계정). 15 = 웹 랜딩(히어로 + feature-card 4열 + landing-cta)",
+      "source": "2026-10-08 사용자 결정 (상단 전폭 바 + 반 나눔)"
+    }
   },
   "msds_summary": {
     "screen": 16,

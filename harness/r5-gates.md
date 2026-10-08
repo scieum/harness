@@ -48,7 +48,7 @@
 |---|---|
 | C1 | rules.json `screens_required`의 화면(2 시약 목록, 3 시약 상세, 4 사용 기록, 7 입고·등록, 11 시약장 설정, 12 QR 스캔, 13 홈, 15 랜딩): S2는 설계서 해당 화면 구성 요소에, S3·S5는 해당 화면 프레임 노드 이름에 필수 컴포넌트가 모두 있음. 상태 프레임({ID}-{state}-*, state = rules.json frames.variant_name_pattern)은 rules.json `variants`의 목록으로 검사 (2026-10-04 · 10-06) |
 | C2 | 하단 탭바: 화면 2~13 mobile 프레임마다 tab-bar 1개(radius 0 사각형) + 그 안 tab-item 4개, 화면 1·14·15·desktop 프레임에는 tab-bar 0 (2026-10-02) |
-| C3 | 데스크톱 틀: 화면 2~13 desktop 프레임마다 app-sidebar 1개(radius 0, 폭 240) + 그 안 sidebar-item ≥ 3, nav-pill 0, 화면별 desktop 필수(2·8·9·10 data-table, 3 detail-drawer — 상태 프레임 제외). mobile 프레임은 app-sidebar 0 (2026-10-08, 값 = rules.json desktop_shell) |
+| C3 | 데스크톱 틀: 화면 2~13 desktop 프레임마다 app-sidebar 1개(radius 0, 폭 240) + 그 안 sidebar-item ≥ 3, nav-pill 0, 화면별 desktop 필수(2·8·9·10 data-table, 3 detail-drawer — 상태 프레임 제외). mobile 프레임은 app-sidebar 0 (2026-10-08, 값 = rules.json desktop_shell) · 로그인 전 1·14·15 desktop = web-header 1, nav-pill·app-sidebar 0 (desktop_shell.pre_login) |
 
 ### D — 디자인 가이드 (story-work 멈칫 7)
 
@@ -86,7 +86,7 @@
 | GM1 | guest-banner 1개 + 그 안 button-primary(가입) |
 | GM2 | rules.json guest.hidden_components (입고·등록·매뉴얼·사용자 관리·시약장 편집·판매처·재주문·학교 선택) = 0 |
 | GM3 | 학교명 = "데모 학교" ≥ 1, 실제 학교명 패턴(…고등학교)·input school_name = 0 |
-| GM4 | mobile: tab-bar 1·tab-item 4·탭바 안 guest-lock 2(QR 스캔·기록), desktop: tab-bar 0 |
+| GM4 | mobile: tab-bar 1·tab-item 4·탭바 안 guest-lock 2(QR 스캔·기록), desktop: tab-bar 0 · desktop = app-sidebar 1·그 안 guest-lock 2(기록·QR 찾기)·nav-pill 0 (2026-10-08) |
 | GM5 | 화면 13·3 둘러보기: 탭바 밖 guest-lock ≥ 1 (쓰기 동작 잠금) |
 
 ## 3. 사람 승인 (1곳)
