@@ -1,0 +1,14 @@
+{
+  "screens": [1, 14, 15],
+  "guest_screens": [13, 2, 3, 16],
+  "variants": {"14": ["no-school"]},
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/yPF9ZLVjkg22kgSDD2aKEd",
+  "keyscreens": ["15-desktop", "14-desktop", "2-guest-desktop"],
+  "mobile_source": {
+    "1": "S4 page node 148:2 (run 20261002-2019)",
+    "14": "S4-screens-v14 (350:2)", "14-no-school": "S4-screens-v14 (350:2)",
+    "15": "S4 page node 166:2 (run 20261003-1212)",
+    "guest": "최신 일반 모바일(13 = S4-screens-v15 374:2, 2 = v15, 3 = v15, 16 = v15)을 복제한 뒤 둘러보기 변환(guest-banner, 데모 학교, 쓰기 잠금·숨김, 탭 잠금 2)"
+  }
+}

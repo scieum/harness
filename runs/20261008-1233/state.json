@@ -1,0 +1,7 @@
+{
+  "stage": "done",
+  "retries": {"S1": 0, "S2": 0, "S3": 0, "S5": 0},
+  "approval": "approved",
+  "baseline_hash": "54086819e3089b1c2ba10396f1196778ad34bcf81b01f28854fdce63c5b3473b",
+  "note": "데스크톱 재구성 2차-a: 로그인 전 1·14·15(web-header·반 나눔·웹 랜딩) + 둘러보기 13·2·3·16 desktop 사이드바 + 14-no-school"
+}
