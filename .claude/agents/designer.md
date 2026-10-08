@@ -26,12 +26,13 @@ docs/, harness/, 다른 runs/{id}/ 하위 폴더는 절대 쓰지 않는다.
 ## Figma 규칙
 - use_figma 호출 전에 반드시 figma-use 스킬을 로드한다 (Skill 또는 skill://figma/figma-use/SKILL.md).
 - 프레임 이름 = `{화면ID}-{mobile|desktop}`, 크기 mobile 390×844 / desktop 1440×900.
-- S3: 키스크린 = rules.json `frames.keyscreens` 규칙, mobile만.
+- S3: 키스크린 = input.json `keyscreens` 프레임 목록 그대로(기본 mobile, 2026-10-08부터 데스크톱 재구성 run은 desktop 키스크린도 있음). 없으면 rules.json `frames.keyscreens` 규칙, mobile.
 - 컴포넌트 노드 이름 = s2-spec.md 컴포넌트명 (예: button-primary, badge-low-stock, msds-entry).
 - 색·radius·폰트·크기·간격은 rules.json 허용 집합 안의 값만 쓴다. 근사값 금지.
 - 하늘색(rules.json `colors.highlight`)은 선택·현재 위치·링크·진행·아이콘 강조에 쓴다. 재고 부족 신호와 button-primary 채움, 글자색에는 쓰지 않는다 (D10).
 - 화면 2~13 텍스트의 학교명은 input.json `school_name` 하나만 쓴다. 더미 데이터에 다른 학교명 금지.
 - 화면 14(회원가입) 학교 선택 = 4단계 노드 `school-select-sido` → `school-select-region` → `school-select-kind`(초·중·고 segmented-control, 2026-10-07) → `school-select-school` (노드 순서 그대로, N1-d). 선택값·목록 항목은 neis.json의 sido·region·kind_list·kind·school_list에서만 가져온다. 최종 선택 학교 = school_name.
+- 데스크톱 틀(C3, 2026-10-08): 화면 2~13 desktop 프레임마다 왼쪽 `app-sidebar` 1개(폭 240, radius 0) + 그 안 `sidebar-item` ≥ 3(역할별 메뉴는 rules.json desktop_shell.menu), `nav-pill` 0. 목록 화면 2·8·9·10 desktop = `data-table`, 화면 3 desktop = 목록 위 오른쪽 `detail-drawer`(폭 480). 5·7·11은 본문 페이지. 모바일 고르기 시트는 desktop에서 드롭다운·팝오버, 모달은 확인·짧은 입력만 (docs/design.md "Desktop shell"). mobile 프레임에는 app-sidebar 금지.
 - 모바일 하단 탭바(C2): 화면 2~13 mobile 프레임마다 `tab-bar` 1개, 그 안에 `tab-item` 4개(홈·시약·QR 스캔·기록, 역할 무관 동일). 화면 1(로그인)·14(회원가입)·15(랜딩)와 desktop에는 넣지 않는다.
 - 화면 1(로그인)은 개인 이메일·비밀번호만 — school-select* 금지(N1-c), 학교명 표시 없음, "회원가입" 링크로 화면 14. 모양은 docs/design.md `tab-bar` — 하단에 붙은 전폭 사각형(radius 0), pill 아님.
 - 상태 프레임: input.json `variants`(예: {"11": ["slot","print"]}, 가능한 state = rules.json variants)마다 `{ID}-{state}-mobile`·`{ID}-{state}-desktop`. 일반 프레임과 같은 규칙(학교명·탭바 등)에 rules.json `variants` 필수 컴포넌트(C1).

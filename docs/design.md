@@ -214,7 +214,18 @@ Composed only from the primitives and tokens above; no new literal values.
 
 ### Navigation
 
-**`nav-pill`** — Top Nav (Desktop)
+**Desktop shell (screens 2–13, added 2026-10-08)** — the desktop is a web app, not a widened phone (refs/uibowl-desktop-web-20261008.md)
+
+- **`app-sidebar`** — fixed left column, 240 wide, full height, `{rounded.none}`, `{colors.canvas-soft}` fill, 1px `{colors.hairline-soft}` right edge. Top: "Lab_Stock" wordmark + the school name in `{typography.title}` (one school per account — shown, never switched; N1). Middle: grouped menu of **`sidebar-item`**s — all roles: 홈 · 시약 · 기록 · 시약장 · QR 찾기; teacher·admin add 입고 · 실험 매뉴얼 · 재주문 알림; admin adds 사용자 · 판매처. Each item = icon + `{typography.body}` label, 44 high, square; current item = `{colors.highlight-soft}` fill + `{colors.highlight}` icon, label `{colors.ink}`. Bottom: name · role + `nav-account-menu` ▾ (로그아웃). Replaces `nav-pill` on desktop screens 2–13; there is no bottom `tab-bar` on desktop
+- Content area = everything right of the sidebar, page padding `{spacing.xl}`; page head = title (`{typography.heading-2}`) + count on the left, search · filter · primary `button-primary` on the right
+- **`data-table`** — lists on desktop (screens 2 시약, 8 사용자, 9 판매처, 10 기록) are tables, not card stacks: `ex-data-table-cell` chrome inside a `{rounded.sm}` container with 1px `{colors.hairline-soft}` outline; sortable column heads (sort arrow in `{colors.text-muted}`, active in `{colors.highlight}`); row hover `{colors.canvas-soft}`; selected row `{colors.highlight-soft}`. Status such as `badge-low-stock` sits in its own column. Page numbers centered under the table when long
+- **`detail-drawer`** — one item's detail (reagent on screen 3, usage record on 10, MSDS search results etc.) opens as a right drawer 480 wide over the table, full height, `{colors.canvas}` with 1px `{colors.hairline-soft}` left edge, × close top right. Order: title → status chips → "항목 | 값" two-column rows → actions at the bottom. Never a centered modal
+- Heavy work opens as a page in the content area, not a drawer: screen 5 (manual), 7 (intake · document intake), 11 (cabinet setup). Forms are a centered single column ~640 wide with "label | control" rows separated by hairlines; long flows put the primary action in a sticky bottom bar
+- Overlays: `ex-modal-card` only for confirms and one-field input. Mobile choice sheets (filter, MSDS candidates, location picker, cabinet choice) become a dropdown / popover anchored to their control on desktop
+- Home (13) on desktop: a top row of number tiles "지금 처리할 것" (재고 부족 N · 재주문 알림 N · MSDS 없는 시약 N — role-scoped), below a 2–3 column grid of widgets (최근 사용 기록 `data-table` · 재고 부족 · 시약장 요약), each with "전체 보기 ›". The mobile `quick-action` tiles are replaced by the sidebar plus page-head buttons
+- Mobile stays exactly as approved
+
+**`nav-pill`** — Top Nav (Desktop · pre-login screens 1·14·15 only from 2026-10-08)
 
 - A floating, horizontally-centered stadium bar in `{colors.canvas-soft}`: "Lab_Stock" logomark + wordmark left, section links in `{typography.link}` right, capped by a `button-primary` CTA
 - Detaches from the page edge with visible canvas above it; persists as a sticky element on scroll

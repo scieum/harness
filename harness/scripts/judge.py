@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 RULES_PATH = ROOT / "harness" / "rules.json"
 
-D_RULES = ["D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D10", "C1", "C2"]
+D_RULES = ["D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D10", "C1", "C2", "C3"]
 N_RULES = ["N1-a", "N1-b", "N1-c", "N1-d", "N2-a", "N2-b", "N2-c"]
 GM_RULES = ["GM1", "GM2", "GM3", "GM4", "GM5"]
 GATES = {
@@ -511,6 +511,48 @@ def check_C2(d, r, run):
     return out
 
 
+def check_C3(d, r, run):
+    """데스크톱 틀: 로그인 후 desktop 프레임마다 app-sidebar 1개(radius·폭) + sidebar-item ≥ N, nav-pill 0,
+    화면별 desktop 필수 컴포넌트. mobile 프레임은 app-sidebar 0."""
+    ds = r.get("desktop_shell")
+    if not ds:
+        return []
+    comp, item = ds["component"], ds["item"]
+    out = []
+    for f in d["frames"]:
+        name = f.get("name", "")
+        s = frame_screen(name, r)
+        if s is None:
+            continue
+        nodes = f.get("nodes", [])
+        bars = [n for n in nodes if n.get("name") == comp]
+        if not (name.endswith("-desktop") and s in ds["screens"]):
+            if name.endswith("-mobile") and bars:
+                out.append(v("C3", name, f"{comp} {len(bars)}개", "0 (mobile)"))
+            continue
+        if len(bars) != 1:
+            out.append(v("C3", name, f"{comp} {len(bars)}개", 1))
+        else:
+            bar = bars[0]
+            if radii(bar) and any(x != ds["radius"] for x in radii(bar)):
+                out.append(v("C3", where(f, bar), bar.get("cornerRadius"), f"radius {ds['radius']}"))
+            if bar.get("width") is not None and bar["width"] != ds["width"]:
+                out.append(v("C3", where(f, bar), f"폭 {bar['width']}", ds["width"]))
+            items = [n for n in nodes if n.get("name") == item and comp in (n.get("path") or [])]
+            if len(items) < ds["min_items"]:
+                out.append(v("C3", name, f"{item} {len(items)}개", f"≥ {ds['min_items']}"))
+        for bad in ds.get("forbidden_on_desktop", []):
+            k = sum(n.get("name") == bad for n in nodes)
+            if k:
+                out.append(v("C3", name, f"{bad} {k}개", "0 (desktop은 app-sidebar)"))
+        need = ds.get("desktop_required", {}).get(str(s), []) if not frame_variant(name, r) else []
+        names = {n.get("name") for n in nodes}
+        missing = [c for c in need if c not in names]
+        if missing:
+            out.append(v("C3", name, f"없음 {missing}", need))
+    return out
+
+
 def is_guest(name, r):
     pat = r["frames"].get("guest_name_pattern")
     return bool(pat and re.match(pat, name))
@@ -645,7 +687,7 @@ def check_F2(d, r, run):
 CHECKS = {
     "S1-a": check_S1a, "S1-b": check_S1b,
     "R1": check_roles("R1"), "R2": check_roles("R2"), "R3": check_roles("R3"), "R4": check_roles("R4"),
-    "R5": check_roles("R5"), "R6": check_roles("R6"), "R7": check_roles("R7"), "C1": check_C1, "C2": check_C2,
+    "R5": check_roles("R5"), "R6": check_roles("R6"), "R7": check_roles("R7"), "C1": check_C1, "C2": check_C2, "C3": check_C3,
     "D1": check_D1, "D2": check_D2, "D3": check_D3, "D4": check_D4, "D5": check_D5,
     "D6": check_D6, "D7": check_D7, "D8": check_D8, "D9": check_D9, "D10": check_D10,
     "N1-a": check_N1a, "N1-b": check_N1b, "N1-c": check_N1c, "N1-d": check_N1d,

@@ -1,5 +1,5 @@
 {
-  "version": "1.18",
+  "version": "1.19",
   "sources": [
     "docs/design.md",
     "docs/story-service.md",
@@ -18,7 +18,8 @@
     "2026-10-06 시약 칸 배치·시약장 번호·QR 인쇄·재주문 기준 직접 입력 (개발 세션 요청)",
     "2026-10-07 서류로 입고·MSDS 자동 찾기·위치 자동 추천·자동 재주문 기준 표시 (개발 세션 요청 2)",
     "2026-10-07 시약 목록 필터·정렬, 사용일 고르기 (개발 세션 요청 3)",
-    "2026-10-07 초·중·고 학교급 (개발 세션 요청 4)"
+    "2026-10-07 초·중·고 학교급 (개발 세션 요청 4)",
+    "2026-10-08 데스크톱 웹앱 재구성 — 왼쪽 사이드바·데이터 테이블·오른쪽 드로어 (refs/uibowl-desktop-web-20261008.md, 사용자 결정 A)"
   ],
   "colors": {
     "allowed": [
@@ -756,5 +757,74 @@
     "default": "없음 — 고르기 전 school-select-school 비활성 + '학교급을 먼저 골라 주세요'",
     "no_school": "학교 0개 = school-select-school 자리에 무채색 '이 지역에 {학교급}이 없어요 — 지역을 다시 골라 주세요'",
     "source": "2026-10-07 사용자 결정 (요청 4)"
+  },
+  "desktop_shell": {
+    "component": "app-sidebar",
+    "item": "sidebar-item",
+    "min_items": 3,
+    "width": 240,
+    "radius": 0,
+    "screens": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "forbidden_on_desktop": [
+      "nav-pill"
+    ],
+    "desktop_required": {
+      "2": [
+        "data-table"
+      ],
+      "3": [
+        "detail-drawer"
+      ],
+      "8": [
+        "data-table"
+      ],
+      "9": [
+        "data-table"
+      ],
+      "10": [
+        "data-table"
+      ]
+    },
+    "menu": {
+      "all": [
+        "홈",
+        "시약",
+        "기록",
+        "시약장",
+        "QR 찾기"
+      ],
+      "teacher_admin": [
+        "입고",
+        "실험 매뉴얼",
+        "재주문 알림"
+      ],
+      "admin": [
+        "사용자",
+        "판매처"
+      ]
+    },
+    "drawer_width": 480,
+    "heavy_pages": [
+      5,
+      7,
+      11
+    ],
+    "form_width": 640,
+    "overlay": "모달 = 확인·짧은 입력만. 모바일 고르기용 바텀시트(필터·MSDS 후보·위치 등) → 데스크톱 드롭다운·팝오버. 한 건 보기 → detail-drawer",
+    "screens_note": "로그인 전 1·14·15와 둘러보기 데스크톱은 2차에서 정함",
+    "source": "2026-10-08 사용자 결정 (A + 무거운 작업은 페이지, 모바일 그대로)"
   }
 }

@@ -6,7 +6,7 @@
 ## 0. 전제: 노드 이름 규칙
 
 - 컴포넌트 노드 이름 = design.md 컴포넌트명 (button-primary, badge-low-stock, reorder-alert-card, school-select …)
-- 2026-10-02 추가 이름: `stock-intake`, `reagent-register`, `user-manage`, `cabinet-edit`, `cabinet-door-select`, `cabinet-shelf-select`, `cabinet-slot`, `storage-class-chip`, `mix-warning`, `qr-scan`, `qr-manual-entry`, `home-summary`, `quick-action`, `tab-bar`, `tab-item`, `landing-hero`, `feature-card`, `landing-cta`, `guest-entry`, `guest-banner`, `guest-lock`(2026-10-03), `cabinet-switcher`, `cabinet-add`(2026-10-04), `cabinet-number`, `qr-print`, `qr-print-sheet`, `qr-label`, `qr-result-sheet`, `slot-count`, `slot-sheet`, `slot-assign`, `reagent-location`, `location-edit`, `location-picker`, `reorder-threshold`, `threshold-edit`, `nav-account-menu`(2026-10-06), `intake-mode`, `doc-upload`, `doc-intake-table`, `doc-item-row`, `reagent-link`, `new-reagent-fields`, `msds-search`, `msds-candidates`, `msds-bulk-banner`, `suggest-badge`, `location-suggest`, `auto-threshold-badge`(2026-10-07), `list-filter-button`, `list-filter-sheet`, `filter-chip-row`, `usage-date`, `past-date-note`(2026-10-07 요청 3), `school-select-kind`(2026-10-07 요청 4)
+- 2026-10-02 추가 이름: `stock-intake`, `reagent-register`, `user-manage`, `cabinet-edit`, `cabinet-door-select`, `cabinet-shelf-select`, `cabinet-slot`, `storage-class-chip`, `mix-warning`, `qr-scan`, `qr-manual-entry`, `home-summary`, `quick-action`, `tab-bar`, `tab-item`, `landing-hero`, `feature-card`, `landing-cta`, `guest-entry`, `guest-banner`, `guest-lock`(2026-10-03), `cabinet-switcher`, `cabinet-add`(2026-10-04), `cabinet-number`, `qr-print`, `qr-print-sheet`, `qr-label`, `qr-result-sheet`, `slot-count`, `slot-sheet`, `slot-assign`, `reagent-location`, `location-edit`, `location-picker`, `reorder-threshold`, `threshold-edit`, `nav-account-menu`(2026-10-06), `intake-mode`, `doc-upload`, `doc-intake-table`, `doc-item-row`, `reagent-link`, `new-reagent-fields`, `msds-search`, `msds-candidates`, `msds-bulk-banner`, `suggest-badge`, `location-suggest`, `auto-threshold-badge`(2026-10-07), `list-filter-button`, `list-filter-sheet`, `filter-chip-row`, `usage-date`, `past-date-note`(2026-10-07 요청 3), `school-select-kind`(2026-10-07 요청 4), `app-sidebar`, `sidebar-item`, `data-table`, `detail-drawer`(2026-10-08 데스크톱)
 - R5에서 추가한 이름: `manual-upload`, `vendor-link`, `vendor-register`, `msds-entry` (S2 설계서와 Figma 노드에 동일하게 사용)
 - NEIS 학교 선택(2026-10-01)으로 추가한 이름: `school-select-sido`, `school-select-region`, `school-select-school` (school-select 대신 사용)
 - 스크립트는 이름으로 노드를 찾는다 → 이름이 없거나 다르면 해당 규칙 "판정 불가" = 실패로 센다
@@ -17,9 +17,9 @@
 |---|---|---|---|---|
 | G-S1 | S1 끝 | research/s1-references.md, research/s1-adopt.md | S1-a, S1-b | 위반 0 |
 | G-S2 | S2 끝 | spec/s2-spec.md | R1~R7, C1, N1-d, N2-a, N2-c | 위반 0 |
-| G-S3 | S3 끝, 승인 요청 전 | design/s3-keyscreens.json | D1~D8, D10, C1, C2, N1-a~d, N2-a~c, GM1~5 | 위반 0일 때만 승인 요청 생성 |
+| G-S3 | S3 끝, 승인 요청 전 | design/s3-keyscreens.json | D1~D8, D10, C1, C2, C3, N1-a~d, N2-a~c, GM1~5 | 위반 0일 때만 승인 요청 생성 |
 | G-승인 ★사람 | S3→S4 | approval.md | result 줄 | result = approved |
-| G-S5 | S5 | design/s4-frames.json | D1~D10, C1, C2, N1-a~d, N2-a~c, GM1~5 | 위반 0 = 완료 |
+| G-S5 | S5 | design/s4-frames.json | D1~D10, C1, C2, C3, N1-a~d, N2-a~c, GM1~5 | 위반 0 = 완료 |
 
 ## 2. 규칙
 
@@ -48,6 +48,7 @@
 |---|---|
 | C1 | rules.json `screens_required`의 화면(2 시약 목록, 3 시약 상세, 4 사용 기록, 7 입고·등록, 11 시약장 설정, 12 QR 스캔, 13 홈, 15 랜딩): S2는 설계서 해당 화면 구성 요소에, S3·S5는 해당 화면 프레임 노드 이름에 필수 컴포넌트가 모두 있음. 상태 프레임({ID}-{state}-*, state = rules.json frames.variant_name_pattern)은 rules.json `variants`의 목록으로 검사 (2026-10-04 · 10-06) |
 | C2 | 하단 탭바: 화면 2~13 mobile 프레임마다 tab-bar 1개(radius 0 사각형) + 그 안 tab-item 4개, 화면 1·14·15·desktop 프레임에는 tab-bar 0 (2026-10-02) |
+| C3 | 데스크톱 틀: 화면 2~13 desktop 프레임마다 app-sidebar 1개(radius 0, 폭 240) + 그 안 sidebar-item ≥ 3, nav-pill 0, 화면별 desktop 필수(2·8·9·10 data-table, 3 detail-drawer — 상태 프레임 제외). mobile 프레임은 app-sidebar 0 (2026-10-08, 값 = rules.json desktop_shell) |
 
 ### D — 디자인 가이드 (story-work 멈칫 7)
 

@@ -1143,19 +1143,19 @@
       "nodes": [
         {
           "id": "1:39",
-          "name": "nav-pill",
+          "name": "app-sidebar",
           "type": "FRAME",
           "path": [
             "2-desktop",
-            "nav-pill"
+            "app-sidebar"
           ],
           "fills": [
             "#f3f3f3"
           ],
           "strokes": [],
-          "cornerRadius": 9999,
-          "width": 100,
-          "height": 56,
+          "cornerRadius": 0,
+          "width": 240,
+          "height": 900,
           "padding": [
             8,
             16,
@@ -1172,7 +1172,7 @@
           "type": "FRAME",
           "path": [
             "2-desktop",
-            "nav-pill",
+            "app-sidebar",
             "button-primary"
           ],
           "fills": [
@@ -1198,7 +1198,7 @@
           "type": "TEXT",
           "path": [
             "2-desktop",
-            "nav-pill",
+            "app-sidebar",
             "button-primary",
             "label"
           ],
@@ -1433,6 +1433,105 @@
             16
           ],
           "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "97:2-desktop:0",
+          "name": "sidebar-item",
+          "type": "FRAME",
+          "path": [
+            "2-desktop",
+            "app-sidebar",
+            "sidebar-item"
+          ],
+          "fills": [],
+          "strokes": [],
+          "cornerRadius": 0,
+          "width": 208,
+          "height": 44,
+          "padding": [
+            8,
+            16,
+            8,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "97:2-desktop:1",
+          "name": "sidebar-item",
+          "type": "FRAME",
+          "path": [
+            "2-desktop",
+            "app-sidebar",
+            "sidebar-item"
+          ],
+          "fills": [],
+          "strokes": [],
+          "cornerRadius": 0,
+          "width": 208,
+          "height": 44,
+          "padding": [
+            8,
+            16,
+            8,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "97:2-desktop:2",
+          "name": "sidebar-item",
+          "type": "FRAME",
+          "path": [
+            "2-desktop",
+            "app-sidebar",
+            "sidebar-item"
+          ],
+          "fills": [],
+          "strokes": [],
+          "cornerRadius": 0,
+          "width": 208,
+          "height": 44,
+          "padding": [
+            8,
+            16,
+            8,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "97:2-desktop:t",
+          "name": "data-table",
+          "type": "FRAME",
+          "path": [
+            "2-desktop",
+            "data-table"
+          ],
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [
+            "#f0f0f0"
+          ],
+          "cornerRadius": 16,
+          "width": 1120,
+          "height": 600,
+          "padding": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gap": 0,
           "effects": [],
           "text": null
         }
@@ -2954,19 +3053,19 @@
       "nodes": [
         {
           "id": "1:39",
-          "name": "nav-pill",
+          "name": "app-sidebar",
           "type": "FRAME",
           "path": [
             "2-empty-desktop",
-            "nav-pill"
+            "app-sidebar"
           ],
           "fills": [
             "#f3f3f3"
           ],
           "strokes": [],
-          "cornerRadius": 9999,
-          "width": 100,
-          "height": 56,
+          "cornerRadius": 0,
+          "width": 240,
+          "height": 900,
           "padding": [
             8,
             16,
@@ -2983,7 +3082,7 @@
           "type": "FRAME",
           "path": [
             "2-empty-desktop",
-            "nav-pill",
+            "app-sidebar",
             "button-primary"
           ],
           "fills": [
@@ -3009,7 +3108,7 @@
           "type": "TEXT",
           "path": [
             "2-empty-desktop",
-            "nav-pill",
+            "app-sidebar",
             "button-primary",
             "label"
           ],
@@ -3221,6 +3320,78 @@
             "letterSpacing": 0,
             "textCase": "ORIGINAL"
           }
+        },
+        {
+          "id": "97:2-empty-desktop:0",
+          "name": "sidebar-item",
+          "type": "FRAME",
+          "path": [
+            "2-empty-desktop",
+            "app-sidebar",
+            "sidebar-item"
+          ],
+          "fills": [],
+          "strokes": [],
+          "cornerRadius": 0,
+          "width": 208,
+          "height": 44,
+          "padding": [
+            8,
+            16,
+            8,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "97:2-empty-desktop:1",
+          "name": "sidebar-item",
+          "type": "FRAME",
+          "path": [
+            "2-empty-desktop",
+            "app-sidebar",
+            "sidebar-item"
+          ],
+          "fills": [],
+          "strokes": [],
+          "cornerRadius": 0,
+          "width": 208,
+          "height": 44,
+          "padding": [
+            8,
+            16,
+            8,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "97:2-empty-desktop:2",
+          "name": "sidebar-item",
+          "type": "FRAME",
+          "path": [
+            "2-empty-desktop",
+            "app-sidebar",
+            "sidebar-item"
+          ],
+          "fills": [],
+          "strokes": [],
+          "cornerRadius": 0,
+          "width": 208,
+          "height": 44,
+          "padding": [
+            8,
+            16,
+            8,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
         }
       ]
     }

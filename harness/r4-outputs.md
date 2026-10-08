@@ -13,7 +13,7 @@
 | research/s1-references.md | S1 | 레퍼런스 모음 | 화면당 ui_url 3~5개 |
 | research/s1-adopt.md | S1 | 반영 항목 표 | 레퍼런스마다 "가져올 것" 1줄 |
 | spec/s2-spec.md | S2 | 화면 설계서 | 대상 화면마다 구성 요소 ≥ 1, 역할별 노출 표 1개 |
-| design/s3-keyscreens.json 또는 design/s3-keyscreens/{프레임}.json | S3 | 키스크린 노드 JSON (둘 중 하나만) | 프레임 2~3개, 390×844 |
+| design/s3-keyscreens.json 또는 design/s3-keyscreens/{프레임}.json | S3 | 키스크린 노드 JSON (둘 중 하나만) | 프레임 2~3개, input.json keyscreens 그대로 (기본 390×844, 2026-10-08부터 desktop 1440×900 가능) |
 | approval.md | G-승인 | 승인/거절, 사유, 날짜, 승인자 | 파일 1개, 결과 ∈ {approved, rejected} |
 | design/s4-frames.json 또는 design/s4-frames/{프레임}.json | S4 | 전체 프레임 노드 JSON (둘 중 하나만. 크면 프레임별 파일, 2026-10-02) | 프레임 수 = 화면 수 × 2 |
 | judge/gate-{S1,S2,S3,S5}.json | 각 게이트 | 판정 결과 (S5 위반 목록 포함, R6 변경) | violations 배열, 완료 시 gate-S5 길이 0 |
