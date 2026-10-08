@@ -1,0 +1,8 @@
+{
+  "screens": [15],
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/yPF9ZLVjkg22kgSDD2aKEd",
+  "keyscreens": ["15-desktop", "15-mobile"],
+  "mobile_source": {"15": "S4-screens-v16 (440:2) 15-mobile 그대로 복제"},
+  "desktop_base": "S4-screens-v16 (440:2) 15-desktop 히어로(승인) — 헤드라인만 48로, 아래 섹션 추가"
+}

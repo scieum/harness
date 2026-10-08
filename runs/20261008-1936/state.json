@@ -1,0 +1,7 @@
+{
+  "stage": "done",
+  "retries": {"S1": 0, "S2": 0, "S3": 0, "S5": 0},
+  "approval": "approved",
+  "baseline_hash": "d6650b23ad58c21bdf954d2c5c9f56e9a08f9410566af67b718678d188805912",
+  "note": "랜딩 긴 페이지: 15-desktop 히어로(헤드라인 48) + 아래 설명 섹션, 15-mobile 승인본 복제"
+}
