@@ -37,6 +37,7 @@ docs/, harness/, 다른 runs/{id}/ 하위 폴더는 절대 쓰지 않는다.
 - 화면 1(로그인)은 개인 이메일·비밀번호만 — school-select* 금지(N1-c), 학교명 표시 없음, "회원가입" 링크로 화면 14. 모양은 docs/design.md `tab-bar` — 하단에 붙은 전폭 사각형(radius 0), pill 아님.
 - 상태 프레임: input.json `variants`(예: {"11": ["slot","print"]}, 가능한 state = rules.json variants)마다 `{ID}-{state}-mobile`·`{ID}-{state}-desktop`. 일반 프레임과 같은 규칙(학교명·탭바 등)에 rules.json `variants` 필수 컴포넌트(C1).
 - 둘러보기(guest) 프레임: input.json `guest_screens` 화면마다 `{ID}-guest-mobile`·`{ID}-guest-desktop`. 학교명은 "데모 학교"만, 상단 `guest-banner`(안에 button-primary 가입), 쓰기 동작은 숨기거나(rules.json guest.hidden_components) 잠금(`guest-lock`), mobile 탭바의 QR 스캔·기록 tab-item에 `guest-lock` 각 1 (GM1~5).
+- 화면 16 MSDS 요약(2026-10-08): ghs-pictogram 마름모 테두리만 #ff0000(그 밖 어디에도 금지), 신호어는 무채색 pill. 모바일 = 전용 화면, 데스크톱 = 시약 목록 위 detail-drawer (docs/design.md "MSDS summary").
 - 키·인증키 입력 칸이나 키 값처럼 보이는 문자열을 그리지 않는다 (N2-a·N2-c).
 - 재시도 시: judge 결과에 나온 노드만 고친다. 다른 노드는 건드리지 않는다.
 

@@ -6,7 +6,7 @@
 ## 0. 전제: 노드 이름 규칙
 
 - 컴포넌트 노드 이름 = design.md 컴포넌트명 (button-primary, badge-low-stock, reorder-alert-card, school-select …)
-- 2026-10-02 추가 이름: `stock-intake`, `reagent-register`, `user-manage`, `cabinet-edit`, `cabinet-door-select`, `cabinet-shelf-select`, `cabinet-slot`, `storage-class-chip`, `mix-warning`, `qr-scan`, `qr-manual-entry`, `home-summary`, `quick-action`, `tab-bar`, `tab-item`, `landing-hero`, `feature-card`, `landing-cta`, `guest-entry`, `guest-banner`, `guest-lock`(2026-10-03), `cabinet-switcher`, `cabinet-add`(2026-10-04), `cabinet-number`, `qr-print`, `qr-print-sheet`, `qr-label`, `qr-result-sheet`, `slot-count`, `slot-sheet`, `slot-assign`, `reagent-location`, `location-edit`, `location-picker`, `reorder-threshold`, `threshold-edit`, `nav-account-menu`(2026-10-06), `intake-mode`, `doc-upload`, `doc-intake-table`, `doc-item-row`, `reagent-link`, `new-reagent-fields`, `msds-search`, `msds-candidates`, `msds-bulk-banner`, `suggest-badge`, `location-suggest`, `auto-threshold-badge`(2026-10-07), `list-filter-button`, `list-filter-sheet`, `filter-chip-row`, `usage-date`, `past-date-note`(2026-10-07 요청 3), `school-select-kind`(2026-10-07 요청 4), `app-sidebar`, `sidebar-item`, `data-table`, `detail-drawer`(2026-10-08 데스크톱)
+- 2026-10-02 추가 이름: `stock-intake`, `reagent-register`, `user-manage`, `cabinet-edit`, `cabinet-door-select`, `cabinet-shelf-select`, `cabinet-slot`, `storage-class-chip`, `mix-warning`, `qr-scan`, `qr-manual-entry`, `home-summary`, `quick-action`, `tab-bar`, `tab-item`, `landing-hero`, `feature-card`, `landing-cta`, `guest-entry`, `guest-banner`, `guest-lock`(2026-10-03), `cabinet-switcher`, `cabinet-add`(2026-10-04), `cabinet-number`, `qr-print`, `qr-print-sheet`, `qr-label`, `qr-result-sheet`, `slot-count`, `slot-sheet`, `slot-assign`, `reagent-location`, `location-edit`, `location-picker`, `reorder-threshold`, `threshold-edit`, `nav-account-menu`(2026-10-06), `intake-mode`, `doc-upload`, `doc-intake-table`, `doc-item-row`, `reagent-link`, `new-reagent-fields`, `msds-search`, `msds-candidates`, `msds-bulk-banner`, `suggest-badge`, `location-suggest`, `auto-threshold-badge`(2026-10-07), `list-filter-button`, `list-filter-sheet`, `filter-chip-row`, `usage-date`, `past-date-note`(2026-10-07 요청 3), `school-select-kind`(2026-10-07 요청 4), `app-sidebar`, `sidebar-item`, `data-table`, `detail-drawer`(2026-10-08 데스크톱), `msds-summary`, `ghs-pictogram`, `msds-original-link`, `msds-skeleton`(2026-10-08 화면 16)
 - R5에서 추가한 이름: `manual-upload`, `vendor-link`, `vendor-register`, `msds-entry` (S2 설계서와 Figma 노드에 동일하게 사용)
 - NEIS 학교 선택(2026-10-01)으로 추가한 이름: `school-select-sido`, `school-select-region`, `school-select-school` (school-select 대신 사용)
 - 스크립트는 이름으로 노드를 찾는다 → 이름이 없거나 다르면 해당 규칙 "판정 불가" = 실패로 센다
@@ -54,7 +54,7 @@
 
 | ID | 조건 |
 |---|---|
-| D1 | 모든 fill·stroke·text 색 ∈ colors.allowed |
+| D1 | 모든 fill·stroke·text 색 ∈ colors.allowed · #ff0000은 ghs-pictogram 안에서만(2026-10-08, rules.json colors.allowed_rgba) |
 | D2 | #d6246a·#fbe9f0(연핑크) 노드는 badge-low-stock·reorder-alert-card·mix-warning(2026-10-02 추가)의 자손일 때만 허용 |
 | D3 | cornerRadius ∈ radius.allowed |
 | D4 | fontFamily ∈ {Pretendard, IBM Plex Sans KR(Figma 시안 대체)}, weight·fontSize ∈ 허용 집합 |

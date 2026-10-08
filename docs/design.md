@@ -200,6 +200,7 @@ Composed only from the primitives and tokens above; no new literal values.
 
 - `{colors.canvas-soft}` fill, borderless, `{rounded.md}` corners, padding `{spacing.lg}`
 - `badge-low-stock` + reagent name in `{typography.heading-4}` + required vs. current amount in `{typography.body}`, closed by a `button-primary` "판매처 연결"
+- Card text (2026-10-08): "재주문 기준 N{단위}" and the alert date as "10월 7일 알림"
 - After the vendor is confirmed (added 2026-10-06): a muted line "사이트를 새 창으로 열었어요. 열리지 않았다면 [직접 열기]" with the link as `button-pill-soft`
 
 ### Inputs & Forms
@@ -286,13 +287,13 @@ Composed only from the primitives and tokens above; no new literal values.
 
 **Auto reorder threshold (screens 3·6, added 2026-10-07)**
 
-- **`auto-threshold-badge`** — `{colors.canvas-soft}` pill "자동" in `{colors.ink}` `{typography.label}` beside the threshold in `reorder-threshold` / `reorder-alert-card`, with a caption "최근 사용량으로 계산했어요". Manual and manual-extracted values show no badge. Not pink, not sky-blue — it is information, not a decision
+- **`auto-threshold-badge`** — `{colors.canvas-soft}` pill "자동" in `{colors.ink}` `{typography.label}` beside the threshold in `reorder-threshold` / `reorder-alert-card`, with a caption that states the basis: "최근 사용량으로 계산했어요" (usage history) or "마지막 입고량의 20%로 계산했어요" (no usage yet). Manual and manual-extracted values show no badge. Not pink, not sky-blue — it is information, not a decision
 - Screen 5: when the same reagent appears in several rows they merge into one, with a muted line "2개 행을 합쳤어요"
 
 **School level (screen 14, added 2026-10-07)**
 
 - **`school-select-kind`** — `segmented-control` with three options 초등학교 · 중학교 · 고등학교, placed after `school-select-region` and before `school-select-school`. No default: until one is chosen, `school-select-school` is disabled with the placeholder "학교급을 먼저 골라 주세요"
-- No schools for that level in the region: in place of the school list, a muted line "이 지역에 {학교급}이 없어요 — 지역을 다시 골라 주세요". No pink
+- No schools for that level in the region: in place of the school list, a muted line "이 지역에 {학교급}가 없어요 — 지역을 다시 골라 주세요". No pink
 
 **List filter (screen 2, added 2026-10-07)** — every role, guest included
 
@@ -329,6 +330,14 @@ Composed only from the primitives and tokens above; no new literal values.
 - **`guest-lock`** — a small lock icon in `{colors.text-muted}`. Sits on every write action that stays visible but is disabled (e.g. "사용 기록 입력" in `quick-action`, "사용 기록" on reagent detail) and on the QR 스캔·기록 `tab-item`s. Tapping a locked item shows an `ex-toast` "가입하면 쓸 수 있어요" — never pink (no decision is pending)
 - School name shown everywhere is the single demo school "데모 학교"
 
+**MSDS summary (screen 16, added 2026-10-08)** — every role, guest included
+
+- Opened by every `msds-entry` "MSDS 보기" instead of the outside site. Mobile: its own screen — back ‹ + "MSDS · {시약명}" in `{typography.heading-3}`, source line "물질안전보건자료 · 한국산업안전보건공단" in `{typography.caption}` `{colors.text-muted}`. Desktop: inside a `detail-drawer` over the reagent `data-table`
+- **`msds-summary`** — the body: signal word pill ("위험" = `{colors.ink}` fill with white label; "경고" = `{colors.canvas-soft}` with `{colors.ink}` label — never pink or red), then the pictogram row, then four sections titled with their MSDS numbers "2. 유해·위험성" · "4. 응급조치 요령" · "7. 취급 및 저장방법" · "8. 노출방지 및 개인보호구" (`{typography.title}`), each a 3-line summary in `{typography.body}` + a quiet "더 보기" that expands it; an empty section reads "내용이 없어요" muted
+- **`ghs-pictogram`** — the GHS standard: white diamond with a red #ff0000 frame and a black symbol, name below in `{typography.caption}` (산화성 · 부식성 · 급성 독성 …, 9 kinds). The only place #ff0000 may appear (a regulatory symbol, not a brand color); it never replaces the pink decision signal
+- **`msds-original-link`** — full-width `button-outline` "원문 MSDS 보기 ↗" at the bottom, opens the KOSHA page in a new window. When the linked MSDS is not from KOSHA (a typed address), the summary is skipped and only this button shows
+- Loading: **`msds-skeleton`** gray bars (`{colors.canvas-soft}`) in place of the sections. Failure: `ex-empty-state-card` "요약을 불러오지 못했어요" + `msds-original-link`
+
 **`badge-overlay`** — translucent gray pill (rgba(115, 115, 115, 0.56)) with `{colors.on-primary}` `{typography.label}` text, laid over image content (manual preview tags)
 
 **`segmented-control`** + **`segmented-control-active`** — two-option toggle: a `{colors.canvas-soft}` stadium track holding two pill options; the active option is a `{colors.canvas}` white pill, the inactive label sits in `{colors.text-muted}`
@@ -351,7 +360,7 @@ Composed only from the primitives and tokens above; no new literal values.
 
 **`ex-modal-card`** — Modal dialog surface — same chrome as feature-card with elevated shadow.
 
-- Sheets and forms that open over a screen carry a × close at top right (added 2026-10-06 — user-manage sheet on 8, vendor-register form on 9). On 8 the delete confirm reads "{이름} · 사용·입고 기록은 남아요" and invite is email only (no name field); on 9 there is no extra-info field
+- Sheets and forms that open over a screen carry a × close at top right (added 2026-10-06 — user-manage sheet on 8, vendor-register form on 9). On 8 the delete confirm reads "{이름} · 사용·입고 기록은 남아요" and invite is email + role (학생 · 교사), no name field; the sheet head shows "학생 a · 교사 b · admin c". On 9 there is no extra-info field and vendor rows show name + contact only (no website)
 
 - Properties: `backgroundColor`, `rounded`, `padding`
 

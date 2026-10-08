@@ -58,7 +58,7 @@ docs/, harness/, 다른 runs/{id}/ 하위 폴더는 절대 쓰지 않는다.
 - 화면 2~13 데스크톱 구성은 docs/design.md "Desktop shell"(app-sidebar·sidebar-item·data-table·detail-drawer, 5·7·11은 페이지)을 따라 각 화면 구성 요소에 `- app-sidebar:` 등을 적고, 화면별 데스크톱 배치를 한 줄로 적는다 (C3, 2026-10-08).
 - input.json `variants`가 있으면 `## 상태 화면 {ID}-{state}` 섹션에 그 상태 구성을 적는다(rules.json `variants` 필수 컴포넌트 포함).
 - input.json `guest_screens`가 있으면 `## 둘러보기 화면 {ID}` 섹션에 둘러보기 구성(guest-banner, 숨김·잠금 컴포넌트, 데모 학교)을 적는다. 역할별 노출 표에는 넣지 않는다(게스트는 R 규칙 대상 아님).
-- rules.json `screens_required`의 화면(2·3·4·7·11·12·13·15)은 그 필수 컴포넌트를 구성 요소에 모두 적는다 (C1).
+- rules.json `screens_required`의 화면(2·3·4·7·11·12·13·14·15·16)은 그 필수 컴포넌트를 구성 요소에 모두 적는다 (C1).
 
 ## 보고
 끝나면 파일 경로와 화면별 구성 요소 개수만 보고한다.
