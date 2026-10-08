@@ -291,7 +291,9 @@ def check_D4(d, r, run):
         if tx.get("fontWeight") not in t["weights"]:
             out.append(v("D4", where(f, n), tx.get("fontWeight"), t["weights"]))
         if tx.get("fontSize") not in t["sizes"]:
-            out.append(v("D4", where(f, n), tx.get("fontSize"), t["sizes"]))
+            disp = t.get("display_sizes")  # 2026-10-08: 랜딩 큰 글자는 정해진 컴포넌트 안에서만
+            if not (disp and tx.get("fontSize") in disp["sizes"] and any(p in disp["only_within"] for p in (n.get("path") or []))):
+                out.append(v("D4", where(f, n), tx.get("fontSize"), t["sizes"]))
     return out
 
 
@@ -355,6 +357,12 @@ def check_D9(d, r, run):
             out.append(v("D9", name, "프레임 이름", fr["name_pattern"]))
             continue
         size = [f.get("width"), f.get("height")]
+        tall = fr.get("tall", {}).get(name)  # 2026-10-08: 세로로 긴 프레임(랜딩 데스크톱)
+        if tall:
+            h = f.get("height") or 0
+            if f.get("width") != tall["width"] or not (tall["min_height"] <= h <= tall["max_height"]):
+                out.append(v("D9", name, size, f"{tall['width']}×{tall['min_height']}~{tall['max_height']}"))
+            continue
         want = fr[name.split("-")[-1]]
         if size != want:
             out.append(v("D9", name, size, want))
@@ -535,6 +543,11 @@ def check_C3(d, r, run):
                 k = sum(n.get("name") == bad for n in nodes)
                 if k:
                     out.append(v("C3", name, f"{bad} {k}개", "0 (로그인 전 desktop)"))
+            need = pre.get("desktop_required", {}).get(str(s), []) if not frame_variant(name, r) else []
+            have = {n.get("name") for n in nodes}
+            missing = [c for c in need if c not in have]
+            if missing:
+                out.append(v("C3", name, f"없음 {missing}", need))
             continue
         if not (name.endswith("-desktop") and s in ds["screens"]):
             if name.endswith("-mobile") and bars:

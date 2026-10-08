@@ -1561,6 +1561,34 @@
           "gap": 0,
           "effects": [],
           "text": null
+        },
+        {
+          "id": "95:1",
+          "name": "headline",
+          "type": "TEXT",
+          "path": [
+            "2-desktop",
+            "landing-hero",
+            "headline"
+          ],
+          "fills": [
+            "#141414"
+          ],
+          "strokes": [],
+          "cornerRadius": null,
+          "width": 400,
+          "height": 60,
+          "padding": null,
+          "gap": null,
+          "effects": [],
+          "text": {
+            "characters": "우리 학교 시약장",
+            "fontFamily": "Pretendard",
+            "fontWeight": 700,
+            "fontSize": 48,
+            "letterSpacing": 0,
+            "textCase": "ORIGINAL"
+          }
         }
       ]
     },
