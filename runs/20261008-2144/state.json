@@ -1,0 +1,7 @@
+{
+  "stage": "done",
+  "retries": {"S1": 0, "S2": 0, "S3": 0, "S5": 0},
+  "approval": "approved",
+  "baseline_hash": "18f84ceccc085c08759b7fc64ed6deffcdaa6fea037071047f13513797ede6e4",
+  "note": "푸터 문구 교체: web-footer = '© 2026 사이음(sci_eum). 과학의 사이, 사람을 잇다.' 한 줄"
+}

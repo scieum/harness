@@ -1,0 +1,7 @@
+{
+  "screens": [15],
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/yPF9ZLVjkg22kgSDD2aKEd",
+  "keyscreens": ["15-desktop", "15-mobile"],
+  "base": "S4-screens-v18 (521:2) 15-desktop·15-mobile 그대로, 15-desktop의 web-footer만 rules.json footer 한 줄로"
+}
