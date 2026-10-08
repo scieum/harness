@@ -241,6 +241,9 @@ Composed only from the primitives and tokens above; no new literal values.
   - **`cta-band`** — `{colors.canvas-soft}` band, centered one-line title (display size allowed) + `button-primary` 회원가입 + `button-outline` 둘러보기
   - **`web-footer`** — one centered line only, above it a 1px `{colors.hairline-soft}` rule: "© 2026 사이음(sci_eum). 과학의 사이, 사람을 잇다." in `{typography.caption}` `{colors.text-muted}`. No columns, no policy links (2026-10-08 사용자 결정 — replaces the four-column footer). Every footer uses this text
 - Display sizes 40 · 48 exist only inside `landing-hero`, `landing-section`, `cta-band` (the hero headline is 48)
+- Section rhythm (approved 2026-10-08): below the hero every section sits in a full-width band (`{rounded.none}`, no shadow) and the bands alternate `{colors.canvas}` ↔ `{colors.canvas-soft}` (#f3f3f3) — 탭 줄 white · 문제 공감 gray (its cards turn white) · the four `landing-section`s white/gray/white/gray · 대상 탭 white · 안심 gray (grid hairlines #e0e0e0 on gray). Two bands invert to `{colors.ink}` (#141414): the `step-flow` section (white text, secondary #adadad, inactive circles #262626, current circle `{colors.highlight}` ring, card #262626) and the `cta-band`. Neutral bands are part of the tint ladder, not "colored section bands"
+- Inverted primary (only inside an ink band): `button-primary` becomes a white fill with an ink label, and `button-outline` a white border with a white label — so the main action never disappears on black
+- Scroll motion (for development; static in Figma): section titles and cards rise 16px and fade in over 0.4s as they enter the viewport, once; `landing-tabs` sticks under `web-header` and the tab of the section in view takes the `{colors.highlight}` underline; all motion is off when the viewer prefers reduced motion
 - Guest desktop (둘러보기): the same `app-sidebar` as after login, school "데모 학교"; `sidebar-item`s 홈 · 시약 active, 기록 · QR 찾기 carry `guest-lock`; management items hidden; `guest-banner` across the top of the content area
 
 **`nav-pill`** — Top Nav (mobile pre-login only from 2026-10-08)
@@ -406,7 +409,7 @@ Composed only from the primitives and tokens above; no new literal values.
 
 - Don't add drop shadows — elevation is fills and hairlines only.
 - Don't use `{colors.accent}` for CTAs; primary actions are always `{colors.primary}` ink pills.
-- Don't introduce accent hues beyond pink and sky blue, gradients on UI chrome, or colored section bands.
+- Don't introduce accent hues beyond pink and sky blue, gradients on UI chrome, or colored section bands (neutral white/#f3f3f3/ink bands on the landing are allowed).
 - Don't use sky blue as a text color, inside a pink decision signal, or as the `button-primary` fill.
 - Don't apply letter-spacing or all-caps styling; the type system runs at natural tracking in sentence case.
 - Don't put borders on form fields at rest — inputs are `{colors.field}` tint fills; the border appears only as the 2px ink focus ring.
