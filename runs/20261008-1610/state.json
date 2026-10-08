@@ -1,0 +1,7 @@
+{
+  "stage": "done",
+  "retries": {"S1": 0, "S2": 0, "S3": 0, "S5": 0},
+  "approval": "approved",
+  "baseline_hash": "1ebb1b4c9379d353c5987f7c0b92d7b704eb9088a981d82127587a155a68fba7",
+  "note": "데스크톱 재구성 2차-b: 상태 프레임 20종 desktop 새로(모바일 승인본 복제, 16 상태 3종은 모바일도 새로) + 16 복제"
+}

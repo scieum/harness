@@ -1,0 +1,25 @@
+{
+  "screens": [16],
+  "variants": {
+    "2": ["msds-bulk", "filter", "filter-empty"],
+    "3": ["location", "msds"],
+    "4": ["past-date"],
+    "7": ["doc-upload", "doc-review", "doc-fail", "suggest", "msds"],
+    "11": ["empty", "delete", "slot", "print", "unsaved"],
+    "12": ["result"],
+    "16": ["loading", "fail", "no-summary"]
+  },
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/yPF9ZLVjkg22kgSDD2aKEd",
+  "keyscreens": ["11-slot-desktop", "7-doc-review-desktop", "16-loading-mobile"],
+  "mobile_source": {
+    "16": "S4-screens-v15 (374:2) 16-mobile",
+    "2-filter": "300:2", "2-filter-empty": "300:2", "2-msds-bulk": "257:2",
+    "3-location": "257:2", "3-msds": "257:2", "4-past-date": "300:2",
+    "7-doc-upload": "257:2", "7-doc-review": "257:2", "7-doc-fail": "257:2", "7-suggest": "257:2", "7-msds": "257:2",
+    "11-empty": "195:2", "11-delete": "195:2", "11-slot": "218:2", "11-print": "218:2", "11-unsaved": "218:2",
+    "12-result": "218:2",
+    "16-loading": "새로", "16-fail": "새로", "16-no-summary": "새로"
+  },
+  "desktop_base": "S4-screens-v15 (374:2) 의 같은 화면 desktop을 틀로 상태만 바꿈"
+}
