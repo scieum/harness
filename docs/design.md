@@ -239,7 +239,7 @@ Composed only from the primitives and tokens above; no new literal values.
   - Audience: `segmented-control` 교사 · 학생 · 관리자, each with two outlined capability cards and a crop of what that role sees (role exposure follows the role table)
   - Trust 2×2 divided by hairlines only: 학교별 데이터 분리 · 인증 정보는 서버에서만 처리 · NEIS 공식 학교 정보로 가입 · MSDS·GHS 정보 연결. No usage numbers until real ones exist
   - **`cta-band`** — `{colors.canvas-soft}` band, centered one-line title (display size allowed) + `button-primary` 회원가입 + `button-outline` 둘러보기
-  - **`web-footer`** — four columns (wordmark + one line / 서비스 / 도움말 / 문의), hairline, then copyright · 개인정보처리방침 · 이용약관
+  - **`web-footer`** — one centered line only, above it a 1px `{colors.hairline-soft}` rule: "© 2026 사이음(sci_eum). 과학의 사이, 사람을 잇다." in `{typography.caption}` `{colors.text-muted}`. No columns, no policy links (2026-10-08 사용자 결정 — replaces the four-column footer). Every footer uses this text
 - Display sizes 40 · 48 exist only inside `landing-hero`, `landing-section`, `cta-band` (the hero headline is 48)
 - Guest desktop (둘러보기): the same `app-sidebar` as after login, school "데모 학교"; `sidebar-item`s 홈 · 시약 active, 기록 · QR 찾기 carry `guest-lock`; management items hidden; `guest-banner` across the top of the content area
 
