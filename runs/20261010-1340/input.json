@@ -1,0 +1,9 @@
+{
+  "screens": [3, 4, 10],
+  "variants": {"3": ["delete"], "4": ["picker", "empty", "error", "past-date"]},
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/yPF9ZLVjkg22kgSDD2aKEd",
+  "keyscreens": ["4-mobile", "4-desktop", "3-delete-mobile"],
+  "request": "개발 세션 요청 6 (2026-10-10): 여러 시약 한 번에 사용 기록(화면 4), 시약 삭제(화면 3·10), 수업 기록(화면 4·10) — rules.json 1.25 usage_batch·reagent_delete·class_info",
+  "base": "최신 S4-screens 페이지의 3·4·10 승인본을 틀로. 4-desktop은 드로어 → 본문 페이지로 바꿈"
+}
