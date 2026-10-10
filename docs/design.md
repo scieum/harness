@@ -234,7 +234,7 @@ Composed only from the primitives and tokens above; no new literal values.
   - **`product-shot`** — the hero's right side (panel + browser frame + overlapped table card) as one named group
   - **`landing-tabs`** — at the fold: centered tab row 시약 목록 · 사용 기록 · 재주문 알림 · QR 찾기 · 학교별 분리, active underline `{colors.highlight}`; sticks under `web-header` on scroll
   - Problem row: centered title "과학실 시약, 이렇게 관리하고 계신가요?" + three quote `feature-card`s in teacher voice + one line "Lab_Stock은 학교별 시약장 하나로 답해요."
-  - **`landing-section`** ×4 — one per tab, text and a crop of an approved screen alternating left/right: small tag → one-line title (display size allowed) → three bullets → quiet link. Crops come from approved screens (2 list + filter, 13 recent usage + 4 drawer, reorder row with `badge-low-stock`, 11 cabinet slots)
+  - **`landing-section`** ×4 — one per tab, text and a crop of an approved screen alternating left/right: small tag → one-line title (display size allowed) → three bullets → quiet link. Crops come from approved screens (2 list + filter, 13 recent usage + the 4-desktop batch page with 수업 (replaced 2026-10-11), reorder row with `badge-low-stock`, 11 cabinet slots)
   - **`step-flow`** — five numbered circles joined by a line (1 학교 선택 → 2 시약 등록 → 3 칸 지정 → 4 사용 기록 → 5 재주문 알림); current step `{colors.highlight}` ring, others gray; below, one card with "STEP n / 5" + title + text + three checks and that step's screen crop
   - Audience: `segmented-control` 교사 · 학생 · 관리자, each with two outlined capability cards and a crop of what that role sees (role exposure follows the role table)
   - Trust 2×2 divided by hairlines only: 학교별 데이터 분리 · 인증 정보는 서버에서만 처리 · NEIS 공식 학교 정보로 가입 · MSDS·GHS 정보 연결. No usage numbers until real ones exist
@@ -264,7 +264,8 @@ Composed only from the primitives and tokens above; no new literal values.
 - Exactly four `tab-item`s, identical for every role: 홈 · 시약 · QR 스캔 · 기록. Equal width — the scan tab is not enlarged
 - Each `tab-item` is an icon above a `{typography.label}` label, tap target ≥ 44px, square (no pill behind it)
 - Active tab: `{colors.highlight}` icon with `{colors.ink}` label. Inactive: `{colors.text-muted}` icon and label
-- Present on every mobile screen after login (screens 2–13); absent on login (screen 1) and on desktop, where `nav-pill` carries navigation
+- Until screen 12 ships (2026-10-11), the QR 스캔 `tab-item` is grayed (`{colors.text-faint}` icon and label) with a small "준비 중" caption under the icon; tapping it shows `ex-toast` "준비 중이에요". Still four tabs
+- Present on every mobile screen after login (screens 2–13, 16, 17); absent on login (screen 1) and on desktop, where `nav-pill` carries navigation
 - Role-specific actions (입고, 사용자 관리) are never tabs; they live in the home `quick-action` area — three tiles (added 2026-10-06): teacher = 사용 기록 입력 · 입고 · 시약장 설정, admin = 입고 · 사용자 관리 · 시약장 설정; mobile lays them out 2 + 1
 
 ### Signature Components
@@ -314,6 +315,38 @@ Composed only from the primitives and tokens above; no new literal values.
 
 - **`school-select-kind`** — `segmented-control` with three options 초등학교 · 중학교 · 고등학교, placed after `school-select-region` and before `school-select-school`. No default: until one is chosen, `school-select-school` is disabled with the placeholder "학교급을 먼저 골라 주세요"
 - No schools for that level in the region: in place of the school list, a muted line "이 지역에 {학교급}가 없어요 — 지역을 다시 골라 주세요". No pink
+
+**Select mode & bulk delete (screens 2·17, added 2026-10-11)** — teacher·admin only
+
+- **`list-select-toggle`** — mobile: `button-pill-soft` "선택" at the right of the page head; desktop: `button-outline` "선택" beside the filter. In select mode the head reads quiet "취소" · "N개 선택됨" · "전체 선택"; tapping a row toggles its check instead of opening detail
+- **`select-checkbox`** — a 20px circle (`{rounded.full}`): unchecked `{colors.canvas}` with a 1px #adadad ring; checked `{colors.highlight}` fill with a white check. A checked row takes `{colors.highlight-soft}`. Mobile: left of each card. Desktop: the first `data-table` column, the head cell = select all (every row in the current filter and search, across pages, up to 100; beyond that a muted caption "앞의 100개만 골랐어요")
+- **`bulk-action-bar`** — appears once one item is chosen: `{colors.canvas}` with a 1px `{colors.hairline-soft}` top edge, `{rounded.none}`; "N개 선택됨" in `{typography.title}` left, `button-primary` "삭제" (ink) right. Mobile: right above the `tab-bar`. Desktop: pinned to the bottom of the content area
+- Confirm: `ex-modal-card` "시약 N개를 삭제할까요?" + three names and "외 N개" in `{typography.body-sm}` + "목록·시약장·재주문 알림에서 사라져요. 사용·입고 기록은 남아요." (sensors: "목록과 홈에서 사라져요.") + muted "되돌릴 수 없어요." + `button-outline` "취소" / `button-primary` "삭제". No pink. Then `ex-toast` "시약 N개를 삭제했어요"; the list stays and select mode ends
+
+**Not found (added 2026-10-11)**
+
+- Reuses `ex-empty-state-card`: "페이지를 찾을 수 없어요" + "주소가 바뀌었거나 없는 페이지예요."
+- Signed in: inside the app shell (mobile `tab-bar`, desktop `app-sidebar` with no current item) with `button-primary` "홈으로" + `button-outline` "뒤로". Signed out: `web-header` (desktop) / `nav-pill` (mobile), no shell, `button-primary` "처음으로" (→ 15)
+
+**Sign-up error summary (screen 14, added 2026-10-11)**
+
+- **`signup-error-summary`** — one line right above the fixed "가입하기" button: the first error ("약관에 동의해 주세요"), or "… 외 N개" when there are more; `{colors.ink}` text with a small `{colors.text-muted}` info icon. No pink. Pressing the button also scrolls to and focuses the first errored field
+
+**Add record (screen 10, added 2026-10-11)**
+
+- **`record-add`** — `button-primary` "기록 추가" at the right of the page head on both widths (compact 44-high pill on mobile). No floating action button: it would need a shadow and would collide with the `tab-bar`. Every role. Opens an empty screen 4; saving returns to screen 10, where the new rows briefly take `{colors.highlight-soft}`
+
+**Sensors (screen 17, added 2026-10-11)** — ownership only (no readings, no lending)
+
+- Entry: desktop `sidebar-item` "센서" right under 시약 (every role); mobile has no tab of its own — the 시약 tab opens with **`inventory-switch`** (`segmented-control` "시약 | 센서") at the top of screens 2 and 17, remembering the last choice
+- **`sensor-list`** — desktop: page head "센서 N개" + search + `list-filter-button` + `list-select-toggle` + **`sensor-add`** `button-primary` "센서 등록" (teacher·admin); a `data-table` with columns 이름 · 종류 · 회사 · 모델 · 수량 · 보관 위치 · 상태, each row a **`sensor-row`**; a row opens a `detail-drawer`. Mobile: the same head under `inventory-switch`, `sensor-row` cards (`{colors.canvas-soft}`, `{rounded.sm}`): name in `{typography.title}`, "온도 · 버니어 · GDX-TMP" caption muted, "3개 · 과학실 뒤 선반", `sensor-status-badge` at the right. Filter sheet: 종류 chips → 회사 chips → 상태
+- **`sensor-status-badge`** — monochrome, like the MSDS signal word: 고장 = `{colors.ink}` fill with white label; 점검 필요 = `{colors.canvas-soft}` with `{colors.ink}` label; 정상 = no fill, "정상" in `{colors.text-muted}`. Never pink or sky blue
+- **`sensor-detail`** — mobile screen / desktop drawer: title + badge → "항목 | 값" rows 종류 · 회사 · 모델 · 수량 · 보관 위치 · 메모 · 등록일 → **`sensor-edit`** `button-outline` "수정" (teacher·admin); head ⋯ → **`sensor-delete`** "센서 삭제" (same confirm as reagent delete, "목록과 홈에서 사라져요")
+- **`sensor-form`** — mobile screen / desktop drawer, × close: 이름 → **`sensor-type-select`** (one of 14 chips: 온도 · pH · 힘 · 운동(거리) · 전압 · 전류 · 조도 · 압력 · CO₂ · 산소 · 습도 · 소리 · 심박 · 기타) → **`sensor-maker-select`** → 모델명 (optional) → 수량 + "개" → 보관 위치 (`segmented-control` "직접 입력 | 시약장 칸", the latter reuses `location-picker`) → 상태 `segmented-control` 정상 · 점검 필요 · 고장 (default 정상) → 메모 → `button-primary` "저장"
+- **`sensor-maker-select`** — opens a bottom sheet (mobile) / dropdown (desktop) with a search `text-input` on top, groups "센서" (버니어 · 사이언스큐브 · 이지메이커 · 고릴라셀 · 파스코 · 동원 · 브로콜리 · 플로우랩 · 이티보드 · 포켓랩 · 헥사보드 · 뉴로그 · 아텍 · 코드위즈) and "현미경" (오선하이테크 · 씨앤에스에듀 · 오맥스 · 한국과학 · 마르시스에듀), and "직접 입력" last (turns into a `text-input`). Chosen item `{colors.highlight-soft}`
+- Empty: `ex-empty-state-card` "아직 등록한 센서가 없어요" + "무선 센서와 현미경을 등록해 두면 수량과 상태를 한눈에 봐요" + `sensor-add` (teachers·admins; students see the text only)
+- Home: **`sensor-alert-tile`** "고장·점검 필요 센서 N" for teachers·admins, only when N ≥ 1 — a desktop "지금 처리할 것" tile, a mobile `home-summary` line. Monochrome
+- Guest: demo sensors, read-only
 
 **List filter (screen 2, added 2026-10-07)** — every role, guest included
 
