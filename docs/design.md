@@ -4,7 +4,7 @@ Lab_Stock is a SaaS for school science labs (elementary, middle and high school 
 
 The geometry does the brand work that color refuses to do. Every interactive element is a stadium pill (`{rounded.full}`): the floating navigation bar, every button, the segmented toggle, the status badges. Containers sit at a calm `{rounded.md}` (24px) and rows, inputs, and media tiles at `{rounded.sm}` (16px). Type is set in Pretendard with strong weight contrast — Bold 700 for every heading, Regular 400 for text, Light 300 for lead subtitles — which gives the monochrome pages a strong typographic voice without a single decorative flourish.
 
-One color is allowed to interrupt: a deep pink accent (`{colors.accent}` — #d6246a), used for decision signals — the low-stock badge on reagent rows, the reorder alert that leads to a vendor, and the cabinet mix warning. Its scarcity is the point; when pink appears, it is asking for a decision. (The mix warning — an unsafe storage combination in a reagent cabinet, `mix-warning` — was added 2026-10-02.)
+One color is allowed to interrupt: a deep pink accent (`{colors.accent}` — #d6246a), used for decision signals — the low-stock badge on reagent rows, the reorder alert that leads to a vendor, the cabinet mix warning, and the over-stock line on a usage row (`usage-over-stock`, added 2026-10-10). Its scarcity is the point; when pink appears, it is asking for a decision. (The mix warning — an unsafe storage combination in a reagent cabinet, `mix-warning` — was added 2026-10-02.)
 
 A second, calmer hue marks where the user is (added 2026-10-02): sky blue (`{colors.highlight}` — #2b9fe0) with its pale tint (`{colors.highlight-soft}` — #e6f4fc) highlights selection and focus — the chosen school, the active tab or segment, links, progress, and icons. It never appears in a pink decision signal and never fills a primary CTA.
 
@@ -24,8 +24,8 @@ Source screens (PRD §7): login (personal email + password), sign-up (NEIS schoo
 ### Brand & Accent
 
 - **Ink Black** (`{colors.primary}` — #141414): The brand color. Fills every primary CTA pill and all display typography. Lab_Stock's identity is this near-black, softened just off pure black.
-- **Deep Pink** (`{colors.accent}` — #d6246a): The stock-shortage accent. Reserved for decision signals — the low-stock badge, the reorder alert, and the cabinet mix warning (`mix-warning`). Never used decoratively, never used for CTAs.
-- **Soft Pink** (`{colors.accent-soft}` — #fbe9f0): The pink at 10% over white (added 2026-10-02). Fills the cabinet mix warning (`mix-warning`) so the signal reads clearly without glare; text on it is `{colors.ink}` (15.8:1) and the warning icon stays `{colors.accent}` (4.17:1). Allowed only inside `badge-low-stock`, `reorder-alert-card`, and `mix-warning`.
+- **Deep Pink** (`{colors.accent}` — #d6246a): The stock-shortage accent. Reserved for decision signals — the low-stock badge, the reorder alert, the cabinet mix warning (`mix-warning`), and the usage over-stock line (`usage-over-stock`). Never used decoratively, never used for CTAs.
+- **Soft Pink** (`{colors.accent-soft}` — #fbe9f0): The pink at 10% over white (added 2026-10-02). Fills the cabinet mix warning (`mix-warning`) so the signal reads clearly without glare; text on it is `{colors.ink}` (15.8:1) and the warning icon stays `{colors.accent}` (4.17:1). Allowed only inside `badge-low-stock`, `reorder-alert-card`, `mix-warning`, and `usage-over-stock`.
 - **Sky Blue** (`{colors.highlight}` — #2b9fe0): Emphasis accent for everything except stock shortage — selected-state borders and indicators, active tab/segment markers, links underline, progress bars, and icons. Contrast on white is 2.94:1, so it is never a text color; text placed on it is `{colors.ink}` (6.26:1). Never inside `badge-low-stock`, `reorder-alert-card`, or as the fill of `button-primary`.
 - **Sky Tint** (`{colors.highlight-soft}` — #e6f4fc): Pale background for selected rows, chosen options, and informational surfaces; text on it is `{colors.ink}` (16.41:1). Same exclusions as Sky Blue.
 
@@ -220,8 +220,8 @@ Composed only from the primitives and tokens above; no new literal values.
 - **`app-sidebar`** — fixed left column, 240 wide, full height, `{rounded.none}`, `{colors.canvas-soft}` fill, 1px `{colors.hairline-soft}` right edge. Top: "Lab_Stock" wordmark + the school name in `{typography.title}` (one school per account — shown, never switched; N1). Middle: grouped menu of **`sidebar-item`**s — all roles: 홈 · 시약 · 기록 · 시약장 · QR 찾기; teacher·admin add 입고 · 실험 매뉴얼 · 재주문 알림; admin adds 사용자 · 판매처. Each item = icon + `{typography.body}` label, 44 high, square; current item = `{colors.highlight-soft}` fill + `{colors.highlight}` icon, label `{colors.ink}`. Bottom: name · role + `nav-account-menu` ▾ (로그아웃). Replaces `nav-pill` on desktop screens 2–13; there is no bottom `tab-bar` on desktop
 - Content area = everything right of the sidebar, page padding `{spacing.xl}`; page head = title (`{typography.heading-2}`) + count on the left, search · filter · primary `button-primary` on the right
 - **`data-table`** — lists on desktop (screens 2 시약, 8 사용자, 9 판매처, 10 기록) are tables, not card stacks: `ex-data-table-cell` chrome inside a `{rounded.sm}` container with 1px `{colors.hairline-soft}` outline; sortable column heads (sort arrow in `{colors.text-muted}`, active in `{colors.highlight}`); row hover `{colors.canvas-soft}`; selected row `{colors.highlight-soft}`. Status such as `badge-low-stock` sits in its own column. Page numbers centered under the table when long
-- **`detail-drawer`** — one item's detail (reagent on screen 3, usage record on 10, MSDS search results etc.) opens as a right drawer 480 wide that pushes the content aside (sidebar 240 + content 720 + drawer 480 — approved 2026-10-08, so the page head and search stay visible), full height, `{colors.canvas}` with 1px `{colors.hairline-soft}` left edge, × close top right. Order: title → status chips → "항목 | 값" two-column rows → actions at the bottom. Never a centered modal. Also used for short forms on desktop: usage record (4), vendor register (9)
-- Heavy work opens as a page in the content area, not a drawer: screen 5 (manual), 7 (intake · document intake), 11 (cabinet setup). Forms are a centered single column ~640 wide with "label | control" rows separated by hairlines; long flows put the primary action in a sticky bottom bar
+- **`detail-drawer`** — one item's detail (reagent on screen 3, usage record on 10, MSDS search results etc.) opens as a right drawer 480 wide that pushes the content aside (sidebar 240 + content 720 + drawer 480 — approved 2026-10-08, so the page head and search stay visible), full height, `{colors.canvas}` with 1px `{colors.hairline-soft}` left edge, × close top right. Order: title → status chips → "항목 | 값" two-column rows → actions at the bottom. Never a centered modal. Also used for short forms on desktop: vendor register (9). The usage record (4) became a page on 2026-10-10 because its reagent list grows
+- Heavy work opens as a page in the content area, not a drawer: screen 4 (usage record, several reagents — 2026-10-10), 5 (manual), 7 (intake · document intake), 11 (cabinet setup). Forms are a centered single column ~640 wide with "label | control" rows separated by hairlines; long flows put the primary action in a sticky bottom bar
 - Overlays: `ex-modal-card` only for confirms and one-field input. Mobile choice sheets (filter, MSDS candidates, location picker, cabinet choice) become a dropdown / popover anchored to their control on desktop
 - Home (13) on desktop: a top row of number tiles "지금 처리할 것" (재고 부족 N · 재주문 알림 N · MSDS 없는 시약 N — role-scoped), below a 2–3 column grid of widgets (최근 사용 기록 `data-table` · 재고 부족 · 시약장 요약), each with "전체 보기 ›". The mobile `quick-action` tiles are replaced by the sidebar plus page-head buttons
 - Mobile stays exactly as approved
@@ -324,9 +324,32 @@ Composed only from the primitives and tokens above; no new literal values.
 
 **Usage date (screens 4·10, added 2026-10-07)**
 
-- **`usage-date`** — "사용일" date `text-input` under the quantity on screen 4, same shape as screen 7's 입고일. Defaults to today; future dates are disabled
+- **`usage-date`** — "사용일" date `text-input`, the first shared field under the reagent list on screen 4 (2026-10-10), same shape as screen 7's 입고일. Defaults to today; future dates are disabled
 - **`past-date-note`** — when the date is not today, a muted line above the save button: "10월 3일 사용으로 기록해요"
 - Screen 10 groups and sorts by 사용일; when the recorded day differs, a muted caption "10월 6일에 기록" under the row
+
+**Batch usage record (screen 4, added 2026-10-10)** — every role; one experiment uses several reagents, so one record holds several
+
+- Mobile: its own screen. Desktop: a page in the content area (not a drawer). Entering from screen 3 "사용 기록" starts with that reagent already in the list; entering from home or the 기록 tab starts empty
+- **`reagent-add`** — `button-pill-soft` "+ 시약 추가" above the list. Mobile opens **`reagent-picker`** as a bottom sheet: search `text-input` on top, recently used reagents first, each row with a check (checked row = `{colors.highlight-soft}`), reagents already in the list marked "담음" muted, footer `button-primary` "{N}개 담기". Desktop: the search `text-input` above the table drops a `reagent-picker` list under it; clicking a row adds it at once (several may be checked)
+- **`usage-batch-list`** — head "담은 시약 N개". Mobile: a stack of **`usage-item-row`** cards (`{colors.canvas-soft}`, `{rounded.sm}`): reagent name in `{typography.title}` + "현재 120 mL" in `{typography.caption}` `{colors.text-muted}`, then a numeric `text-input` with the unit and a quiet "빼기". Desktop: a `data-table` with columns 시약명 · 현재 재고 · 사용량 (input + unit) · 빼기
+- Shared fields under the list, in order: `usage-date` → `class-select` (optional) → 메모 (optional). The user is the signed-in person
+- Save: a bar pinned to the bottom (above the `tab-bar` on mobile, sticky bottom bar on desktop) with `button-primary` "사용 기록 저장 · N개"; disabled while the list is empty or any row has an error. One save = one transaction: if any row fails, nothing is saved
+- **`usage-over-stock`** — when the amount is more than the current stock, a line under that row in the `mix-warning` shape: `{colors.accent-soft}` fill, `{colors.accent}` icon, `{colors.ink}` text "재고 120 mL보다 많아요". Pink here is the stock-shortage signal. A blank or zero amount gets the 2px ink ring and a muted line "사용량을 적어 주세요" (no pink). A server rejection shows `ex-toast` "저장하지 못했어요 — 표시한 시약을 확인해 주세요" and marks the rows
+- Empty: `ex-empty-state-card` "시약을 골라 주세요" + `reagent-add`. After saving: `ex-toast` "N개 시약 사용을 기록했어요"
+
+**Class (screens 4·10, added 2026-10-10)** — optional
+
+- **`class-select`** — "수업 (선택)": 학년 select (초등학교 1–6, 중·고등학교 1–3, by the school's level) + 반 select (1–20) + 수업명 `text-input` (placeholder "수업명 (예: 통합과학)", 20 characters). All three may stay empty. Mobile: 학년 and 반 share one row, 수업명 full width below. Desktop: one "수업 | [학년▾] [반▾] [수업명]" form row
+- **`recent-class-chip`** — above the selects, caption "최근" + up to three `{colors.canvas-soft}` pills such as "1학년 2반 · 통합과학"; tapping one fills all three fields; the chosen chip takes `{colors.highlight-soft}` + 1px `{colors.highlight}` border
+- **`class-label`** (screen 10) — "1학년 2반 · 통합과학", only the parts that exist ("1학년", "통합과학"). Mobile: a muted caption under the record row. Desktop: a `data-table` column "수업" ("—" in `{colors.text-faint}` when empty) and a "수업 | 값" row in the record drawer
+- **`class-filter`** (screen 10) — `button-pill-soft` "반: 전체 ▾" above the records → bottom sheet (mobile) / dropdown (desktop): 학년 (전체 · 1 …) then 반 (학년 전체 · 1 …)
+
+**Reagent delete (screens 3·10, added 2026-10-10)** — teacher·admin only
+
+- **`reagent-more-menu`** — a ⋯ icon button at the top right of `reagent-detail-card` (mobile) or in the `detail-drawer` head left of × (desktop). It opens a small `{colors.canvas}` menu (`{rounded.md}`, 1px `{colors.hairline-soft}` outline) with **`reagent-delete`** "시약 삭제" in `{colors.ink}`. Never rendered for students or guests. Not on screen 2 table rows — deletion lives in one place
+- Confirm: `ex-modal-card` "'{시약명}' 시약을 삭제할까요?" + "목록·시약장·재주문 알림에서 사라져요. 사용·입고 기록은 남아요." + muted "되돌릴 수 없어요." with `button-outline` "취소" and `button-primary` "삭제" — ink, like the cabinet delete. No pink: deleting is not a stock or safety signal. Afterwards `ex-toast` "시약을 삭제했어요" → screen 2
+- **`deleted-reagent-tag`** (screen 10) — records of a deleted reagent keep their row: the name in `{colors.text-muted}` followed by a `{colors.canvas-soft}` pill "삭제된 시약" (`{colors.ink}` `{typography.label}`); no link to reagent detail
 
 **Reagent slots (screens 11·3, added 2026-10-06)**
 
@@ -399,7 +422,7 @@ Composed only from the primitives and tokens above; no new literal values.
 - Keep the canvas `{colors.canvas}` white and let reagent data supply the information.
 - Use `{rounded.full}` for every interactive element — a rectangular button does not exist in this system.
 - Build emphasis with the tint ladder: `{colors.canvas-soft}` fill for rows and alerts, `{colors.hairline-soft}` outlines for resting cards.
-- Reserve `{colors.accent}` for decision signals only (`badge-low-stock`, `reorder-alert-card`, `mix-warning`).
+- Reserve `{colors.accent}` for decision signals only (`badge-low-stock`, `reorder-alert-card`, `mix-warning`, `usage-over-stock`).
 - Use `{colors.highlight}` / `{colors.highlight-soft}` for selection and emphasis everywhere else; keep text on them in `{colors.ink}`.
 - Set every heading in Pretendard Bold 700 with line-height 1.3–1.35.
 - Pair Bold 700 headings with 300-weight `{typography.body-lg}` subtitles for hierarchy without color.
