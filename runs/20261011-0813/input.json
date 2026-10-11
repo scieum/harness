@@ -1,0 +1,15 @@
+{
+  "screens": [2, 10, 13, 14, 15, 17],
+  "variants": {
+    "2": ["select", "bulk-delete"],
+    "13": ["not-found"],
+    "1": ["not-found"],
+    "14": ["error"],
+    "17": ["detail", "form", "empty", "select"]
+  },
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/yPF9ZLVjkg22kgSDD2aKEd",
+  "keyscreens": ["17-desktop", "2-select-mobile", "17-form-mobile"],
+  "request": "개발 세션 요청 7 (2026-10-11): 여러 개 삭제(2·17), QR 탭 준비 중(모바일 tab-bar 전부), 앱 404(13-/1-not-found), 가입 오류 요약(14-error), 랜딩 '사용 기록' 그림 교체(15-desktop), 기록 추가(10), 센서 화면 17 + 홈 센서 타일(13) — rules.json 1.26",
+  "base": "승인본을 틀로: 2·10·13·14 = 이전 S4 승인본(4는 S4-screens-v20), 15 = S4-screens-v18 15-desktop·15-mobile(15-desktop은 '사용 기록' landing-section 그림만 v20 4-desktop 조각으로, 15-mobile은 그대로)"
+}
