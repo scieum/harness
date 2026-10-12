@@ -347,7 +347,9 @@ def check_D9(d, r, run):
     fr = r["frames"]
     expected = {f"{s}-{dev}" for s in d["input"]["screens"] for dev in ("mobile", "desktop")}
     expected |= {f"{s}-guest-{dev}" for s in d["input"].get("guest_screens", []) for dev in ("mobile", "desktop")}
-    expected |= {f"{s}-{st}-{dev}" for s, sts in d["input"].get("variants", {}).items() for st in sts for dev in ("mobile", "desktop")}
+    mobile_only = fr.get("mobile_only_variants", {})  # 2026-10-12: 모바일 전용 상태(13-menu)는 desktop 프레임 없음
+    expected |= {f"{s}-{st}-{dev}" for s, sts in d["input"].get("variants", {}).items() for st in sts for dev in ("mobile", "desktop")
+                 if not (dev == "desktop" and st in mobile_only.get(str(s), []))}
     out = []
     names = set()
     for f in d["frames"]:

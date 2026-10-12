@@ -1,5 +1,5 @@
 {
-  "version": "1.27",
+  "version": "1.27.1",
   "sources": [
     "docs/design.md",
     "docs/story-service.md",
@@ -220,7 +220,13 @@
         "max_height": 6000
       },
       "source": "2026-10-08 사용자 결정: 랜딩 데스크톱만 스크롤 긴 페이지"
-    }
+    },
+    "mobile_only_variants": {
+      "13": [
+        "menu"
+      ]
+    },
+    "mobile_only_note": "모바일에만 있는 상태: {ID}-{state}-mobile만 요구, desktop 프레임 없음(데스크톱은 app-sidebar가 같은 메뉴). 2026-10-12 사용자 결정 (run 20261012-0923 S2에서 발견)"
   },
   "s1": {
     "refs_per_screen": [
@@ -1326,7 +1332,8 @@
     "sheet": "mobile-menu-sheet: 전체 높이 바텀시트(위 rounded.lg, 아래 0), 맨 위 학교명(title) + 이름 · 역할 caption + × 닫기. 아래 desktop_shell.menu와 같은 역할별 묶음: 홈·시약·센서·기록·시약장·QR 스캔 / (교사·admin) 입고·실험 매뉴얼·재주문 알림 / (admin) 사용자·판매처. 묶음 사이 hairline-soft. 항목 = 아이콘 + body 라벨, 52 높이, 사각. 지금 화면 = colors.highlight-soft 채움 + colors.highlight 아이콘. QR 스캔은 화면 12 전까지 tab_bar.qr_pending과 같은 회색 + '준비 중'. 맨 아래 '로그아웃'(조용한 글자)",
     "tab_bar": "하단 tab-bar 4개 그대로. inventory-switch '시약 | 센서'도 그대로",
     "guest": "둘러보기: 같은 메뉴 시트, 학교 '데모 학교'. 홈·시약·센서 활성, 기록·QR 스캔 guest-lock, 관리 묶음 숨김, 로그아웃 대신 button-primary '가입하기'. 이번 시안의 상태 프레임 13-menu는 admin 기준",
-    "source": "2026-10-12 사용자 결정 (개발 세션 요청 8) 6: (가) 전체 메뉴"
+    "source": "2026-10-12 사용자 결정 (개발 세션 요청 8) 6: (가) 전체 메뉴",
+    "frames": "상태 프레임 13-menu = 모바일만(frames.mobile_only_variants)"
   },
   "no_access": {
     "behavior": "권한이 없는 관리 화면 주소로 들어오면 지금처럼 홈(13)으로 보내고, 홈에서 ex-toast 한 번",
