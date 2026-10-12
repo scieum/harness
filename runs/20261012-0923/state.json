@@ -1,0 +1,6 @@
+{
+  "stage": "stopped",
+  "retries": {"S1": 0, "S2": 0, "S3": 0, "S5": 0},
+  "approval": null,
+  "baseline_hash": "d868e8e581d0fd781fd3700ab989741ed6e3b7dcd060bd9c81dfabc07cb4f320"
+}

@@ -1,0 +1,13 @@
+{
+  "screens": [8, 13, 15, 17],
+  "variants": {
+    "17": ["type", "model", "doc-upload", "doc-review", "doc-fail"],
+    "13": ["menu", "no-access"],
+    "8": ["invite-cancel"]
+  },
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/yPF9ZLVjkg22kgSDD2aKEd",
+  "keyscreens": ["17-doc-review-desktop", "17-type-mobile", "13-menu-mobile"],
+  "request": "개발 세션 요청 8 (2026-10-12): 센서 종류 27 묶음 시트(17-type)·파스코 모델 자동완성(17-model)·센서 서류로 등록(17 머리 '서류로 등록', 17-doc-upload·doc-review·doc-fail), 모바일 ☰ 전체 메뉴(13-menu, 이번 run의 로그인 후 모바일 프레임 nav-pill 왼쪽에 mobile-menu-button), 권한 없는 주소 토스트(13-no-access, 학생 홈), 초대 취소(8 초대 대기 행 ⋯, 8-invite-cancel), 랜딩 히어로 워드마크 없음(15-mobile) — rules.json 1.27",
+  "base": "승인본을 틀로: 8·13·15·17 = run 20261011-0813 승인 S4 프레임(8은 그 이전 S4 승인본). 15-desktop은 그대로(히어로에 워드마크 없음 확인만), 15-mobile은 히어로 첫 줄 'Lab_Stock' → 꼬리표 '과학실 시약·센서 관리'. 17 데모 센서 행은 파스코 모델로(예: 무선 온도 PS-3201, 무선 편광계 PS-3237)"
+}
