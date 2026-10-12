@@ -1,5 +1,5 @@
 {
-  "version": "1.27.1",
+  "version": "1.28",
   "sources": [
     "docs/design.md",
     "docs/story-service.md",
@@ -27,7 +27,8 @@
     "2026-10-08 랜딩 섹션 리듬·반전 버튼·스크롤 동작 (승인 run 20261008-2144)",
     "2026-10-10 여러 시약 한 번에 사용 기록·시약 삭제·수업 기록 (개발 세션 요청 6)",
     "2026-10-11 여러 개 삭제·QR 탭 준비 중·앱 404·가입 오류 요약·랜딩 그림·기록 추가·무선 센서 화면 17 (개발 세션 요청 7)",
-    "2026-10-12 센서 종류 27·파스코 모델 카탈로그·센서 서류로 등록·모바일 전체 메뉴·권한 안내 토스트·초대 취소·모바일 랜딩 워드마크 1번 (개발 세션 요청 8)"
+    "2026-10-12 센서 종류 27·파스코 모델 카탈로그·센서 서류로 등록·모바일 전체 메뉴·권한 안내 토스트·초대 취소·모바일 랜딩 워드마크 1번 (개발 세션 요청 8)",
+    "2026-10-12 센서 종류 묶음 토글(접힘) — 종류 시트·필터 시트 (요청 8 후속)"
   ],
   "colors": {
     "allowed": [
@@ -212,7 +213,7 @@
     ],
     "guest_name_pattern": "^([1-9]|1[0-7])-guest-(mobile|desktop)$",
     "variant_name_pattern": "^([1-9]|1[0-7])-(empty|delete|slot|print|unsaved|location|result|doc-upload|doc-review|doc-fail|suggest|msds|msds-bulk|filter|filter-empty|past-date|no-school|loading|fail|no-summary|picker|error|select|bulk-delete|not-found|detail|form|type|model|menu|no-access|invite-cancel)-(mobile|desktop)$",
-    "variant_note": "같은 화면의 다른 상태 프레임. input.json variants {\"11\": [\"empty\",\"delete\"]} 로 요청 (2026-10-04) · 2026-10-06 상태 추가: 11-slot·11-print·11-unsaved·3-location·12-result · 2026-10-07 상태 추가: 7-doc-upload·doc-review·doc-fail·suggest·msds, 3-msds, 2-msds-bulk · 2026-10-07 상태 추가: 2-filter·2-filter-empty, 4-past-date · 2026-10-07 상태 추가: 14-no-school · 2026-10-08 상태 추가: 16-loading·16-fail·16-no-summary · 2026-10-10 상태 추가: 4-picker·4-empty·4-error, 3-delete · 2026-10-11 상태 추가: 2-select·2-bulk-delete, 13-not-found·1-not-found, 14-error, 17-detail·17-form·17-empty·17-select · 2026-10-12 상태 추가: 17-type·17-model·17-doc-upload·17-doc-review·17-doc-fail, 13-menu·13-no-access, 8-invite-cancel",
+    "variant_note": "같은 화면의 다른 상태 프레임. input.json variants {\"11\": [\"empty\",\"delete\"]} 로 요청 (2026-10-04) · 2026-10-06 상태 추가: 11-slot·11-print·11-unsaved·3-location·12-result · 2026-10-07 상태 추가: 7-doc-upload·doc-review·doc-fail·suggest·msds, 3-msds, 2-msds-bulk · 2026-10-07 상태 추가: 2-filter·2-filter-empty, 4-past-date · 2026-10-07 상태 추가: 14-no-school · 2026-10-08 상태 추가: 16-loading·16-fail·16-no-summary · 2026-10-10 상태 추가: 4-picker·4-empty·4-error, 3-delete · 2026-10-11 상태 추가: 2-select·2-bulk-delete, 13-not-found·1-not-found, 14-error, 17-detail·17-form·17-empty·17-select · 2026-10-12 상태 추가: 17-type·17-model·17-doc-upload·17-doc-review·17-doc-fail, 13-menu·13-no-access, 8-invite-cancel · 2026-10-12 상태 추가: 17-filter",
     "tall": {
       "15-desktop": {
         "width": 1440,
@@ -822,7 +823,7 @@
         "msds-original-link"
       ]
     },
-    "source": "2026-10-04 여러 시약장: 빈 상태(교사 기준)·삭제 확인 상태 필수 컴포넌트 (C1) · 2026-10-06 11-slot·11-print·11-unsaved·3-location·12-result · 2026-10-07 7-doc-upload·doc-review·doc-fail·suggest·msds, 3-msds, 2-msds-bulk, 3-location + suggest-badge · 2026-10-07 2-filter·2-filter-empty, 4-past-date · 2026-10-07 14-no-school · 2026-10-08 16-loading·16-fail·16-no-summary · 2026-10-10 4-picker·4-empty·4-error, 3-delete · 2026-10-11 2-select·2-bulk-delete, 13-not-found·1-not-found, 14-error, 17-detail·form·empty·select · 2026-10-12 17-type·17-model·17-doc-upload·17-doc-review·17-doc-fail, 13-menu·13-no-access, 8-invite-cancel",
+    "source": "2026-10-04 여러 시약장: 빈 상태(교사 기준)·삭제 확인 상태 필수 컴포넌트 (C1) · 2026-10-06 11-slot·11-print·11-unsaved·3-location·12-result · 2026-10-07 7-doc-upload·doc-review·doc-fail·suggest·msds, 3-msds, 2-msds-bulk, 3-location + suggest-badge · 2026-10-07 2-filter·2-filter-empty, 4-past-date · 2026-10-07 14-no-school · 2026-10-08 16-loading·16-fail·16-no-summary · 2026-10-10 4-picker·4-empty·4-error, 3-delete · 2026-10-11 2-select·2-bulk-delete, 13-not-found·1-not-found, 14-error, 17-detail·form·empty·select · 2026-10-12 17-type·17-model·17-doc-upload·17-doc-review·17-doc-fail, 13-menu·13-no-access, 8-invite-cancel · 2026-10-12 17-type에 sensor-type-group(접힘 토글), 17-filter 추가",
     "13": {
       "not-found": [
         "ex-empty-state-card"
@@ -862,7 +863,8 @@
       "type": [
         "sensor-form",
         "sensor-type-select",
-        "sensor-type-sheet"
+        "sensor-type-sheet",
+        "sensor-type-group"
       ],
       "model": [
         "sensor-form",
@@ -881,6 +883,10 @@
       "doc-fail": [
         "ex-empty-state-card",
         "doc-upload"
+      ],
+      "filter": [
+        "list-filter-sheet",
+        "sensor-type-group"
       ]
     },
     "8": {
@@ -1198,7 +1204,7 @@
     "screen": 17,
     "entry": "데스크톱 사이드바 '센서'(모든 역할) · 모바일 '시약' 탭 안 inventory-switch '시약 | 센서' + 전체 메뉴(mobile_menu) '센서'",
     "list": "데스크톱 = 페이지 머리 '센서 N개' + 검색 + list-filter-button + list-select-toggle(교사·admin) + sensor-doc-add button-outline '서류로 등록' + sensor-add button-primary '센서 등록'(둘 다 교사·admin), sensor-list = data-table 열 이름 · 종류 · 회사 · 모델 · 수량 · 보관 위치 · 상태, 행 = sensor-row, 행 누르면 detail-drawer. 모바일 = inventory-switch 아래 같은 머리, sensor-row 카드(colors.canvas-soft, rounded.sm): 이름(title) · '온도 · 버니어 · GDX-TMP'(caption muted) · '3개 · 과학실 뒤 선반' · 오른쪽 sensor-status-badge",
-    "filter": "list-filter-sheet 모양: 종류 = 묶음 제목 4개 아래 chip 여러 개 고르기(맨 위 검색 없음) → 회사 chip 여러 개 → 상태 3개. 고른 chip = colors.highlight-soft + colors.highlight 테두리",
+    "filter": "list-filter-sheet 모양: 종류 = sensor-type-group 4줄(기본 접힘, 검색 없음), 묶음 줄에 고른 개수 '화학 · 2개'(고른 게 있으면 그 묶음 펼침), chip 여러 개 고르기 → 회사 chip 여러 개 → 상태 3개. 고른 chip = colors.highlight-soft + colors.highlight 테두리",
     "detail": "sensor-detail: 모바일 전용 화면 / 데스크톱 detail-drawer. 제목 + sensor-status-badge → '항목 | 값' 종류·회사·모델·수량·보관 위치·메모·등록일 → sensor-edit button-outline '수정'(교사·admin) · 머리 ⋯ → sensor-delete '센서 삭제'(reagent_delete와 같은 모달, '목록과 홈에서 사라져요')",
     "form": "sensor-form: 모바일 전용 화면 / 데스크톱 detail-drawer(짧은 폼). 이름 text-input(예: 무선 온도 센서) → 종류 sensor-type-select(묶음 시트) → 회사 sensor-maker-select → 모델명(선택, 회사 = 파스코면 sensor-model-suggest) → 수량 숫자 + '개' → 보관 위치 segmented '직접 입력 | 시약장 칸'(기본 직접 입력, 시약장 칸 = location-picker 재사용) → 상태 segmented-control 정상 · 점검 필요 · 고장(기본 정상) → 메모(선택) → button-primary '저장'. × 닫기",
     "types": [
@@ -1301,7 +1307,7 @@
         "기타"
       ]
     },
-    "type_select": "sensor-type-select = 폼 안 고르기 칸 '종류 [편광 ▾]'(field 채움, 비었으면 placeholder '종류 고르기'). 누르면 sensor-type-sheet: 모바일 바텀시트 / 데스크톱 드롭다운. 맨 위 검색 text-input('종류 검색') → 묶음 제목(물리·화학·생명·지구·장비, title) 아래 chip 줄바꿈. 고른 chip = colors.highlight-soft + 1px colors.highlight 테두리. 하나만 고르고 바로 닫힘",
+    "type_select": "sensor-type-select = 폼 안 고르기 칸 '종류 [편광 ▾]'(field 채움, 비었으면 placeholder '종류 고르기'). 누르면 sensor-type-sheet: 모바일 바텀시트 / 데스크톱 드롭다운. 맨 위 검색 text-input('종류 검색') → sensor-type-group 4줄(물리 12 · 화학 9 · 생명·지구 3 · 장비 3), 기본 접힘. 줄 = 묶음 이름(title) + 개수(caption muted) + 오른쪽 ▸/▾, 52 높이, 줄 사이 hairline-soft. 누른 묶음만 펼쳐 chip 줄바꿈(여러 묶음 동시에 펼침 가능). 이미 고른 종류가 있으면 그 묶음이 처음부터 펼침. 검색 글자가 있으면 맞는 chip이 있는 묶음만 펼쳐 맞는 chip만 보임, 없으면 muted '맞는 종류가 없어요'. 고른 chip = colors.highlight-soft + 1px colors.highlight 테두리. 하나 고르면 바로 닫힘. 27종을 한꺼번에 펼쳐 두지 않는다",
     "catalog": {
       "maker": "파스코",
       "suggest": "sensor-model-suggest: 회사가 파스코일 때 모델명 text-input 아래로 펼치는 후보 목록(모바일 입력 아래 목록 / 데스크톱 드롭다운). 모델번호·이름으로 검색('PS-3201', '편광'). 후보 행 = 모델번호(title) + '무선 편광계 · 편광'(caption muted), 최대 6줄, 입력과 맞은 글자 bold. 맨 끝 조용한 '목록에 없어요 — 그대로 적기'",
@@ -1321,7 +1327,8 @@
       "save": "아래 고정 띠 button-primary '확인 후 등록 · N개'. 한 번 = 한 트랜잭션(1~50개, 하나라도 틀리면 전부 취소, 문제 행 2px ink 테두리 + muted 줄). ex-toast '센서 N개를 등록했어요' → 화면 17, 바뀐 행 잠깐 colors.highlight-soft",
       "fail": "0개·실패 = 7-doc-fail 모양 재사용: ex-empty-state-card '센서를 찾지 못했어요' + '다른 서류를 올리거나 직접 입력해 주세요' + doc-upload + button-outline '직접 입력'. 읽기 실패 = '서류를 읽지 못했어요'. 핑크 없음",
       "source": "2026-10-12 사용자 결정 (개발 세션 요청 8) 5: 화면 7 서류로 입고와 같은 흐름, 머리 버튼 두 개"
-    }
+    },
+    "type_select_source": "2026-10-12 사용자 결정 (요청 8 후속: 27종 접어 두기)"
   },
   "landing_shot": {
     "usage_section": "15-desktop landing-section '사용 기록' 그림 = 승인된 4-desktop(여러 시약 담기 + 수업) 조각으로 교체",
