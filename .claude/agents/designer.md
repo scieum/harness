@@ -42,6 +42,7 @@ docs/, harness/, 다른 runs/{id}/ 하위 폴더는 절대 쓰지 않는다.
 - 화면 16 MSDS 요약(2026-10-08): ghs-pictogram 마름모 테두리만 #ff0000(그 밖 어디에도 금지), 신호어는 무채색 pill. 모바일 = 전용 화면, 데스크톱 = 시약 목록 위 detail-drawer (docs/design.md "MSDS summary").
 - 요청 6(2026-10-10): 화면 4 = 여러 시약 담기(데스크톱 본문 페이지 + data-table, 드로어 아님), 재고 초과 행만 usage-over-stock 핑크. 시약 삭제 ⋯는 화면 3에만, 삭제 버튼은 검정 button-primary. 화면 10 class-label·class-filter·deleted-reagent-tag (docs/design.md "Batch usage record"·"Class"·"Reagent delete").
 - 요청 7(2026-10-11): 화면 17 센서(데스크톱 사이드바 '센서', 모바일 '시약' 탭 안 inventory-switch), 상태 배지 무채색, 선택 모드 원형 체크·하늘 틴트·검정 삭제 띠, 404 = ex-empty-state-card, QR 탭 '준비 중', 화면 10 record-add (docs/design.md "Select mode"·"Not found"·"Sensors").
+- 요청 8(2026-10-12): 센서 종류 27 = 고르기 칸 → sensor-type-sheet(검색 + 묶음 제목 4 + chip), 파스코 모델명 sensor-model-suggest + catalog-fill-note, 센서 서류로 등록(데스크톱 머리 '서류로 등록' button-outline + 본문 페이지, 모바일 '등록' 시트, 화면 7 서류 흐름 재사용), 모바일 nav-pill 왼쪽 ☰ mobile-menu-sheet, 화면 8 초대 ⋯ → 초대 취소, 랜딩 히어로 워드마크 없음 (docs/design.md "Sensors"·"Mobile menu"·"No access"·"Invite cancel").
 - 키·인증키 입력 칸이나 키 값처럼 보이는 문자열을 그리지 않는다 (N2-a·N2-c).
 - 재시도 시: judge 결과에 나온 노드만 고친다. 다른 노드는 건드리지 않는다.
 
