@@ -1,0 +1,11 @@
+{
+  "screens": [17],
+  "variants": {
+    "17": ["type", "filter"]
+  },
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/yPF9ZLVjkg22kgSDD2aKEd",
+  "keyscreens": ["17-type-mobile", "17-filter-mobile"],
+  "request": "요청 8 후속 (2026-10-12): 센서 종류 27을 sensor-type-group 4줄로 접어 두기 — 종류 시트(17-type)·필터 시트(17-filter). 기본 접힘, 누른 묶음만 펼침, 고른 종류 묶음은 처음부터 펼침 — rules.json 1.28",
+  "base": "승인본을 틀로: 17 = run 20261012-0939 S4(S4-screens-v22) 17-mobile·17-desktop·17-type-mobile·17-type-desktop. 17-type 예시 = 화학 묶음만 펼침(편광 고름), 나머지 3묶음 접힘. 17-filter 예시 = 종류 '화학 · 2개' 펼침(pH·전도도 고름), 나머지 접힘 → 회사 → 상태"
+}
