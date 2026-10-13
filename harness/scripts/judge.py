@@ -24,7 +24,7 @@ N_RULES = ["N1-a", "N1-b", "N1-c", "N1-d", "N2-a", "N2-b", "N2-c"]
 GM_RULES = ["GM1", "GM2", "GM3", "GM4", "GM5"]
 GATES = {
     "S1": ["S1-a", "S1-b", "F1", "F2"],
-    "S2": ["R1", "R2", "R3", "R4", "R5", "R6", "R7", "C1", "N1-d", "N2-a", "N2-c", "F1", "F2"],
+    "S2": ["R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "C1", "N1-d", "N2-a", "N2-c", "F1", "F2"],
     "S3": D_RULES + N_RULES + GM_RULES + ["F1", "F2"],
     "S5": D_RULES + ["D9"] + N_RULES + GM_RULES + ["F1", "F2"],
 }
@@ -345,10 +345,12 @@ def check_D8(d, r, run):
 
 def check_D9(d, r, run):
     fr = r["frames"]
-    expected = {f"{s}-{dev}" for s in d["input"]["screens"] for dev in ("mobile", "desktop")}
-    expected |= {f"{s}-guest-{dev}" for s in d["input"].get("guest_screens", []) for dev in ("mobile", "desktop")}
-    mobile_only = fr.get("mobile_only_variants", {})  # 2026-10-12: 모바일 전용 상태(13-menu)는 desktop 프레임 없음
-    expected |= {f"{s}-{st}-{dev}" for s, sts in d["input"].get("variants", {}).items() for st in sts for dev in ("mobile", "desktop")
+    mobile_screens = set(fr.get("mobile_only_screens", []))  # 2026-10-13: 모바일 전용 화면(18 관리)은 desktop 프레임 없음
+    devs = lambda s: ("mobile",) if int(s) in mobile_screens else ("mobile", "desktop")
+    expected = {f"{s}-{dev}" for s in d["input"]["screens"] for dev in devs(s)}
+    expected |= {f"{s}-guest-{dev}" for s in d["input"].get("guest_screens", []) for dev in devs(s)}
+    mobile_only = fr.get("mobile_only_variants", {})  # 2026-10-12: 모바일 전용 상태는 desktop 프레임 없음
+    expected |= {f"{s}-{st}-{dev}" for s, sts in d["input"].get("variants", {}).items() for st in sts for dev in devs(s)
                  if not (dev == "desktop" and st in mobile_only.get(str(s), []))}
     out = []
     names = set()
@@ -721,7 +723,7 @@ def check_F2(d, r, run):
 CHECKS = {
     "S1-a": check_S1a, "S1-b": check_S1b,
     "R1": check_roles("R1"), "R2": check_roles("R2"), "R3": check_roles("R3"), "R4": check_roles("R4"),
-    "R5": check_roles("R5"), "R6": check_roles("R6"), "R7": check_roles("R7"), "C1": check_C1, "C2": check_C2, "C3": check_C3,
+    "R5": check_roles("R5"), "R6": check_roles("R6"), "R7": check_roles("R7"), "R8": check_roles("R8"), "C1": check_C1, "C2": check_C2, "C3": check_C3,
     "D1": check_D1, "D2": check_D2, "D3": check_D3, "D4": check_D4, "D5": check_D5,
     "D6": check_D6, "D7": check_D7, "D8": check_D8, "D9": check_D9, "D10": check_D10,
     "N1-a": check_N1a, "N1-b": check_N1b, "N1-c": check_N1c, "N1-d": check_N1d,

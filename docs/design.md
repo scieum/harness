@@ -252,7 +252,7 @@ Composed only from the primitives and tokens above; no new literal values.
 - Detaches from the page edge with visible canvas above it; persists as a sticky element on scroll
 
 - After login, the school name in the pill carries a small ▾ (**`nav-account-menu`**, added 2026-10-06): it opens a small `{colors.canvas}` menu (`{rounded.md}`, 1px `{colors.hairline-soft}` outline) with one item "로그아웃"
-- **Mobile menu (2026-10-12)** — **`mobile-menu-button`**: a round ☰ icon button (44 touch, no label) at the far left of the signed-in mobile pill. It opens **`mobile-menu-sheet`**: a full-height bottom sheet (`{rounded.lg}` top corners), head = school name in `{typography.title}` + "이름 · 역할" caption + × close; then the same role-grouped list as the desktop `app-sidebar` — 홈 · 시약 · 센서 · 기록 · 시약장 · QR 스캔 / (teacher·admin) 입고 · 실험 매뉴얼 · 재주문 알림 / (admin) 사용자 · 판매처 — groups split by `{colors.hairline-soft}`, rows icon + `{typography.body}`, 52 high, square; current screen `{colors.highlight-soft}` + `{colors.highlight}` icon; QR 스캔 grayed "준비 중" until screen 12; a quiet "로그아웃" at the bottom. Guest: 데모 학교, 홈 · 시약 · 센서 active, 기록 · QR 스캔 with `guest-lock`, management hidden, `button-primary` "가입하기" in place of 로그아웃. The four tabs and `inventory-switch` stay
+- **Mobile menu** — added 2026-10-12, **removed 2026-10-13**: no ☰ button and no menu sheet; the 관리 tab (screen 18) carries the same list, and account · 로그아웃 stay under the school name ▾ (`nav-account-menu`)
 
 **Top Nav (Mobile)**
 
@@ -262,12 +262,12 @@ Composed only from the primitives and tokens above; no new literal values.
 
 - Primary mobile navigation: a full-width rectangular bar docked to the bottom edge — `{rounded.none}` (0), not a floating pill. The one deliberate exception to the stadium-pill language, so the bar reads as the device's frame rather than a control
 - `{colors.canvas}` fill with a 1px `{colors.hairline-soft}` top border, no shadow
-- Exactly four `tab-item`s, identical for every role: 홈 · 시약 · QR 스캔 · 기록. Equal width — the scan tab is not enlarged
+- Exactly four `tab-item`s, identical for every role: 홈 · 관리 · QR 스캔 · 기록 (관리 replaced 시약 on 2026-10-13; grid icon of four squares). Equal width — the scan tab is not enlarged. 관리 is active on screen 18 and on every screen under it (2 · 5 · 6 · 7 · 8 · 9 · 11 · 17 and their details)
 - Each `tab-item` is an icon above a `{typography.label}` label, tap target ≥ 44px, square (no pill behind it)
 - Active tab: `{colors.highlight}` icon with `{colors.ink}` label. Inactive: `{colors.text-muted}` icon and label
 - Until screen 12 ships (2026-10-11), the QR 스캔 `tab-item` is grayed (`{colors.text-faint}` icon and label) with a small "준비 중" caption under the icon; tapping it shows `ex-toast` "준비 중이에요". Still four tabs
-- Present on every mobile screen after login (screens 2–13, 16, 17); absent on login (screen 1) and on desktop, where `nav-pill` carries navigation
-- Role-specific actions (입고, 사용자 관리) are never tabs; they live in `mobile-menu-sheet` (2026-10-12) and the home `quick-action` area — three tiles (added 2026-10-06): teacher = 사용 기록 입력 · 입고 · 시약장 설정, admin = 입고 · 사용자 관리 · 시약장 설정; mobile lays them out 2 + 1
+- Present on every mobile screen after login (screens 2–13, 16, 17, 18); absent on login (screen 1) and on desktop, where `nav-pill` carries navigation
+- Role-specific actions (입고, 사용자 관리) are never tabs; they live in the 관리 tab (screen 18, 2026-10-13) and the home `quick-action` area — three tiles (added 2026-10-06): teacher = 사용 기록 입력 · 입고 · 시약장 설정, admin = 입고 · 사용자 관리 · 시약장 설정; mobile lays them out 2 + 1
 
 ### Signature Components
 
@@ -338,6 +338,23 @@ Composed only from the primitives and tokens above; no new literal values.
 - **`invite-more-menu`** — a ⋯ icon button on each pending-invite row (mobile: card top right; desktop: last `data-table` column), opening the same small menu as `reagent-more-menu` with **`invite-cancel`** "초대 취소" in `{colors.ink}`
 - Confirm: `ex-modal-card` "{이메일} 초대를 취소할까요?" + "보낸 초대로는 더 이상 가입할 수 없어요." + `button-outline` "닫기" / `button-primary` "초대 취소" (ink; "닫기" so two 취소 never sit side by side). Then `ex-toast` "초대를 취소했어요" and the row leaves
 
+**Manage tab (screen 18, mobile only, added 2026-10-13)**
+
+- Mobile replaces the 시약 tab with **관리**. Screen 18 = `nav-pill` (school name ▾) + page title "관리" in `{typography.heading-2}` + **`manage-list`**: three groups, each a muted `{typography.caption}` title over **`manage-row`**s, groups split by `{colors.hairline-soft}` — 재고 (시약 · 센서 · 시약장, every role) · 입고·주문 (입고 · 실험 매뉴얼 · 재주문 알림, teacher·admin) · 학교 (사용자 · 판매처, admin)
+- **`manage-row`** — 56 high, square, `{colors.canvas}`: `{colors.ink}` icon + name in `{typography.title}` + a muted summary caption ("시약 128종 · 재고 부족 3", "센서 12개 · 고장 1", "시약장 2개", "알림 2건", "학생 40 · 교사 3 · admin 1", "4곳") + › at the right. Numbers are plain ink/muted text — no pink, no sky blue. No summary → name only
+- **`manage-back`** — screens under 관리 (2 · 5 · 6 · 7 · 8 · 9 · 11 · 17) carry a "‹ 관리" `{typography.link}` at the left of the mobile page head; deeper screens (3, 16 …) keep their ‹ back
+- Guest: only 시약 · 센서 rows (demo summaries); the other groups hidden; 관리 tab active, QR 스캔 · 기록 locked
+- Desktop does not change — the `app-sidebar` already lists these
+
+**Wipe — all reagents · records (screens 2 · 10, admin only, added 2026-10-13)**
+
+- **`page-more-menu`** — a ⋯ icon button at the right of the page head on screens 2 and 10, both widths, admins only. It opens the small `reagent-more-menu`-style menu with **`reagent-wipe`** "시약 전체 삭제" (screen 2) or **`record-wipe`** "기록 삭제" (screen 10). Not part of select mode. Nothing to delete → the item is `{colors.text-faint}` with a caption "지울 시약이 없어요" / "지울 기록이 없어요"
+- Danger is marked in ink, never pink or red: an outlined `{colors.ink}` warning triangle before the title
+- **`school-name-confirm`** — caption "확인을 위해 학교 이름 {학교명}을 입력하세요" over a `text-input` whose placeholder is the school name; the confirm button turns on only on an exact match ("학교 이름이 달라요" muted otherwise). A disabled `button-primary` is #e0e0e0 with a #707070 label
+- Reagents: `ex-modal-card` — "시약 {N}종을 모두 삭제할까요?" + "목록·시약장·홈·재주문 알림에서 사라지고 되돌릴 수 없어요. 사용·입고 기록은 남아요." + `school-name-confirm` + `button-outline` "닫기" / `button-primary` "전체 삭제". Then `ex-toast` "시약 {N}종을 삭제했어요" and the empty list
+- Records: bottom sheet (mobile) / `detail-drawer` (desktop), × close — title "기록 삭제" → **`record-wipe-range`**: `segmented-control` "전체 | 이 날짜 이전" (default 이 날짜 이전) + a date `text-input` (no future; the day itself is kept) → **`wipe-preview`**: a `{colors.canvas-soft}` line "사용 기록 {N}건 · 입고 기록 {M}건을 지워요" + muted "지금 재고 수량은 그대로예요. 수업 정보도 함께 지워져요." (zero → "이 기간에 지울 기록이 없어요", button off) → `school-name-confirm` → `button-primary` "기록 {N+M}건 삭제". Then `ex-toast` "기록 {N}건을 삭제했어요"
+- Home numbers and reorder alerts update at once. No entry for teachers, students, or guests
+
 **Sign-up error summary (screen 14, added 2026-10-11)**
 
 - **`signup-error-summary`** — one line right above the fixed "가입하기" button: the first error ("약관에 동의해 주세요"), or "… 외 N개" when there are more; `{colors.ink}` text with a small `{colors.text-muted}` info icon. No pink. Pressing the button also scrolls to and focuses the first errored field
@@ -348,7 +365,7 @@ Composed only from the primitives and tokens above; no new literal values.
 
 **Sensors (screen 17, added 2026-10-11)** — ownership only (no readings, no lending)
 
-- Entry: desktop `sidebar-item` "센서" right under 시약 (every role); mobile has no tab of its own — the 시약 tab opens with **`inventory-switch`** (`segmented-control` "시약 | 센서") at the top of screens 2 and 17, remembering the last choice; mobile also reaches it from `mobile-menu-sheet` (2026-10-12)
+- Entry: desktop `sidebar-item` "센서" right under 시약 (every role); mobile: the 센서 row of the 관리 tab (screen 18). The `inventory-switch` "시약 | 센서" was removed on 2026-10-13
 - **`sensor-list`** — desktop: page head "센서 N개" + search + `list-filter-button` + `list-select-toggle` + **`sensor-doc-add`** `button-outline` "서류로 등록" + **`sensor-add`** `button-primary` "센서 등록" (both teacher·admin, 2026-10-12); a `data-table` with columns 이름 · 종류 · 회사 · 모델 · 수량 · 보관 위치 · 상태, each row a **`sensor-row`**; a row opens a `detail-drawer`. Mobile: the same head under `inventory-switch`, `sensor-row` cards (`{colors.canvas-soft}`, `{rounded.sm}`): name in `{typography.title}`, "온도 · 버니어 · GDX-TMP" caption muted, "3개 · 과학실 뒤 선반", `sensor-status-badge` at the right; the mobile head's `sensor-add` is a `button-pill-soft` "등록" that opens a two-row sheet "서류로 등록" (caption "품의서·영수증을 AI가 읽어요") / "직접 입력". Filter sheet: 종류 as the same collapsed `sensor-type-group` rows (no search; a row shows "화학 · 2개" and starts open when something in it is chosen) → 회사 chips → 상태
 - **`sensor-status-badge`** — monochrome, like the MSDS signal word: 고장 = `{colors.ink}` fill with white label; 점검 필요 = `{colors.canvas-soft}` with `{colors.ink}` label; 정상 = no fill, "정상" in `{colors.text-muted}`. Never pink or sky blue
 - **`sensor-detail`** — mobile screen / desktop drawer: title + badge → "항목 | 값" rows 종류 · 회사 · 모델 · 수량 · 보관 위치 · 메모 · 등록일 → **`sensor-edit`** `button-outline` "수정" (teacher·admin); head ⋯ → **`sensor-delete`** "센서 삭제" (same confirm as reagent delete, "목록과 홈에서 사라져요")
