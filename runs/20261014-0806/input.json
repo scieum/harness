@@ -1,0 +1,8 @@
+{
+  "screens": [5, 6, 7, 8, 9, 11],
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/yPF9ZLVjkg22kgSDD2aKEd",
+  "keyscreens": ["11-mobile", "7-mobile"],
+  "request": "요청 9 마무리 (2026-10-14): 관리 아래 나머지 화면 5·6·7·8·9·11 모바일 — 머리 왼쪽 manage-back '‹ 관리', tab-bar 홈 · 관리 · QR 스캔 · 기록(관리 활성, 격자 아이콘), ☰ mobile-menu-button 없음 — rules.json 1.29. 데스크톱은 바꾸지 않음",
+  "base": "승인본을 틀로: 각 화면의 최신 승인 S4 프레임(mobile·desktop). 데스크톱은 그대로 옮기고, 모바일은 머리와 탭바만 바꾼다. 탭바 모양은 run 20261013-1938 S4-screens-v24(716:2) 2-mobile과 같게"
+}
