@@ -1,0 +1,13 @@
+{
+  "screens": [2, 10, 13, 17, 18],
+  "guest_screens": [18],
+  "variants": {
+    "2": ["wipe"],
+    "10": ["record-wipe"]
+  },
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/yPF9ZLVjkg22kgSDD2aKEd",
+  "keyscreens": ["18-mobile", "2-wipe-mobile", "10-record-wipe-desktop"],
+  "request": "개발 세션 요청 9 (2026-10-13): 모바일 하단 탭 홈 · 관리 · QR 스캔 · 기록, 화면 18 관리(모바일 전용, 묶음 3 + 요약 줄, 둘러보기 18-guest-mobile), 관리 아래 화면 '‹ 관리'(2·17), ☰·inventory-switch 없앰(2·13·17), 시약 전체 삭제(2-wipe)·기록 삭제(10-record-wipe) admin + 학교명 입력 — rules.json 1.29",
+  "base": "승인본을 틀로: 2·10·13 = run 20261011-0813 / 20261012-0939 최신 승인 S4(13은 v22), 17 = v23(S4-screens-v23 696:2). 모든 모바일 tab-bar 라벨 '시약' → '관리'(격자 아이콘). 18은 새 화면(admin 기준, 요약 줄 예시 값). 2-wipe·10-record-wipe는 admin 역할"
+}
