@@ -1,0 +1,11 @@
+{
+  "screens": [13, 15],
+  "variants": {
+    "13": ["feature-intro"]
+  },
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/B4bHJR70riJS4cmXPT4ETs",
+  "keyscreens": ["13-feature-intro-mobile", "13-feature-intro-desktop", "15-desktop"],
+  "request": "2026-10-27 사용자 요청: 신기능 소개 팝업(첫 대상 AI 입고) — 홈(13) 진입 때 교사·admin에게 feature-intro-popup(모바일 바텀시트 / 데스크톱 가운데 모달 + ✕), 꼬리표 '새 기능' → 제목 → 화면 7 그림 → 3단계 → 'AI 입고 써 보기' → feature-intro-dismiss '일주일 동안 보지 않기' · '닫기'(13-feature-intro, 교사 역할). 랜딩 히어로 왼쪽 글 묶음을 오른쪽 패널 세로 가운데로(15-desktop, landing_hero_align) — rules.json 1.30. 레퍼런스 메모 refs/uibowl-feature-intro-popup-20261027.md",
+  "base": "승인본을 틀로(새 계정 파일 B4bHJR70riJS4cmXPT4ETs, 노드 ID는 이전 파일과 같음): 13 = run 20261013-1938 승인 S4(S4-screens-v24 716:2, 13-mobile 716:531 · 13-desktop 716:1936), 15 = run 20261012-0939 승인 S4(S4-screens-v22 655:2). 13 기본 프레임은 그대로, 13-feature-intro는 교사 홈 위에 팝업. 15-mobile은 그대로, 15-desktop은 히어로 왼쪽 글 묶음 세로 위치만 바꿈"
+}
