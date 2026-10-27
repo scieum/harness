@@ -239,7 +239,7 @@ Composed only from the primitives and tokens above; no new literal values.
   - Audience: `segmented-control` 교사 · 학생 · 관리자, each with two outlined capability cards and a crop of what that role sees (role exposure follows the role table)
   - Trust 2×2 divided by hairlines only: 학교별 데이터 분리 · 인증 정보는 서버에서만 처리 · NEIS 공식 학교 정보로 가입 · MSDS·GHS 정보 연결. No usage numbers until real ones exist
   - **`cta-band`** — `{colors.canvas-soft}` band, centered one-line title (display size allowed) + `button-primary` 회원가입 + `button-outline` 둘러보기
-  - **`web-footer`** — one centered line only, above it a 1px `{colors.hairline-soft}` rule: "© 2026 사이음(sci_eum). 과학의 사이, 사람을 잇다." in `{typography.caption}` `{colors.text-muted}`. No columns, no policy links (2026-10-08 사용자 결정 — replaces the four-column footer). Every footer uses this text
+  - **`web-footer`** — one centered line only, above it a 1px `{colors.hairline-soft}` rule: "© 2026 사이음(sci_eum). 과학의 사이, 사람을 잇다." in `{typography.caption}` `{colors.text-muted}`. No columns (2026-10-08 사용자 결정 — replaces the four-column footer). Since 2026-10-27 (요청 10) the line continues with **`footer-links`** after " · ": "개인정보 처리방침" (`{typography.caption}` `{colors.ink}`, weight 600 so it is easy to find) · "사용 가이드" (`{colors.text-muted}`); mobile wraps to two centered lines (copyright / links). Every footer uses this text
 - Display sizes 40 · 48 exist only inside `landing-hero`, `landing-section`, `cta-band` (the hero headline is 48)
 - Section rhythm (approved 2026-10-08): below the hero every section sits in a full-width band (`{rounded.none}`, no shadow) and the bands alternate `{colors.canvas}` ↔ `{colors.canvas-soft}` (#f3f3f3) — 탭 줄 white · 문제 공감 gray (its cards turn white) · the four `landing-section`s white/gray/white/gray · 대상 탭 white · 안심 gray (grid hairlines #e0e0e0 on gray). Two bands invert to `{colors.ink}` (#141414): the `step-flow` section (white text, secondary #adadad, inactive circles #262626, current circle `{colors.highlight}` ring, card #262626) and the `cta-band`. Neutral bands are part of the tint ladder, not "colored section bands"
 - Inverted primary (only inside an ink band): `button-primary` becomes a white fill with an ink label, and `button-outline` a white border with a white label — so the main action never disappears on black
@@ -361,6 +361,25 @@ Composed only from the primitives and tokens above; no new literal values.
 - Order: tag "새 기능" (`{colors.canvas-soft}` pill, `{typography.caption}`) → title "거래명세서만 올리면 AI가 입고 목록을 채워요" → a picture: a `{colors.canvas-soft}` panel holding a crop of the approved screen 7 (doc upload → review table) → three numbered steps "① 명세서·납품서 사진이나 PDF를 올려요 ② AI가 시약 이름·규격·수량을 읽어요 ③ 확인하고 한 번에 입고해요" → full-width `button-primary` "AI 입고 써 보기"
 - **`feature-intro-dismiss`** — the last line: "일주일 동안 보지 않기" left · "닫기" right, both `{colors.text-muted}` text buttons, weaker than the primary button
 - Behavior (for development): 닫기 hides it for this visit only; 일주일 동안 보지 않기 hides it for 7 days (browser storage); the primary button opens screen 7 서류로 입고 and the popup never returns for this feature. Shown only when entering home (13), one popup at a time, teachers and admins only — never students or guests. State frames `13-feature-intro-mobile` · `13-feature-intro-desktop` (teacher home under the popup)
+
+**Privacy consent (screen 14, added 2026-10-27 — 요청 10)**
+
+- `terms-agree` keeps its rows ("모두 동의" · "서비스 이용약관 동의 (필수)" · "개인정보 수집·이용 동의 (필수)"); required checks stay — no sign-up without them
+- **`privacy-consent-detail`** — pressing › on the privacy row opens, right under it, a `{colors.canvas-soft}` box (`{rounded.md}`) holding a labelled list, not a table: each item = small title in `{typography.caption}` `{colors.text-muted}` over its text in `{typography.body-sm}` `{colors.ink}`, 12 apart. Order: 수집 목적 → 수집 항목 → 보유 기간 ("탈퇴할 때까지 (탈퇴·학교 계정 삭제 시 바로 파기)") → 처리 위탁·국외 이전 (Supabase · Vercel 서울, Google Gemini 국외 — 올린 파일은 읽기에만 쓰고 저장하지 않음) → 동의 거부 권리 → 보호책임자 ({운영자 이름} · {이메일}). The open row's › turns ⌄
+- No scrolling inside the box: it opens fully and the page scrolls; the fixed "가입하기" stays
+- **`privacy-link`** — last line of the box: "개인정보 처리방침 전문 보기 ↗" (`{typography.link}`, ink underline), opens screen 19 in a new tab so the form is kept. State frame `14-consent`
+
+**Privacy policy (screen 19 `/privacy`, added 2026-10-27 — 요청 10)** — opens without login
+
+- Signed-out shell: desktop `web-header` + one centered reading column (max 720) + `web-footer`; mobile `nav-pill` (signed out) + the same column + `web-footer`. No `tab-bar`, no `app-sidebar`
+- **`privacy-doc`** — title "개인정보 처리방침" in `{typography.heading-2}`, "시행일 2026-10-27" caption muted, then **`privacy-toc`** (numbered link list in a `{colors.canvas-soft}` box), then numbered sections (`{typography.title}` heading + `{typography.body}`): 1 수집 목적 · 2 수집 항목 · 3 보유·파기 · 4 처리 위탁·국외 이전 · 5 이용자 권리 (열람·정정·삭제·처리정지 요청 방법) · 6 보호책임자 · 7 시행일
+- **`privacy-table`** (section 4) — desktop `data-table` 업체 · 하는 일 · 위치; mobile one `{colors.canvas-soft}` card per company
+
+**Usage guide link (added 2026-10-27 — 요청 10)** — every role, guest included; opens the static guide (`public/guide/`) in a new tab
+
+- **`guide-link`** "사용 가이드 ↗" — desktop: bottom of `app-sidebar`, right above the name · role block, under a `{colors.hairline-soft}` rule; icon + `{typography.body}` `{colors.text-muted}`, 44 high; it is not a `sidebar-item` and is never "current". Mobile: screen 18 gets a fourth group "도움말" at the bottom with one `manage-row`-shaped line whose right mark is ↗ instead of ›. Landing and screen 19: `footer-links`
+- ↗ means "opens in a new tab", as in "원문 MSDS 보기 ↗"
+- Guide HTML (no Figma frames): Lab_Stock color and type tokens, hero = `{colors.canvas-soft}` band with `{typography.heading-1}` (no display sizes), current TOC item and search hits in `{colors.highlight-soft}`, no pink; screenshots only from guest demo data / 샘플고등학교
 
 **Sign-up error summary (screen 14, added 2026-10-11)**
 

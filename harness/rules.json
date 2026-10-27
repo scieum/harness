@@ -1,5 +1,5 @@
 {
-  "version": "1.30",
+  "version": "1.31",
   "sources": [
     "docs/design.md",
     "docs/story-service.md",
@@ -30,7 +30,8 @@
     "2026-10-12 센서 종류 27·파스코 모델 카탈로그·센서 서류로 등록·모바일 전체 메뉴·권한 안내 토스트·초대 취소·모바일 랜딩 워드마크 1번 (개발 세션 요청 8)",
     "2026-10-12 센서 종류 묶음 토글(접힘) — 종류 시트·필터 시트 (요청 8 후속)",
     "2026-10-13 모바일 하단 관리 탭(화면 18)·☰ 메뉴 없앰·inventory-switch 없앰·시약 전체 삭제·기록 삭제(admin, 학교명 입력) (개발 세션 요청 9)",
-    "2026-10-27 신기능 소개 팝업(AI 입고)·랜딩 히어로 글 세로 가운데"
+    "2026-10-27 신기능 소개 팝업(AI 입고)·랜딩 히어로 글 세로 가운데",
+    "2026-10-27 회원가입 개인정보 동의 펼침·개인정보 처리방침 화면 19·footer 링크·사용 가이드 진입점 (개발 세션 요청 10)"
   ],
   "colors": {
     "allowed": [
@@ -182,7 +183,7 @@
       1440,
       900
     ],
-    "name_pattern": "^([1-9]|1[0-8])-(mobile|desktop)$",
+    "name_pattern": "^([1-9]|1[0-9])-(mobile|desktop)$",
     "keyscreens": {
       "default": [
         2,
@@ -212,11 +213,12 @@
       15,
       16,
       17,
-      18
+      18,
+      19
     ],
-    "guest_name_pattern": "^([1-9]|1[0-8])-guest-(mobile|desktop)$",
-    "variant_name_pattern": "^([1-9]|1[0-8])-(empty|delete|slot|print|unsaved|location|result|doc-upload|doc-review|doc-fail|suggest|msds|msds-bulk|filter|filter-empty|past-date|no-school|loading|fail|no-summary|picker|error|select|bulk-delete|not-found|detail|form|type|model|menu|no-access|invite-cancel|wipe|record-wipe|feature-intro)-(mobile|desktop)$",
-    "variant_note": "같은 화면의 다른 상태 프레임. input.json variants {\"11\": [\"empty\",\"delete\"]} 로 요청 (2026-10-04) · 2026-10-06 상태 추가: 11-slot·11-print·11-unsaved·3-location·12-result · 2026-10-07 상태 추가: 7-doc-upload·doc-review·doc-fail·suggest·msds, 3-msds, 2-msds-bulk · 2026-10-07 상태 추가: 2-filter·2-filter-empty, 4-past-date · 2026-10-07 상태 추가: 14-no-school · 2026-10-08 상태 추가: 16-loading·16-fail·16-no-summary · 2026-10-10 상태 추가: 4-picker·4-empty·4-error, 3-delete · 2026-10-11 상태 추가: 2-select·2-bulk-delete, 13-not-found·1-not-found, 14-error, 17-detail·17-form·17-empty·17-select · 2026-10-12 상태 추가: 17-type·17-model·17-doc-upload·17-doc-review·17-doc-fail, 13-menu·13-no-access, 8-invite-cancel · 2026-10-12 상태 추가: 17-filter · 2026-10-13 상태 추가: 2-wipe·10-record-wipe, 13-menu 없앰",
+    "guest_name_pattern": "^([1-9]|1[0-9])-guest-(mobile|desktop)$",
+    "variant_name_pattern": "^([1-9]|1[0-9])-(empty|delete|slot|print|unsaved|location|result|doc-upload|doc-review|doc-fail|suggest|msds|msds-bulk|filter|filter-empty|past-date|no-school|loading|fail|no-summary|picker|error|select|bulk-delete|not-found|detail|form|type|model|menu|no-access|invite-cancel|wipe|record-wipe|feature-intro|consent)-(mobile|desktop)$",
+    "variant_note": "같은 화면의 다른 상태 프레임. input.json variants {\"11\": [\"empty\",\"delete\"]} 로 요청 (2026-10-04) · 2026-10-06 상태 추가: 11-slot·11-print·11-unsaved·3-location·12-result · 2026-10-07 상태 추가: 7-doc-upload·doc-review·doc-fail·suggest·msds, 3-msds, 2-msds-bulk · 2026-10-07 상태 추가: 2-filter·2-filter-empty, 4-past-date · 2026-10-07 상태 추가: 14-no-school · 2026-10-08 상태 추가: 16-loading·16-fail·16-no-summary · 2026-10-10 상태 추가: 4-picker·4-empty·4-error, 3-delete · 2026-10-11 상태 추가: 2-select·2-bulk-delete, 13-not-found·1-not-found, 14-error, 17-detail·17-form·17-empty·17-select · 2026-10-12 상태 추가: 17-type·17-model·17-doc-upload·17-doc-review·17-doc-fail, 13-menu·13-no-access, 8-invite-cancel · 2026-10-12 상태 추가: 17-filter · 2026-10-13 상태 추가: 2-wipe·10-record-wipe, 13-menu 없앰 · 2026-10-27 상태 추가: 13-feature-intro, 14-consent",
     "tall": {
       "15-desktop": {
         "width": 1440,
@@ -517,7 +519,7 @@
       "ghs-pictogram",
       "msds-original-link"
     ],
-    "source": "2026-10-02 story-service 결정 (화면별 필수 컴포넌트, 규칙 C1) · 15 랜딩 2026-10-03 · 2026-10-06 화면 3 보관 위치·재주문 기준, 화면 11 시약장 번호·QR 인쇄 · 2026-10-07 화면 7 intake-mode · 2026-10-07 화면 2 list-filter-button, 화면 4 usage-date · 2026-10-07 화면 14 school-select-kind · 2026-10-08 화면 16 MSDS 요약 · 2026-10-10 화면 4 여러 시약·수업, 화면 10 수업 표시·반 필터·삭제된 시약 · 2026-10-11 화면 10 record-add, 화면 17 센서 · 2026-10-13 화면 18 관리",
+    "source": "2026-10-02 story-service 결정 (화면별 필수 컴포넌트, 규칙 C1) · 15 랜딩 2026-10-03 · 2026-10-06 화면 3 보관 위치·재주문 기준, 화면 11 시약장 번호·QR 인쇄 · 2026-10-07 화면 7 intake-mode · 2026-10-07 화면 2 list-filter-button, 화면 4 usage-date · 2026-10-07 화면 14 school-select-kind · 2026-10-08 화면 16 MSDS 요약 · 2026-10-10 화면 4 여러 시약·수업, 화면 10 수업 표시·반 필터·삭제된 시약 · 2026-10-11 화면 10 record-add, 화면 17 센서 · 2026-10-13 화면 18 관리 · 2026-10-27 화면 18 guide-link, 화면 19 개인정보 처리방침",
     "10": [
       "class-label",
       "class-filter",
@@ -532,7 +534,14 @@
     ],
     "18": [
       "manage-list",
-      "manage-row"
+      "manage-row",
+      "guide-link"
+    ],
+    "19": [
+      "privacy-doc",
+      "privacy-toc",
+      "privacy-table",
+      "web-footer"
     ]
   },
   "cabinet": {
@@ -847,6 +856,11 @@
       ],
       "error": [
         "signup-error-summary"
+      ],
+      "consent": [
+        "terms-agree",
+        "privacy-consent-detail",
+        "privacy-link"
       ]
     },
     "16": {
@@ -862,7 +876,7 @@
         "msds-original-link"
       ]
     },
-    "source": "2026-10-04 여러 시약장: 빈 상태(교사 기준)·삭제 확인 상태 필수 컴포넌트 (C1) · 2026-10-06 11-slot·11-print·11-unsaved·3-location·12-result · 2026-10-07 7-doc-upload·doc-review·doc-fail·suggest·msds, 3-msds, 2-msds-bulk, 3-location + suggest-badge · 2026-10-07 2-filter·2-filter-empty, 4-past-date · 2026-10-07 14-no-school · 2026-10-08 16-loading·16-fail·16-no-summary · 2026-10-10 4-picker·4-empty·4-error, 3-delete · 2026-10-11 2-select·2-bulk-delete, 13-not-found·1-not-found, 14-error, 17-detail·form·empty·select · 2026-10-12 17-type·17-model·17-doc-upload·17-doc-review·17-doc-fail, 13-menu·13-no-access, 8-invite-cancel · 2026-10-12 17-type에 sensor-type-group(접힘 토글), 17-filter 추가 · 2026-10-13 2-wipe·10-record-wipe 추가, 13-menu 없앰",
+    "source": "2026-10-04 여러 시약장: 빈 상태(교사 기준)·삭제 확인 상태 필수 컴포넌트 (C1) · 2026-10-06 11-slot·11-print·11-unsaved·3-location·12-result · 2026-10-07 7-doc-upload·doc-review·doc-fail·suggest·msds, 3-msds, 2-msds-bulk, 3-location + suggest-badge · 2026-10-07 2-filter·2-filter-empty, 4-past-date · 2026-10-07 14-no-school · 2026-10-08 16-loading·16-fail·16-no-summary · 2026-10-10 4-picker·4-empty·4-error, 3-delete · 2026-10-11 2-select·2-bulk-delete, 13-not-found·1-not-found, 14-error, 17-detail·form·empty·select · 2026-10-12 17-type·17-model·17-doc-upload·17-doc-review·17-doc-fail, 13-menu·13-no-access, 8-invite-cancel · 2026-10-12 17-type에 sensor-type-group(접힘 토글), 17-filter 추가 · 2026-10-13 2-wipe·10-record-wipe 추가, 13-menu 없앰 · 2026-10-27 13-feature-intro·14-consent",
     "13": {
       "not-found": [
         "ex-empty-state-card"
@@ -1100,13 +1114,14 @@
     ],
     "form_width": 640,
     "overlay": "모달 = 확인·짧은 입력만. 모바일 고르기용 바텀시트(필터·MSDS 후보·위치 등) → 데스크톱 드롭다운·팝오버. 한 건 보기 → detail-drawer",
-    "screens_note": "둘러보기 desktop은 GM4(사이드바 1·잠금 2), 로그인 전 1·14·15는 pre_login",
+    "screens_note": "둘러보기 desktop은 GM4(사이드바 1·잠금 2), 로그인 전 1·14·15는 pre_login · 19 개인정보 처리방침도 pre_login(로그인 없이 열림, 2026-10-27)",
     "source": "2026-10-08 사용자 결정 (A + 무거운 작업은 페이지, 모바일 그대로)",
     "pre_login": {
       "screens": [
         1,
         14,
-        15
+        15,
+        19
       ],
       "component": "web-header",
       "forbidden": [
@@ -1123,12 +1138,19 @@
           "step-flow",
           "cta-band",
           "web-footer"
+        ],
+        "19": [
+          "privacy-doc",
+          "privacy-toc",
+          "privacy-table",
+          "web-footer"
         ]
       },
       "landing_sections": "15-desktop 순서: 히어로(landing-hero·product-shot·landing-cta·guest-entry) → landing-tabs(접는 선, 스크롤 시 고정) → 문제 공감 feature-card 3 → landing-section 4(좌우 번갈아, 꼬리표·제목·점 목록 3·승인 화면 조각) → step-flow 5단계 → 대상 탭(segmented-control 교사·학생·관리자) → 안심 2×2(hairline 격자, 운영 숫자 없음) → cta-band → web-footer 한 줄"
     },
     "heavy_pages_source": "2026-10-10 사용자 결정: 화면 4 여러 시약 = 본문 페이지(드로어 아님)",
-    "menu_source": "2026-10-11 사용자 결정 (개발 세션 요청 7) 7: 사이드바 '시약' 아래 '센서'(모든 역할). QR 찾기는 화면 12 전까지 비활성 '준비 중' · 2026-10-12 모바일 전체 메뉴(mobile_menu)가 같은 목록을 씀 (요청 8 6) · 2026-10-13 모바일은 ☰ 대신 관리 탭(화면 18)이 같은 목록(홈·기록·QR 제외)"
+    "menu_source": "2026-10-11 사용자 결정 (개발 세션 요청 7) 7: 사이드바 '시약' 아래 '센서'(모든 역할). QR 찾기는 화면 12 전까지 비활성 '준비 중' · 2026-10-12 모바일 전체 메뉴(mobile_menu)가 같은 목록을 씀 (요청 8 6) · 2026-10-13 모바일은 ☰ 대신 관리 탭(화면 18)이 같은 목록(홈·기록·QR 제외)",
+    "guide_link": "사이드바 맨 아래 이름·역할 칸 바로 위, hairline-soft 구분선 아래 guide-link '사용 가이드 ↗' 한 줄(아이콘 + body text-muted, 44 높이). sidebar-item이 아니고 현재 표시 없음. 새 탭. 모든 역할·둘러보기 (2026-10-27 요청 10)"
   },
   "msds_summary": {
     "screen": 16,
@@ -1145,8 +1167,13 @@
   },
   "footer": {
     "text": "© 2026 사이음(sci_eum). 과학의 사이, 사람을 잇다.",
-    "layout": "가운데 한 줄, 위 hairline-soft, caption text-muted. 열·약관 링크 없음",
-    "source": "2026-10-08 사용자 결정"
+    "links": [
+      "개인정보 처리방침",
+      "사용 가이드"
+    ],
+    "component": "footer-links",
+    "layout": "가운데 한 줄, 위 hairline-soft, caption text-muted. 저작권 글 뒤 ' · ' 로 footer-links: '개인정보 처리방침'(caption, ink, 굵게 600 — 쉽게 찾게) · '사용 가이드'(caption text-muted). 모바일은 두 줄(저작권 / 링크). 열 없음",
+    "source": "2026-10-08 사용자 결정 · 2026-10-27 사용자 결정 (개발 세션 요청 10): 개인정보 처리방침·사용 가이드 링크 추가(10-08 '약관 링크 없음'을 바꿈)"
   },
   "landing_rhythm": {
     "bands": "히어로 아래 섹션 = 전폭 띠, #ffffff ↔ #f3f3f3 번갈아, step-flow·cta-band는 #141414 반전",
@@ -1419,7 +1446,8 @@
     "back": "manage-back: 관리 아래 화면(2·5·6·7·8·9·11·17) 모바일 머리 왼쪽 '‹ 관리'(link, ink). 그 화면들의 tab-bar 활성 = '관리'. 시약 상세(3)·MSDS(16) 등 더 깊은 화면은 지금처럼 ‹ 뒤로",
     "guest": "둘러보기: 18-guest-mobile = '재고' 묶음에 시약 · 센서 두 줄만(요약 데모 값), 나머지 묶음 숨김. 탭 '관리' 활성, QR 스캔·기록 guest-lock 2",
     "desktop": "데스크톱은 바꾸지 않는다(app-sidebar 그대로)",
-    "source": "2026-10-13 사용자 결정 (개발 세션 요청 9) 1: 묶음 3개 + 요약 줄, 탭 이름 '관리'"
+    "source": "2026-10-13 사용자 결정 (개발 세션 요청 9) 1: 묶음 3개 + 요약 줄, 탭 이름 '관리'",
+    "guide": "맨 아래 넷째 묶음 '도움말' = guide-link 한 줄(모든 역할·둘러보기, 2026-10-27)"
   },
   "wipe": {
     "roles": [
@@ -1466,5 +1494,40 @@
     "rule": "15-desktop landing-hero 왼쪽 글 묶음(꼬리표~특징 캡션) 전체의 세로 가운데 = 오른쪽 product-shot 회색 패널의 세로 가운데(±8px). 글 묶음 안 간격은 그대로",
     "mobile": "모바일 랜딩은 한 줄 흐름이라 해당 없음",
     "source": "2026-10-27 사용자 결정: 글 묶음이 아래로 몰려 위 400px가 비어 보임 → 패널 세로 가운데"
+  },
+  "privacy_consent": {
+    "screen": 14,
+    "rows": "terms-agree(모두 동의 + 서비스 이용약관 동의(필수) + 개인정보 수집·이용 동의(필수)) 그대로, 필수 체크 방식 유지",
+    "detail": "privacy-consent-detail: '개인정보 수집·이용 동의' › 를 누르면 그 행 아래 colors.canvas-soft 상자(rounded.md)에 항목 목록. 항목마다 작은 제목(caption text-muted) 위 + 본문(body-sm ink) 아래, 항목 사이 12. 순서 = 수집 목적 → 수집 항목 → 보유 기간 → 처리 위탁·국외 이전 → 동의 거부 권리 → 보호책임자. 표 아님(390 폭)",
+    "long": "상자 안 스크롤 없음 — 다 펼치고 페이지가 스크롤. 아래 고정 '가입하기'는 그대로. 펼친 행의 › 는 ⌄",
+    "link": "privacy-link: 상자 마지막 줄 '개인정보 처리방침 전문 보기 ↗'(link, colors.highlight 아님 — ink 밑줄), 새 탭(가입 입력 유지)",
+    "copy": {
+      "purpose": "회원 확인, 학교별 시약·센서 관리, 사용·입고 기록에 이름 표시, 초대·안내 메일",
+      "items": "(필수) 이름, 개인 이메일, 비밀번호(암호화 저장), 학교(NEIS 학교 정보), 역할 · 자동 수집: 접속 기록",
+      "period": "탈퇴할 때까지 (탈퇴·학교 계정 삭제 시 바로 파기)",
+      "refuse": "동의하지 않을 수 있어요. 다만 동의하지 않으면 가입할 수 없어요",
+      "processors": "Supabase(DB·로그인, 서울) · Vercel(호스팅, 서울) · Google Gemini(AI 서류 읽기, 국외 — 올린 파일은 읽기에만 쓰고 저장하지 않음)",
+      "officer": "{운영자 이름} · {이메일} (개발 쪽이 실제 값으로)"
+    },
+    "frames": "상태 프레임 14-consent = 개인정보 동의 펼친 모습(모바일·데스크톱)",
+    "source": "2026-10-27 사용자 결정 (개발 세션 요청 10) 1"
+  },
+  "privacy_page": {
+    "screen": 19,
+    "path": "/privacy",
+    "shell": "로그인 없이 열림. desktop = web-header + 가운데 읽기 단(최대 720) + web-footer, mobile = nav-pill(로그인 전) + 같은 단 + web-footer. tab-bar·app-sidebar 없음",
+    "doc": "privacy-doc: 제목 '개인정보 처리방침'(heading-2) → '시행일 2026-10-27'(caption muted) → privacy-toc(번호 붙은 목차 링크 목록, canvas-soft 상자) → 번호 절(title 제목 + body 본문): 1 수집 목적 · 2 수집 항목 · 3 보유·파기 · 4 처리 위탁·국외 이전 · 5 이용자 권리(열람·정정·삭제·처리정지 요청 방법) · 6 보호책임자 · 7 시행일",
+    "table": "privacy-table(4절 위탁): desktop = data-table 열 업체 · 하는 일 · 위치, mobile = 업체마다 canvas-soft 카드 한 장",
+    "note": "국외 이전 고지 항목(국가·이전받는 자·항목·시기 등)과 별도 동의 필요 여부는 운영자·개발 쪽 법적 확인 — 시안은 자리만",
+    "source": "2026-10-27 사용자 결정 (개발 세션 요청 10) 1"
+  },
+  "guide": {
+    "component": "guide-link",
+    "label": "사용 가이드",
+    "open": "새 탭 (public/guide/index.html 정적 문서)",
+    "entries": "데스크톱 = 사이드바 아래(desktop_shell.guide_link) · 모바일 = 관리 탭(18) 맨 아래 묶음 '도움말'의 manage-row 모양 한 줄, 오른쪽 › 대신 ↗ · 랜딩·처리방침 = footer-links. 모든 역할·둘러보기",
+    "mark": "↗ = 새 탭(원문 MSDS 보기 ↗와 같은 뜻)",
+    "html_tone": "가이드 HTML(시안 없음): rules colors·typography 토큰, 히어로 = canvas-soft 띠 + heading-1(display 40·48 쓰지 않음), 목차 현재 항목·검색 일치 = highlight-soft, 핑크 없음. 캡처 = 둘러보기 데모·샘플고등학교만(실제 학교 데이터·키 없음)",
+    "source": "2026-10-27 사용자 결정 (개발 세션 요청 10) 2"
   }
 }

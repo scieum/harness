@@ -44,6 +44,7 @@ docs/, harness/, 다른 runs/{id}/ 하위 폴더는 절대 쓰지 않는다.
 - 요청 7(2026-10-11): 화면 17 센서(데스크톱 사이드바 '센서', 모바일 '시약' 탭 안 inventory-switch), 상태 배지 무채색, 선택 모드 원형 체크·하늘 틴트·검정 삭제 띠, 404 = ex-empty-state-card, QR 탭 '준비 중', 화면 10 record-add (docs/design.md "Select mode"·"Not found"·"Sensors").
 - 요청 8(2026-10-12): 센서 종류 27 = 고르기 칸 → sensor-type-sheet(검색 + 묶음 제목 4 + chip), 파스코 모델명 sensor-model-suggest + catalog-fill-note, 센서 서류로 등록(데스크톱 머리 '서류로 등록' button-outline + 본문 페이지, 모바일 '등록' 시트, 화면 7 서류 흐름 재사용), 모바일 nav-pill 왼쪽 ☰ mobile-menu-sheet, 화면 8 초대 ⋯ → 초대 취소, 랜딩 히어로 워드마크 없음. 종류 시트·필터 시트의 27종은 sensor-type-group 4줄로 접어 두고 누른 묶음만 펼침 (docs/design.md "Sensors"·"Mobile menu"·"No access"·"Invite cancel").
 - 요청 9(2026-10-13): 모바일 하단 탭 = 홈 · 관리 · QR 스캔 · 기록(격자 아이콘), 화면 18 관리 = 모바일 전용(데스크톱 프레임 없음), 관리 아래 화면 머리 '‹ 관리'. ☰ mobile-menu-button·inventory-switch 없앰. 화면 2·10 admin 머리 ⋯ → 전체 삭제, 위험 표시는 검정 경고 아이콘(핑크 금지), school-name-confirm (docs/design.md "Manage tab"·"Wipe").
+- 요청 10(2026-10-27): 화면 14 개인정보 동의 › 펼침 = privacy-consent-detail(항목 목록, 상자 안 스크롤 없음) + privacy-link(14-consent). 화면 19 개인정보 처리방침 = 로그인 전 틀(desktop web-header, mobile nav-pill, tab-bar·app-sidebar 없음) + privacy-doc·privacy-toc·privacy-table·web-footer. web-footer 한 줄 뒤 footer-links(처리방침 굵게 · 사용 가이드). guide-link '사용 가이드 ↗' = 데스크톱 사이드바 아래, 모바일 화면 18 '도움말' 묶음 (docs/design.md "Privacy consent"·"Privacy policy"·"Usage guide link").
 - 키·인증키 입력 칸이나 키 값처럼 보이는 문자열을 그리지 않는다 (N2-a·N2-c).
 - 재시도 시: judge 결과에 나온 노드만 고친다. 다른 노드는 건드리지 않는다.
 
