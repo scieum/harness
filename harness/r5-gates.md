@@ -38,7 +38,7 @@
 | R2 | 학생 행: 재주문 알림(reorder-alert-card) = 0, 판매처 버튼(vendor-link) = 0 |
 | R3 | 판매처 등록 버튼(vendor-register): admin 행에만 존재 (교사·학생 = 0) |
 | R4 | MSDS 진입점(msds-entry): 학생·교사·admin 행 각각 ≥ 1 |
-| R5 | 학생 행: 입고(stock-intake) = 0, 시약 등록(reagent-register) = 0, 재주문 기준 고치기(threshold-edit) = 0, 서류 입고(doc-upload)·MSDS 찾기(msds-search·msds-bulk-banner) = 0 (화면 7, 2026-10-02 · 화면 3, 2026-10-06 · 화면 7·3·2, 2026-10-07) |
+| R5 | 학생 행: 입고(stock-intake) = 0, 시약 등록(reagent-register) = 0, 재주문 기준 고치기(threshold-edit) = 0, 서류 입고(doc-upload)·MSDS 찾기(msds-search·msds-bulk-banner) = 0, 신기능 소개 팝업(feature-intro-popup) = 0 (화면 7, 2026-10-02 · 화면 3, 2026-10-06 · 화면 7·3·2, 2026-10-07 · 화면 13, 2026-10-27) |
 | R6 | 사용자 관리(user-manage): admin 행에만 존재 (화면 8, 2026-10-02) |
 | R7 | 학생 행: 시약장 편집(cabinet-edit)·시약장 추가(cabinet-add)·시약 넣기(slot-assign)·위치 바꾸기(location-edit)·QR 인쇄(qr-print) = 0 (화면 11·3, 2026-10-02·10-04·10-06) |
 | R8 | 교사 행: 머리 ⋯(page-more-menu)·시약 전체 삭제(reagent-wipe)·기록 삭제(record-wipe) = 0 — admin만 (화면 2·10, 2026-10-13). 학생은 R5에 포함 |
