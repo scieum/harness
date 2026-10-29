@@ -1,0 +1,12 @@
+{
+  "screens": [13, 14, 15, 18, 19],
+  "variants": {
+    "14": ["consent"]
+  },
+  "guest_screens": [18],
+  "school_name": "샘플고등학교",
+  "figma_file": "https://www.figma.com/design/B4bHJR70riJS4cmXPT4ETs",
+  "keyscreens": ["14-consent-mobile", "19-mobile", "19-desktop", "18-mobile"],
+  "request": "2026-10-27 개발 세션 요청 10 (rules 1.31): 1) 회원가입 개인정보 동의 › 펼침 = privacy-consent-detail 항목 목록 + privacy-link '개인정보 처리방침 전문 보기 ↗'(14-consent) 2) 새 화면 19 개인정보 처리방침 /privacy(로그인 전 틀, privacy-doc·privacy-toc·privacy-table·web-footer) 3) web-footer 뒤 footer-links '개인정보 처리방침'(굵게) · '사용 가이드'(15·19) 4) guide-link '사용 가이드 ↗' = 데스크톱 사이드바 아래(13-desktop), 모바일 관리 탭 '도움말' 묶음(18-mobile·18-guest-mobile)",
+  "base": "승인본을 틀로(파일 B4bHJR70riJS4cmXPT4ETs, 노드 ID 이전 파일과 같음): 13·15 = run 20261027-1224 S4-screens-v26(2015:2) — 13-mobile 2015:3, 13-desktop 2015:326, 15-mobile 2015:267, 15-desktop 2015:996. 14 = run 20261011-0813 승인 S4 페이지 593:2(14-mobile·14-desktop). 18 = run 20261013-1938 승인 S4-screens-v24 716:2(18-mobile·18-guest-mobile). 13-mobile은 그대로, 13-desktop은 사이드바 guide-link만 더함. 15는 footer-links만 더함. 19는 새 화면"
+}
