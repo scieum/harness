@@ -6,6 +6,7 @@
 - school-select-region: 지역(시/군/구) 선택
 - school-select-kind: 학교급(초·중·고)
 - school-select-school: 학교 선택
+- age-confirm: 만 14세 이상 확인 (필수)
 - button-primary: 주요 행동
 ### 반영한 레퍼런스
 - https://uibowl.io/screen/101

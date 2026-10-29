@@ -6,7 +6,7 @@
 - 인증키: 환경변수 NEIS_API_KEY 또는 프로젝트 루트 .env (git 제외). 결과 파일에 키를 쓰지 않는다.
 - 설정 값: harness/rules.json `neis` (exclude_sido에 든 시/도는 뺀다)
 - 시/도·지역: input.json school_sido·school_region (없으면 rules.json 기본값)
-- 학교급: rules.json neis.school_kinds (초·중·고), 시안용 고른 학교급 = input.json school_kind (없으면 neis.default_kind)
+- 학교급: rules.json neis.school_kinds (초·중·고) + neis.online_schools(각종학교(고) 중 온라인학교 → 고등학교), 시안용 고른 학교급 = input.json school_kind (없으면 neis.default_kind)
 - 결과: {run}/neis.json = {sido_list, sido, region_list, region, kind_list, kind, school_list, school_count_by_kind}
 종료 코드: 0 성공 / 2 실패(키 없음·API 오류)
 """
@@ -41,6 +41,11 @@ def fetch_all(cfg, key):
     rows = []
     for kind in cfg["school_kinds"]:
         rows += fetch_kind(cfg, key, kind)
+    online = cfg.get("online_schools")  # 2026-10-29: 시·도 온라인학교(각종학교(고))만 고등학교로
+    if online:
+        pat = re.compile(online["name_pattern"])
+        rows += [dict(r, SCHUL_KND_SC_NM=online["kind"]) for r in fetch_kind(cfg, key, online["neis_kind"])
+                 if pat.search(r["SCHUL_NM"])]
     return rows
 
 

@@ -314,7 +314,7 @@ Composed only from the primitives and tokens above; no new literal values.
 
 **School level (screen 14, added 2026-10-07)**
 
-- **`school-select-kind`** — `segmented-control` with three options 초등학교 · 중학교 · 고등학교, placed after `school-select-region` and before `school-select-school`. No default: until one is chosen, `school-select-school` is disabled with the placeholder "학교급을 먼저 골라 주세요"
+- **`school-select-kind`** — `segmented-control` with three options 초등학교 · 중학교 · 고등학교, placed after `school-select-region` and before `school-select-school`. No default: until one is chosen, `school-select-school` is disabled with the placeholder "학교급을 먼저 골라 주세요". Since 2026-10-29 the 고등학교 list also holds the city/province online schools (NEIS 각종학교(고), e.g. 충북온라인학교 — no "고등학교" in the name); other 각종학교 stay out
 - No schools for that level in the region: in place of the school list, a muted line "이 지역에 {학교급}가 없어요 — 지역을 다시 골라 주세요". No pink
 
 **Select mode & bulk delete (screens 2·17, added 2026-10-11)** — teacher·admin only
@@ -364,8 +364,8 @@ Composed only from the primitives and tokens above; no new literal values.
 
 **Privacy consent (screen 14, added 2026-10-27 — 요청 10)**
 
-- `terms-agree` keeps its rows ("모두 동의" · "서비스 이용약관 동의 (필수)" · "개인정보 수집·이용 동의 (필수)"); required checks stay — no sign-up without them
-- **`privacy-consent-detail`** — pressing › on the privacy row opens, right under it, a `{colors.canvas-soft}` box (`{rounded.md}`) holding a labelled list, not a table: each item = small title in `{typography.caption}` `{colors.text-muted}` over its text in `{typography.body-sm}` `{colors.ink}`, 12 apart. Order: 수집 목적 → 수집 항목 → 보유 기간 ("탈퇴할 때까지 (탈퇴·학교 계정 삭제 시 바로 파기)") → 처리 위탁·국외 이전 (Supabase · Vercel 서울, Google Gemini 국외 — 올린 파일은 읽기에만 쓰고 저장하지 않음) → 동의 거부 권리 → 보호책임자 ({운영자 이름} · {이메일}). The open row's › turns ⌄
+- `terms-agree` keeps its rows ("모두 동의" · "서비스 이용약관 동의 (필수)" · "개인정보 수집·이용 동의 (필수)"); required checks stay — no sign-up without them. Since 2026-10-29 (요청 11) a third required row **`age-confirm`** "만 14세 이상입니다 (필수)" follows the privacy row and "모두 동의" checks all three; its › opens the same `{colors.canvas-soft}` box with one line "만 14세 미만은 보호자 동의가 필요해서 Lab_Stock에 가입할 수 없어요." (`{typography.body-sm}` `{colors.ink}`)
+- **`privacy-consent-detail`** — pressing › on the privacy row opens, right under it, a `{colors.canvas-soft}` box (`{rounded.md}`) holding a labelled list, not a table: each item = small title in `{typography.caption}` `{colors.text-muted}` over its text in `{typography.body-sm}` `{colors.ink}`, 12 apart. Order: 수집 목적 → 수집 항목 → 보유 기간 ("탈퇴할 때까지 (탈퇴·학교 계정 삭제 시 바로 파기)") → 처리 위탁·국외 이전 (Supabase · Vercel 서울, Google Gemini 국외 — 올린 파일은 읽기에만 쓰고 저장하지 않음) → 동의 거부 권리 ("동의하지 않을 수 있지만, 동의하지 않으면 가입할 수 없어요") → 보호책임자 ({운영자 이름} · {이메일}). The open row's › turns ⌄
 - No scrolling inside the box: it opens fully and the page scrolls; the fixed "가입하기" stays
 - **`privacy-link`** — last line of the box: "개인정보 처리방침 전문 보기 ↗" (`{typography.link}`, ink underline), opens screen 19 in a new tab so the form is kept. State frame `14-consent`
 
@@ -377,9 +377,21 @@ Composed only from the primitives and tokens above; no new literal values.
 
 **Usage guide link (added 2026-10-27 — 요청 10)** — every role, guest included; opens the static guide (`public/guide/`) in a new tab
 
-- **`guide-link`** "사용 가이드 ↗" — desktop: bottom of `app-sidebar`, right above the name · role block, under a `{colors.hairline-soft}` rule; icon + `{typography.body}` `{colors.text-muted}`, 44 high; it is not a `sidebar-item` and is never "current". Mobile: screen 18 gets a fourth group "도움말" at the bottom with one `manage-row`-shaped line whose right mark is ↗ instead of ›. Landing and screen 19: `footer-links`
+- **`guide-link`** "사용 가이드 ↗" — desktop: bottom of `app-sidebar`, right above the name · role block, under a `{colors.hairline-soft}` rule; icon + `{typography.body}` `{colors.text-muted}`, 44 high; it is not a `sidebar-item` and is never "current". Mobile: screen 18 gets a fourth group "도움말" at the bottom with one `manage-row`-shaped line whose right mark is ↗ instead of ›. Landing and screen 19: `footer-links`. Since 2026-10-29 **`board-link`** "게시판" sits right above `guide-link` (see Board)
 - ↗ means "opens in a new tab", as in "원문 MSDS 보기 ↗"
 - Guide HTML (no Figma frames): Lab_Stock color and type tokens, hero = `{colors.canvas-soft}` band with `{typography.heading-1}` (no display sizes), current TOC item and search hits in `{colors.highlight-soft}`, no pink; screenshots only from guest demo data / 샘플고등학교
+
+**Board (screen 20 `/board` · `/board/{id}` · `/board/new`, added 2026-10-29 — 요청 11)** — every signed-in user (students too), shared across all schools; the only thing that crosses schools (N1 exception). No guest
+
+- Entry: **`board-link`** "게시판" — desktop: `app-sidebar` bottom, right above `guide-link`, `sidebar-item`-shaped (icon + `{typography.body}`, 44 high), "current" on screen 20. Mobile: screen 18 "도움말" group, a `manage-row` above the guide line (caption e.g. "답변 완료 1", ›); `tab-bar` active = 관리, list head "‹ 관리", detail and new "‹ 게시판"
+- **`board-tabs`** — `segmented-control` FAQ (first, fixed) · 오류 문의 · 개선 제안; the list opens on FAQ. Page head "게시판" (`{typography.heading-2}`) with **`board-write`** `button-primary` "글쓰기" at the right (44-high pill on mobile) — teachers and admins only, never students
+- **`faq-item`** — accordion line: question in `{typography.title}` `{colors.ink}` + › (⌄ when open); the answer in a `{colors.canvas-soft}` box (`{rounded.md}`, `{typography.body-sm}`). No author, no badge. Example data: rules.json `board.faq_examples`
+- **`board-post-row`** — category `{typography.caption}` `{colors.text-muted}` · title `{typography.title}`; below, "충북고등학교 선생님 · 10월 28일" caption muted; **`board-status-badge`** at the right: "접수" = `{colors.canvas-soft}` fill + `{colors.text-muted}` text, "답변 완료" = `{colors.ink}` fill + white text. Achromatic only (no pink, no sky). Rows split by `{colors.hairline-soft}`
+- Author is always the school name + "선생님" — never a person's name or email, for admins too
+- **`board-detail`** — category caption → title `{typography.heading-2}` → author · date line + badge → body `{typography.body}`. When answered, **`board-answer`** below: `{colors.canvas-soft}` box (`{rounded.md}`), head "운영자 답변" caption muted · date, text `{typography.body-sm}`. **`board-post-menu`** ⋯ (author only): 수정 · 삭제; once answered 수정 is disabled with "답변이 달린 글은 고칠 수 없어요"; 삭제 asks with `ex-modal-card`
+- **`board-form`** (`/board/new`) — 분류 (오류 문의 · 개선 제안, no FAQ) → 제목 → **`board-privacy-note`** (small `{colors.text-muted}` info icon + "학생 이름·연락처 같은 개인정보는 쓰지 마세요" `{typography.body-sm}` `{colors.ink}`, no pink) → 본문 → `button-primary` "등록"
+- Only the operator (one email set in a server environment variable — not chosen in any screen or DB) answers, writes FAQ and hides posts; operator screens are out of scope, so no answer input is drawn
+- Empty category: `ex-empty-state-card` "아직 올라온 글이 없어요" (+ `board-write` for teachers and admins). State frames `20-detail` (own answered 오류 문의) · `20-new` · `20-empty` (개선 제안 0) · `20-student` (오류 문의 tab, no `board-write`)
 
 **Sign-up error summary (screen 14, added 2026-10-11)**
 

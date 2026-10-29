@@ -168,6 +168,32 @@
           "text": null
         },
         {
+          "id": "99:14-mobile",
+          "name": "age-confirm",
+          "type": "FRAME",
+          "path": [
+            "14-mobile",
+            "ex-auth-form-card",
+            "age-confirm"
+          ],
+          "fills": [
+            "#f0f0f0"
+          ],
+          "strokes": [],
+          "cornerRadius": 16,
+          "width": 100,
+          "height": 48,
+          "padding": [
+            12,
+            16,
+            12,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
           "id": "1:20-1",
           "name": "value",
           "type": "TEXT",
@@ -483,6 +509,32 @@
             "14-desktop",
             "ex-auth-form-card",
             "school-select-kind"
+          ],
+          "fills": [
+            "#f0f0f0"
+          ],
+          "strokes": [],
+          "cornerRadius": 16,
+          "width": 100,
+          "height": 48,
+          "padding": [
+            12,
+            16,
+            12,
+            16
+          ],
+          "gap": 8,
+          "effects": [],
+          "text": null
+        },
+        {
+          "id": "99:14-desktop",
+          "name": "age-confirm",
+          "type": "FRAME",
+          "path": [
+            "14-desktop",
+            "ex-auth-form-card",
+            "age-confirm"
           ],
           "fills": [
             "#f0f0f0"
